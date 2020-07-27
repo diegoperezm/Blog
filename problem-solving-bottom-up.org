@@ -1,0 +1,150 @@
+#+title:  Problem Solving: Bottom-up approach
+
+* Problem Solving: Bottom-up approach
+
+** Bottom-up  approach  
+
+   - In a bottom-up approach the problem analysis  starts at the lowest level possible
+
+   - Individual parts of the system are implemented
+
+   - This parts are then linked to form larger components 
+
+   - This process continues till all system components are implemented.
+
+
+***  Bottom-up approach common patterns 
+
+  When using the bottom-up approach, there are some patterns that we can identify:
+
+- Most of the programs follows the  event-action paradigm[0]: 
+
+  - Users supplies an event and
+
+  - A sequence of actions is executed in response to that event
+    
+- Event-handlers will  execute functions in response to an event 
+
+- Elements of the user interface may respond to an event in different ways, depending on the context
+
+- if-else statements are used to determine the context and which functions are executed 
+
+- Event-handlers must use information shared between user interface objects
+
+- To share information the following  options are used: 
+
+  - Explicit global variables
+
+  - A value contained in an user interface object 
+
+  - Other attribute of an object
+
+
+*** Calculator example (Bottom-up)
+
+#+BEGIN_SRC js
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentVal: "0",
+      prevVal: "0",
+      formula: "",
+      currentSign: "pos",
+      lastClicked: ""
+    };
+    // ....
+  }
+
+  initialize() {
+    this.setState({
+      currentVal: "0",
+      prevVal: "0",
+      formula: "",
+      currentSign: "pos",
+      lastClicked: "",
+      evaluated: false
+    });
+  }
+
+  handleDecimal() {
+    if (this.state.evaluated === true) {
+     // ... 
+    } else if (
+      !this.state.currentVal.includes(".") &&
+      !this.state.currentVal.includes("Limit")
+    ) {
+     // ...
+      if (this.state.currentVal.length > 21) {
+     // ...
+      } else if (
+        endsWithOperator.test(this.state.formula) ||
+        (this.state.currentVal === "0" && this.state.formula === "")
+      ) {
+      // ...
+      } else {
+      // ...
+      }
+    }
+   }
+    
+  handleEvaluate() {
+    if (!this.state.currentVal.includes("Limit")) {
+    //   ...
+        expression = expression.replace(/x/g, "*").replace(/‑/g, "-");
+
+     while (endsWithOperator.test(expression)) {
+        expression = expression.slice(0, -1);
+      }
+    // ...
+    }
+  }
+
+  handleOperators(e) {
+    if (!this.state.currentVal.includes("Limit")) {
+      // ...
+      if (evaluated) {
+      // ...
+      } else if (!endsWithOperator.test(formula)) {
+      // ...
+      } else if (!endsWithNegativeSign.test(formula)) {
+      // ...
+      } else if (value !== "‑") {
+      // ...
+      }
+    }
+  }
+
+  handleNumbers(e) {
+    if (!this.state.currentVal.includes("Limit")) {
+     // ...
+      if (currentVal.length > 21) {
+     // ... 
+      } else if (evaluated) {
+     // ...
+      } else {
+     // ...
+    }
+   }
+  }
+
+}
+#+END_SRC
+
+
+** References
+
+[0] https://en.wikipedia.org/wiki/Event-driven_programming
+
+#+BEGIN_QUOTE
+ In computer programming, event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs or threads. Event-driven programming is the dominant paradigm used in graphical user interfaces and other applications (e.g., JavaScript web applications) that are centered on performing certain actions in response to user input. This is also true of programming for device drivers (e.g., P in USB device driver stacks). 
+#+END_QUOTE
+
+[1] https://en.wikipedia.org/wiki/Event-driven_programming#Criticism
+
+#+BEGIN_QUOTE
+ The design of those programs which rely on event-action model has been criticised, and it has been suggested that the event-action model leads programmers to create error-prone, difficult to extend and excessively complex application code. Table-driven state machines have been advocated as a viable alternative. On the other hand, table-driven state machines themselves suffer from significant weaknesses including state explosion phenomena. A solution for this is to use Petri nets. 
+#+END_QUOTE
+
+
+[2] Constructing the User Interface with Statecharts, Ian Horrocks, 1999.  ISBN-10: 0201342782
