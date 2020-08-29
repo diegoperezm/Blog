@@ -1,0 +1,157 @@
+#+title:  Solución de problemas: Enfoque "de abajo hacia arriba"
+
+* Solución de problemas: Enfoque "de abajo hacia arriba" (Bottom-up)
+
+** "De abajo hacia arriba" (Bottom-up)
+
+   - En un enfoque "de abajo hacia arriba" (Bottom-up) el análisis del problema comienza en el nivel más bajo posible
+
+
+   - Partes individuales del sistema son implementadas
+
+
+   - Estas partes se enlazan/conectan para formar componentes 
+
+
+   - Este proceso continúa hasta que se implementan todos los componentes del sistema 
+
+
+*** Enfoque "De abajo hacia arriba" (Bottom-up) patrones comunes 
+
+  Cuando se utiliza el enfoque "de abajo hacia arriba", hay algunos patrones que podemos identificar:
+
+- La mayoría de los programas siguen el paradigma  acción-evento[0][1][2]: 
+   
+     
+     - Los usuarios suministran un evento y
+   
+
+     - Se ejecuta una secuencia de acciones en respuesta a ese evento
+       
+
+    - Los elementos de la interfaz de usuario pueden responder a un evento de diferentes maneras, dependiendo del contexto
+   
+
+    - Las declaraciones  "if-else" se utilizan para determinar el contexto y las funciones que se ejecutarán
+   
+
+    - Los controladores de eventos(Event-handlers) deben utilizar la información compartida entre los objetos de la interfaz de usuario
+   
+
+   - Para compartir ésta información existen las siguientes opciones: 
+
+     - Variables globales explícitas
+
+     - Un valor contenido en un objeto de la interfaz de usuario 
+   
+     - Otro atributo de un objeto
+
+
+***  Ejemplo: Calculadora 
+
+#+BEGIN_SRC js
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentVal: "0",
+      prevVal: "0",
+      formula: "",
+      currentSign: "pos",
+      lastClicked: ""
+    };
+    // ....
+  }
+
+  initialize() {
+    this.setState({
+      currentVal: "0",
+      prevVal: "0",
+      formula: "",
+      currentSign: "pos",
+      lastClicked: "",
+      evaluated: false
+    });
+  }
+
+  handleDecimal() {
+    if (this.state.evaluated === true) {
+     // ... 
+    } else if (
+      !this.state.currentVal.includes(".") &&
+      !this.state.currentVal.includes("Limit")
+    ) {
+     // ...
+      if (this.state.currentVal.length > 21) {
+     // ...
+      } else if (
+        endsWithOperator.test(this.state.formula) ||
+        (this.state.currentVal === "0" && this.state.formula === "")
+      ) {
+      // ...
+      } else {
+      // ...
+      }
+    }
+   }
+    
+  handleEvaluate() {
+    if (!this.state.currentVal.includes("Limit")) {
+    //   ...
+        expression = expression.replace(/x/g, "*").replace(/‑/g, "-");
+
+     while (endsWithOperator.test(expression)) {
+        expression = expression.slice(0, -1);
+      }
+    // ...
+    }
+  }
+
+  handleOperators(e) {
+    if (!this.state.currentVal.includes("Limit")) {
+      // ...
+      if (evaluated) {
+      // ...
+      } else if (!endsWithOperator.test(formula)) {
+      // ...
+      } else if (!endsWithNegativeSign.test(formula)) {
+      // ...
+      } else if (value !== "‑") {
+      // ...
+      }
+    }
+  }
+
+  handleNumbers(e) {
+    if (!this.state.currentVal.includes("Limit")) {
+     // ...
+      if (currentVal.length > 21) {
+     // ... 
+      } else if (evaluated) {
+     // ...
+      } else {
+     // ...
+    }
+   }
+  }
+
+}
+#+END_SRC
+
+
+** Referencias
+
+[0] https://en.wikipedia.org/wiki/Event-driven_programming
+
+#+BEGIN_QUOTE
+ In computer programming, event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs or threads. Event-driven programming is the dominant paradigm used in graphical user interfaces and other applications (e.g., JavaScript web applications) that are centered on performing certain actions in response to user input. This is also true of programming for device drivers (e.g., P in USB device driver stacks). 
+#+END_QUOTE
+
+[1] https://en.wikipedia.org/wiki/Event-driven_programming#Criticism
+
+#+BEGIN_QUOTE
+ The design of those programs which rely on event-action model has been criticised, and it has been suggested that the event-action model leads programmers to create error-prone, difficult to extend and excessively complex application code. Table-driven state machines have been advocated as a viable alternative. On the other hand, table-driven state machines themselves suffer from significant weaknesses including state explosion phenomena. A solution for this is to use Petri nets. 
+#+END_QUOTE
+
+
+[2] Constructing the User Interface with Statecharts, Ian Horrocks, 1999.  ISBN-10: 0201342782
