@@ -2,7 +2,7 @@
 
  This book is something that I was looking for some time.The idea is simple: "provide unique insights into how [programmers] think".
 
- The URL to get the book: [[https://aosabook.org/en/][The Arquitecture of Open Source Applications]]
+ The URL to get the book: [[https://aosabook.org/en/][The Architecture of Open Source Applications]]
 
 
 ** Blockcode: A visual programming toolkit, Dethe Elza
