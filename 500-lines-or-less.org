@@ -1,0 +1,31 @@
+#+TITLE: 500 lines or less, AOSA
+
+ This book is something that I was looking for some time.The idea is simple: "provide unique insights into how [programmers] think".
+
+ The URL to get the book: [[https://aosabook.org/en/][The Arquitecture of Open Source Applications]]
+
+
+** Blockcode: A visual programming toolkit, Dethe Elza
+
+*** Highlights
+
+- Procedural code
+
+#+BEGIN_QUOTE
+The code style is procedural, not object-oriented or functional. We could do the same things in any of these paradigms, but that would require more setup code and wrappers to impose on what exists already for the DOM.
+#+END_QUOTE
+
+
+- Single file for random functions
+
+#+BEGIN_QUOTE
+Having a single file to gather random functions in is useful, especially when an architecture is under development. My theory of keeping a clean house is to have designated places for clutter, and that applies to building a program architecture too. As this file grows it is important to watch for emerging patterns: several related functions can be spun off into a separate module (or joined together into a more general function). You don't want the catch-all to grow indefinitely, but only to be a temporary holding place until you figure out the right way to organize the code.
+#+END_QUOTE
+
+
+- Why No use MVC
+  
+#+BEGIN_QUOTE
+...it isn't the right tool for every problem. All the state (the "model" in MVC) is captured by the block elements in a block language anyway, so replicating it into Javascript has little benefit unless there is some other need for the model (if we were editing shared, distributed code, for instance).
+... An early version of Waterbear went to great lengths to keep the model in JavaScript and sync it with the DOM, until I noticed that more than half the code and 90% of the bugs were due to keeping the model in sync with the DOM.
+#+END_QUOTE
