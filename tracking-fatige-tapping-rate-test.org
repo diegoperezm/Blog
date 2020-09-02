@@ -1,0 +1,63 @@
+#+TITLE: Tracking Fatigue: Tapping Rate Test
+
+ As far as I could find when the topic of burnout/fatigue is discussed the recommendation is the use of pomodoros and take multiple  breaks (and days off).
+
+ Pomodoros and breaks are really good, but doesn't take to account that: 
+
+- Not all tasks require the same amount of effort:
+  For example, there are tasks that require multiple decisions and others that are mostly mechanical.
+
+- Coding is not a pure mental task:
+   Sitting for extend period of time can produce health and other problems (back pain, spinal compression, etc.)
+
+
+ 
+  Therefore, it is  necessary to use a method that can give more  information than the lack of focus. A method that can be used is the "Tapping Rate Test".
+
+** Description
+
+[[https://en.wikipedia.org/wiki/Tapping_rate][Wikipedia, Tapping rate:]]
+
+#+BEGIN_QUOTE
+  The tapping rate is a psychological test given to assess the integrity of the neuromuscular system and examine motor control.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+ The finger tapping test has the advantage of being a relatively pure neurologically driven motor task because the inertial and intersegmental interactions are so small that biomechanical influences on movement are reduced.
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+  Finger tapping involves three important features: time, spatial amplitude, and frequency. Studies have reported that the average number of taps per 10-second interval can be used to distinguish between patients with mild traumatic brain injury and healthy controls, is slower in people one month after sustaining a mild traumatic brain injury, and in experienced boxers and soccer players who frequently "headed" the ball the speed of finger tapping has also been found to be related to severity of initial traumatic brain injury, and can be used to help assess recovery from mild and moderate traumatic brain injuries
+#+END_QUOTE
+
+
+[[https://link.springer.com/referenceworkentry/10.1007%252F978-1-4419-1698-3_343][Springer, Finger-Tapping Test:]]
+
+#+BEGIN_QUOTE
+ During administration, **the subject's palm should be immobile and flat on the board, with fingers extended, and the index finger placed on the counting device.**
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+ One hand at a time, **subjects tap their index finger on the lever as quickly as possible within a 10-s time interval,** in order to increase the number on the counting device with each tap. The original procedure calls for five consecutive trials within a 5-point range for each hand, but variations include a total of six trials, in two sets of three. 
+#+END_QUOTE
+
+
+** How I am doing it
+
+
+- Test in the morning (wake up->no coffee->test)
+
+
+- I am only doing it  one time , 10 seconds
+
+
+- I am trying to identify task effort (heavy vs light)
+
+  
+
+ That's all, I hope it can be useful to someone.
+
+
+
