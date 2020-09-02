@@ -4,10 +4,12 @@
 
  Pomodoros and breaks are really good, but doesn't take to account that: 
 
-- Not all tasks require the same amount of effort:
+
+- Not all tasks require the same amount of effort:\\
   For example, there are tasks that require multiple decisions and others that are mostly mechanical.
 
-- Coding is not a pure mental task:
+
+- Coding is not a pure mental task:\\
    Sitting for extend period of time can produce health and other problems (back pain, spinal compression, etc.)
 
 
