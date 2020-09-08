@@ -390,18 +390,30 @@ Now,  anybody here actually know ... anybody here is actually a category theory 
   [[https://htdp.org/2018-01-06/Book/][How to Design Programs, Second Edition]] 
 
 
-
 The idea is simple, is possible to write programs in a systematic way:
+
+
+
+- Data definition
+
+
+ https://res.cloudinary.com/dibkfoic9/image/upload/v1573073303/data_definition.png
+
+
+
 
 - Design a program:
 
 
-[[file:design_world.png]]
+ https://res.cloudinary.com/dibkfoic9/image/upload/v1573072133/design_world.png
+
+
 
 
 - Design a function:
 
-[[file:design_functions.png]]
+
+ https://res.cloudinary.com/dibkfoic9/image/upload/v1573072143/design_functions.png
 
 
  The above is only an example, the course teach many more things. 
