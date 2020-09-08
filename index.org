@@ -257,3 +257,167 @@ class Calculator extends React.Component {
 
 
 
+
+* The Problem With Example Driven Teaching And Gamification
+:PROPERTIES:
+:CUSTOM_ID: the-problem-with-example-driven-teaching-and-gamification 
+:END: 
+ 
+ In 1971 (half a century ago), [[https://en.wikipedia.org/wiki/Niklaus_Wirth][Niklaus Wirth]] wrote[fn:1]: 
+
+#+BEGIN_QUOTE
+ Programming is usually taught by examples ... Unfortunately, they are too often selected with the prime intent to demonstrate what a computer can do. Instead, a main criterion for selection should be their suitability to exhibit certain **widely applicable techniques**.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+ Furthermore, **examples of programs are commonly presented as finished "products" followed by explanations of their purpose and their linguistic details**. But active programming consists of the design of new programs, rather than contemplation of old programs. **As a consequence of these teaching methods, the student obtains the impression that programming consists mainly of mastering a language** (with all the peculiarities and intricacies so abundant in modern PL's) **and relying on one's intuition to somehow transform ideas into finished programs**.
+ #+END_QUOTE
+
+
+
+** Why is the use of examples, puzzles and algorithms so common?
+
+*** The "gamification" of learning
+
+  [[https://en.wikipedia.org/wiki/Gamification][Gamification]] in the sense of "use rewards for players who accomplish desired tasks ... types of rewards include points, achievement badges or levels".
+
+ Algorithms, puzzles and exercises make easy to implement most of those techniques. In the talk [[https://youtu.be/qWFScmtiC44][Video Games and the Future of Education]] [[https://en.wikipedia.org/wiki/Jonathan_Blow][Jonathan Blow]] has an interesting explanation of why those techniques have very little in common with games: 
+
+#+BEGIN_QUOTE
+ [ Gamification ] this stuff didn't come from games ... military(awards and decorations), airlines (frequent flyer miles) and all this came before this "gamification" trend.
+
+ Gamification is weird, schools have already been doing this for a long time and if your plan about how to improve education is: we're gonna bring gamification to schools ... they've already been doing this forever. Maybe instead of calling this stuff gamification we should call it "schoolification".
+
+ Other thing I have to say about gamification is it doesn't mean anything. I've spent most this talk talking about the way that games can convey information, the way that they can communicate and when you say you're doing gamification that's not the part of games that you're using. You're using just this part that's a carrot on a stick tied to the donkey  to keep the donkey going forward, and that doesn't mean anything ... except it means that they're being manipulated and they know they're being manipulated.  
+#+END_QUOTE
+
+ The problem with this approach is that we end with the same problems that school has with math: anxiety.
+
+ Is common to find posts in forums like this "Maybe I'm not cut out for this", "Super overwhelmed". Most of the time we can find  in the answers of this posts a reference to [[https://en.wikipedia.org/wiki/Impostor_syndrome][impostor syndrome]][fn:2] or the explanation "is normal because programming is hard", but I think that is wrong. 
+ 
+ I think the problem is: the use an example-driven teaching plus gamification focus the efforts in learn the syntax of the language, but programming is not about syntax nor computer science. Paraphrasing [[https://en.wikipedia.org/wiki/Hal_Abelson][Harold Abelson]]:
+
+#+BEGIN_QUOTE
+ Were (are) really formalizing intuitions about process -- how to do things. **Talking precisely about how to knowledge**. As opposed to geometry that talks about what is true.
+#+END_QUOTE
+
+ The beginner programmer has these achievements related to the syntax, then when they try to solve a problem they struggle because they need the *widely applicable techniques* to solve a problem, they need structure to explore the problem domain, they also need to know how to deal with the quirks of the language, they need to know "how to start". The problem is that all these things they need, are not related to the achievements they have.
+ 
+ The example-driven teaching plus gamification also lead to the  confusion between get the right answer and *learn how to solve a problem*. Is common the recommendation of "just keep doing exercises, and you will be fine" or "you have to learn algorithms and you will be fine". And that is not really true.
+
+ But, why people make these recommendations? I think that Chris Allen[fn:3] is right: 
+
+
+#+BEGIN_QUOTE
+ Most people believe that the way they teach ... is the way they learned it... it is usually not true.
+
+ Most people have created a narrative around how they learned things, that is mostly not true.
+
+ Definitely among the self learners one of the anti patterns (if you will) ... they believe that they figured it out and get it all by themselves ... and yeah, that's nonsense... I've seen all the questions in IRC and mailing lists.
+
+ Getting help is good, just to be clear. But  don't tell yourself that you didn't get help ... you did, you got a lot, some of it was synchronous some of it was asynchronous. Like they are reading something in a book ... the explanation didn't make sense ... then they proceed to google and go through a bunch of other explanations, then they understand it. But what they going to tell to the next person that wants to learn: "oh, I read this book".
+
+ That's not true, that's not the whole truth. And it is important that we understand that's not the whole truth, because otherwise the recommendations we're giving people are subjecting them the same pain that we've already gone through and that's not necessary.
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+Fetish and Myth
+
+- Common anti-pattern: experienced (Haskellers|Programmers|etc.) recommending resources they didn't actually use to learn the topic.
+
+
+- CLRS is recommend by a lot more people than have done at least 10% of the book.
+
+  
+- Going to call shenanigans on Maclane's Algebra too, unless you read it while in grad school for mathematics.You need a strong foundation before it will do you any good.
+
+  
+- They'e recommending resources to which they assign high prestige (difficulty, obscurity, etc.)
+
+  
+- Then a beginner attempts to learn using an expert's Flavor of the Month, gets stuck, and burns out
+ 
+ 
+- You are not doing learners a favor when you do this
+
+  
+- That resource is probably not how you learned the topic
+#+END_QUOTE
+
+Another example of this: [[https://youtu.be/63f8pdAxVaI]["Talk: UnLearning Elixir"]]
+
+#+BEGIN_QUOTE
+This is what happens when I first drove into functional programming: people handed me a book on category theory and said "oh, just read this book on category theory and it will be fine".
+
+Now,  anybody here actually know ... anybody here is actually a category theory or Phd researcher in this stuff?.
+
+ Because, you shouldn't have to have a Phd on applied or abstract mathematics to write a piece of software ... it might be applicable, but shouldn't be a requirement or prerequisite.
+#+END_QUOTE
+
+ Most of the time when people recommends "learn algorithms" they really are using algorithm in the sense of: "word used by programmers when they don't want to explain what they did"[fn:4]. Because when someone get this answer  none of the (common) Computer Science algorithms  can be used to solve the problem the person was facing nor was *an specific algorithm* recommended. Also if you ask, what was the last time they had implemented an algorithm from scratch in production (or in a project) they answer is *never* or they definition of algorithm is so broad ("everything is an algorithm") that the word lost any meaning.    
+
+
+** There is a different approach
+
+ Part of the title of this post is from the talk "[[https://www.youtube.com/watch?v=BleOgPhsdfc][35C3 - How to teach programming to your loved ones]]":
+
+
+#+BEGIN_QUOTE
+ _Enabling students over example-driven teaching_
+
+ Teaching beginners how to program is often hard.  We love building programs, and seeing our loved ones struggle with this is painful.  Showing them how to copy-paste a few example programs and change a few parameters is easy, but bridging from there to building substantial programs is a different game entirely. This talk is about how to teach programming successfully, **through comprehensible design recipes, which anyone can follow, using languages and tools designed for beginners**.  This approach is probably different from how you learned how to program, or how you're used to teaching.  It is more effective, however, as it teaches more material successfully to a broader spectrum of people.  It is also more enjoyable.
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+ The talk is based on many years of research by the Program by Design, DeinProgramm, and Bootstrap educational projects, as well as over 30 years of personal teaching experience in school, university and industrial contexts.  A word of warning: The resulting approach is radically different from most teaching approaches used in universities and schools.  In particular, **it avoids teaching purely through examples and expecting students to develop the skills to arrive at the solutions on their own**. 
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+ *Instead, it eaches explicit methodology that enables students to solve problems of surprising complexity on their own**, whether they are 11 or 55, whether in a classroom, a training facility, or your home.  Extensive documentation, material, and software to support this methodology is available for free. Mike Sperber
+#+END_QUOTE
+
+*** I always recommend HTDP 
+
+ The course "How to Design Programs" is really good:
+
+- The video course:
+  [[https://www.youtube.com/channel/UC7dEjIUwSxSNcW4PqNRQW8w][Systematic Programming Design]]
+
+
+- The book:
+  [[https://htdp.org/2018-01-06/Book/][How to Design Programs, Second Edition]] 
+
+
+
+The idea is simple, is possible to write programs in a systematic way:
+
+- Design a program:
+
+
+[[file:design_world.png]]
+
+
+- Design a function:
+
+[[file:design_functions.png]]
+
+
+ The above is only an example, the course teach many more things. 
+
+
+** Footnotes
+  
+[fn:1]  [[http://sunnyday.mit.edu/16.355/wirth-refinement.html]["Program Development by Stepwise Refinement, Klaus Wirth"]]
+
+[fn:2]  https://en.wikipedia.org/wiki/Impostor_syndrome
+
+#+BEGIN_QUOTE
+ is a psychological pattern in which an individual doubts their accomplishments or talents and has a persistent internalized fear of being exposed as a "fraud" 
+#+END_QUOTE
+
+[fn:3] [[https://youtu.be/Bg9ccYzMbxc]["Talk: How to Learn Haskell in Less Than 5 Years"]] 
+
+[fn:4] I found this quote in the internet, is a "meme", I don't know the origin of it.  
+
