@@ -333,7 +333,7 @@ Fetish and Myth
 - Going to call shenanigans on Maclane's Algebra too, unless you read it while in grad school for mathematics.You need a strong foundation before it will do you any good.
 
   
-- They'e recommending resources to which they assign high prestige (difficulty, obscurity, etc.)
+- They're recommending resources to which they assign high prestige (difficulty, obscurity, etc.)
 
   
 - Then a beginner attempts to learn using an expert's Flavor of the Month, gets stuck, and burns out
@@ -350,9 +350,9 @@ Another example of this: [[https://youtu.be/63f8pdAxVaI]["Talk: UnLearning Elixi
 #+BEGIN_QUOTE
 This is what happens when I first drove into functional programming: people handed me a book on category theory and said "oh, just read this book on category theory and it will be fine".
 
-Now,  anybody here actually know ... anybody here is actually a category theory or Phd researcher in this stuff?.
+Now,  anybody here actually know ... anybody here is actually a category theory or PhD researcher in this stuff?.
 
- Because, you shouldn't have to have a Phd on applied or abstract mathematics to write a piece of software ... it might be applicable, but shouldn't be a requirement or prerequisite.
+ Because, you shouldn't have to have a PhD on applied or abstract mathematics to write a piece of software ... it might be applicable, but shouldn't be a requirement or prerequisite.
 #+END_QUOTE
 
  Most of the time when people recommends "learn algorithms" they really are using algorithm in the sense of: "word used by programmers when they don't want to explain what they did"[fn:4]. Because when someone get this answer  none of the (common) Computer Science algorithms  can be used to solve the problem the person was facing nor was *an specific algorithm* recommended. Also if you ask, what was the last time they had implemented an algorithm from scratch in production (or in a project) they answer is *never* or they definition of algorithm is so broad ("everything is an algorithm") that the word lost any meaning.    
