@@ -419,6 +419,100 @@ The idea is simple, is possible to write programs in a systematic way:
  The above is only an example, the course teach many more things. 
 
 
+
+*  Unicode Experiment (to avoid mistakes)
+   :PROPERTIES:
+   :CUSTOM_ID: unicode-experiment-to-avoid-mistakes
+   :END: 
+  
+
+  For a while I have being using symbols [fn:5] to show specific JavaScript functions and operators, as a way to avoid making some mistakes that are (at least for me) really annoying. Everything start because I was mixing  asignment  (​=) with  equality (==), probably a common mistake. By chance I saw a video about APL[fn:6][fn:7], and after some research I thought  that maybe my problem was a notation problem[fn:8].
+
+** What  I am doing
+
+*** Assignment
+
+Because JavaScript uses the same symbol for assignment[fn:9] and comparison[fn:10], whenever I saw an assignment I was reading "x equals ...". It was my mistake, but the notation  wasn't helping.
+
+  So now I  use the symbol `←`  (U+2190 Leftwards Arrow) to indicate an assignment 
+
+
+[[file:img/assignment.png]]
+
+*** Comparison
+
+ The customary recommendation is use strict equality (​===),
+but 3 symbols take too much space, so now I use the `≡` symbol (U+2261 Identical to)
+
+[[file:img/strict_equality.png]]
+
+
+***  switch and case
+
+ The switch statement looks like a list (to me), and I think is  natural to use an arrow when enumerating, so  I use the `🝘` (U+1F758 Alchemical symbol for pot ashes, the idea of this one come from the movie 'bandersnatch') and `➜` (U+279C Heavy round-typped rightwards arrow)
+
+
+
+[[file:img/switch_case.png]]
+
+
+*** array push and pop
+
+  Push and pop, are somewhat difficult to parse, so I use `↧` (U+21A7 Downward Arrow from Bar) for push, and `↥` (U+21A5 Upwards Arrow from Bar) for pop.
+
+
+[[file:img/arr_push_pop.png]]
+
+
+*** array map  
+ 
+  I alway use map, and `↦` (U+21A6 Rightwards Arrow from Bar ) is easier to spot than a word.
+
+[[file:img/array_map.png]]
+
+*** function  
+
+  I think that `λ` (U+03BB Greek Small Letter Lamda ) is more easier to spot than the word function (and take less space)
+
+[[file:img/function.png]]
+
+
+*** return 
+ 
+  My keyboard has the symbol `↲` (U+21B2 Downwards Arrow with Tip Leftwards) in the
+return key, so it seems a good idea:
+
+[[file:img/return.png]] 
+
+
+***  array filter and  element  
+
+  For array filter I use `σ' (U+03C3 Greek Small Letter Sigma), and for element
+`∈` (U+2208 Element Of)
+
+
+[[file:img/filter_element.png]]
+
+**** With an arrow function is more easier to parse
+
+  The symbol for the arrow function is `⇒` (U+21D2  Rightwards Double Arrow)
+ 
+[[file:img/filter_element_arrow.png]]
+
+***  A function example
+    
+[[file:img/a_function_example.png]]
+
+***  An arrow function example 
+
+[[file:img/an_arrow_function_example.png]]
+
+
+** Conclusions 
+   
+  At least for me is easier to read symbols than words, I tried adding comments (function sigantures) but is not the same (with symbols I can scan the code really fast). The best part is, thanks to Emacs, this aesthetic change not have any effect in the source code 
+(and I can turn on-off the changes fast).   
+ 
 ** Footnotes
   
 [fn:1]  [[http://sunnyday.mit.edu/16.355/wirth-refinement.html]["Program Development by Stepwise Refinement, Klaus Wirth"]]
@@ -432,4 +526,30 @@ The idea is simple, is possible to write programs in a systematic way:
 [fn:3] [[https://youtu.be/Bg9ccYzMbxc]["Talk: How to Learn Haskell in Less Than 5 Years"]] 
 
 [fn:4] I found this quote in the internet, is a "meme", I don't know the origin of it.  
+
+[fn:5]   https://www.emacswiki.org/emacs/PrettySymbol
+
+#+BEGIN_QUOTE
+ displaying sequences of characters as fancy characters or symbols
+#+END_QUOTE
+
+[fn:6] https://www.youtube.com/watch?v=_DTpQ4Kk2wA
+
+[fn:7] https://en.wikipedia.org/wiki/APL_(programming_language)
+
+[fn:8] Notation as a tool of thought
+
+http://www.jsoftware.com/papers/tot.htm
+
+#+BEGIN_QUOTE
+By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and in effect increases the mental power of the race.
+A.N. Whitehead
+#+END_QUOTE
+
+[fn:9] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators
+
+[fn:10] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
+
+
+
 
