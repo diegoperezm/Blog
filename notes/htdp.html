@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-09-24 Thu 16:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How To Design Programs (notes)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="erretres" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">How To Design Programs (notes)</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#how-to-design-programs-notes">How to Design Programs (notes)</a>
+<ul>
+<li><a href="#1-fixed-size-data">I Fixed-Size Data</a>
+<ul>
+<li><a href="#the-arithmetic-of-strings">1.2 The Arithmetic of Strings</a></li>
+<li><a href="#predicates-know-thy-data">1.7 Predicates: Know Thy Data</a></li>
+<li><a href="#functions">2.1 Functions</a></li>
+<li><a href="#conposing-functions">2.3 Composing Functions</a></li>
+<li><a href="#how-to-design-programs">3 How to Design Programs</a></li>
+<li><a href="#designing-functions">3.1 Designing Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org915856f" class="outline-2">
+<h2 id="how-to-design-programs-notes"><a id="org915856f"></a>How to Design Programs (notes)</h2>
+<div class="outline-text-2" id="text-how-to-design-programs-notes">
+<p>
+This are some notes  from the book <a href="https://htdp.org/2020-8-1/Book/index.html">How To Design Programs, second edition</a>.
+</p>
+</div>
+
+
+<div id="outline-container-org8bc47b3" class="outline-3">
+<h3 id="1-fixed-size-data"><a id="org8bc47b3"></a><a href="https://htdp.org/2020-8-1/Book/part_one.html">I Fixed-Size Data</a></h3>
+<div class="outline-text-3" id="text-1-fixed-size-data">
+<blockquote>
+<p>
+Every programming language comes with a <b>language of data</b> and a <b>language of operations on data</b>. The first language always provides some forms of atomic data; to represent the variety of information in the real world as data, a programmer must learn to compose basic data and to describe such compositions. Similarly, the second language provides some basic operations on atomic data; it is the programmer’s task to compose these operations into programs that perform the desired computations. 
+</p>
+</blockquote>
+
+
+<ul class="org-ul">
+<li>Lenguage:
+<ul class="org-ul">
+<li>data: 
+<ul class="org-ul">
+<li>Atomic data: to represent information as data</li>
+</ul></li>
+<li>operations on data:
+<ul class="org-ul">
+<li>Basic operations on atomic data: to compose these operations into programs</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+
+
+<div id="outline-container-orgeac039d" class="outline-4">
+<h4 id="the-arithmetic-of-strings"><a id="orgeac039d"></a>1.2 The Arithmetic of Strings</h4>
+<div class="outline-text-4" id="text-the-arithmetic-of-strings">
+<blockquote>
+<p>
+Programming languages are about computing with information, and information comes in all shapes and forms. For example, a program may deal with colors, names, business letters, or conversations between people. Even though we could encode this kind of information as numbers, it would be a horrible idea. Just imagine remembering large tables of codes, such as 0 means “red” and 1 means “hello,” and the like.
+</p>
+
+<p>
+Instead, most programming languages provide at least one kind of data that deals with such symbolic information. 
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org6aac121" class="outline-4">
+<h4 id="predicates-know-thy-data"><a id="org6aac121"></a>1.7 Predicates: Know Thy Data</h4>
+<div class="outline-text-4" id="text-predicates-know-thy-data">
+<blockquote>
+<p>
+A predicate &#x2026; is a function that consumes a value and determines whether or not it belongs to some class of data. 
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgdfdd6ec" class="outline-4">
+<h4 id="functions"><a id="orgdfdd6ec"></a>2.1 Functions</h4>
+<div class="outline-text-4" id="text-functions">
+<blockquote>
+<p>
+Since variables are about inputs, not mentioning them in the expressions means that the function’s output is independent of its input and therefore always the same. We don’t need to write functions or programs if the output is always the same.
+</p>
+
+<p>
+Variables aren’t data; they represent data&#x2026;
+</p>
+
+<p>
+The variables in a function header, that is, the variables that follow the function name, are placeholders for unknown pieces of data, the inputs of the function. Mentioning a variable in the function body is the way to use these pieces of data when the function is applied and the values of the variables become known.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orge54f9c0" class="outline-4">
+<h4 id="conposing-functions"><a id="orge54f9c0"></a>2.3 Composing Functions</h4>
+<div class="outline-text-4" id="text-conposing-functions">
+<blockquote>
+<p>
+A program rarely consists of a single function definition. Typically, programs consist of a <b>main definition</b> and several <b>other functions</b> and turn the result of one function application into the input for another. In analogy to algebra, we call this way of defining <b>functions composition</b>, and we call these additional functions <b>auxiliary functions or helper functions</b>. 
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+In general, when a problem refers to distinct tasks of computation, a program should consist of:
+</p>
+
+<ul class="org-ul">
+<li>one function per task</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>and a main function that puts it all together</li>
+</ul>
+
+<p>
+We formulate this idea as a simple slogan:
+</p>
+
+
+<p>
+<b>Define one function per task.</b>
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org3ed9ad5" class="outline-4">
+<h4 id="how-to-design-programs"><a id="org3ed9ad5"></a>3 How to Design Programs</h4>
+<div class="outline-text-4" id="text-how-to-design-programs">
+<blockquote>
+<p>
+It is critical to learn how to get from a problem statement to a program. We need to determine what is relevant in the problem statement and what can be ignored. We need to tease out what the program consumes, what it produces, and how it relates inputs to outputs. We have to know, or find out, whether the chosen language and its libraries provide certain basic operations for the data that our program is to process. If not, we might have to develop auxiliary functions that implement these operations. Finally, once we have a program, we must check whether it actually performs the intended computation. And this might reveal all kinds of errors, which we need to be able to understand and fix.
+</p>
+</blockquote>
+
+
+<blockquote>
+<p>
+A good program comes with: 
+</p>
+
+<ul class="org-ul">
+<li>A short write-up that explains what it does</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>What inputs it expects</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>And what it produces</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Ideally it also comes with some assurance that it actually works</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>In the best circumstances, the program’s connection to the problem statement is evident so that a small change to the problem statement is easy to translate into a small change to the program.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org84c338f" class="outline-4">
+<h4 id="designing-functions"><a id="org84c338f"></a>3.1 Designing Functions</h4>
+<div class="outline-text-4" id="text-designing-functions">
+<p>
+Information and Data:
+</p>
+
+<blockquote>
+<p>
+The purpose of a program is to describe a computational process 
+that consumes some information and produces new information. 
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+All this information comes from a part of the real world - called the program's domain - 
+and the results of a program's computation represent more information in this domain.
+</p>
+
+<p>
+<b>Information plays a central role in our description</b>.
+<b>Think of information as facts about the program’s domain</b>.
+</p>
+</blockquote>
+
+
+<blockquote>
+<p>
+For a program to process information, it must turn it into some form of data in the programming language &#x2026; then it processes the data &#x2026; and once it is finished, 
+it turns the resulting data into information again. 
+</p>
+
+<p>
+An interactive program may even intermingle these steps, acquiring more information from the world as needed and delivering information in between.
+</p>
+
+<p>
+For simple kinds of information, designing such program pieces is trivial; 
+</p>
+
+<p>
+for anything other than simple information you need to know about parsing, for example, and that immediately requires a lot of expertise in program design.
+</p>
+
+
+<p>
+Software engineers use the slogan <b>model-view-controller</b> (MVC) for the way BSL and DrRacket:
+</p>
+
+<ul class="org-ul">
+<li>separate data processing from parsing information into data</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>and turning data into information.</li>
+</ul>
+</blockquote>
+
+
+<blockquote>
+<p>
+Given the central role of information and data, program design must start with the connection between them. 
+</p>
+
+<p>
+Specifically, we, the programmers, must decide how to use our chosen programming language
+<b>to represent the relevant pieces of information as data</b> and <b>how we should interpret data as information</b>. 
+</p>
+</blockquote>
+
+
+
+<div class="figure">
+<p><img src="../img/data_definition.png" alt="data_definition.png" />
+</p>
+</div>
+
+<blockquote>
+<p>
+Suppose you are designing a program that consumes and produces information in the form of numbers. While choosing a representation is easy, an interpretation requires explaining what a number such as 42 denotes in the domain:
+</p>
+
+<ul class="org-ul">
+<li>42 may refer to the number of pixels from the top margin in the domain of images;</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>42 may denote the number of pixels per clock tick that a simulation or game object moves;</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>42 may mean a temperature, on the Fahrenheit, Celsius, or Kelvin scale for the domain of physics;</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>42 may specify the size of some table if the domain of the program is a furniture catalog; or</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>42 could just count the number of characters in a string.</li>
+</ul>
+
+<p>
+<b>The key is to know how to go from numbers as information to numbers as data and vice versa</b>.
+</p>
+
+<p>
+Since this knowledge is so important for everyone who reads the program, we often write it down in the form of <b>comments</b>, which we call <b>data definitions</b>.
+</p>
+
+<ul class="org-ul">
+<li>A data definition serves two purposes: 
+
+<ul class="org-ul">
+<li>1. it <b>names a collection of data</b> —a class— using a meaningful word.</li>
+<li>2. Computer scientists use “class” to mean something like a “mathematical set.” it informs readers <b>how to create elements of this class</b> and <b>how to decide</b> whether some arbitrary piece of data belongs to the collection.</li>
+</ul></li>
+</ul>
+
+<p>
+Here is a data definition for one of the above examples:
+</p>
+
+<p>
+;; A Temperature is a Number. <br />
+;; interpretation represents Celsius degrees
+</p>
+
+
+<p>
+The first line introduces the <b>name</b> of the data collection, Temperature, and tells us that the class consists of all Numbers. 
+</p>
+</blockquote>
+
+
+<div class="org-center">
+<p>
+<span class="underline">The Design Process<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></span>
+</p>
+</div>
+
+
+
+<blockquote>
+<ul class="org-ul">
+<li>Express how you wish to represent information as data. A one-line comment suffices, example:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">We use numbers to represent centimeters. </span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Formulate data definitions: like the one for Temperature, for the classes of data you consider critical for the success of your program.</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Write down a (function) signature</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Write a statement of purpose</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Write a function header</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Add examples</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Take inventory</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Replace the function body with a template</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Write the body of the function</li>
+</ul>
+</blockquote>
+
+
+<p>
+Function Signature:
+</p>
+
+<blockquote>
+<p>
+A  <b>function signature</b> is a comment that tells the readers of your design:
+</p>
+
+<p>
+1.- how many <b>inputs</b> your function consumes
+</p>
+
+
+<p>
+2.- <b>from which classes</b> they are drawn
+</p>
+
+
+<p>
+3.- and what kind of <b>data it produces</b>
+</p>
+</blockquote>
+
+
+<p>
+Statement Of Purpose:
+</p>
+
+<blockquote>
+<p>
+A <b>purpose statement</b> is a &#x2026; comment that <b>summarizes the purpose of the function in a single line</b>. 
+</p>
+
+<p>
+If you are ever in doubt about a purpose statement, write down the shortest possible answer to the question:
+</p>
+
+<p>
+<b>what does the function compute?</b>
+</p>
+
+<p>
+Every reader of your program should understand what your functions compute without having to read the function itself
+</p>
+
+<p>
+A <b>multi-function program</b> should also <b>come with a purpose statement</b>. 
+</p>
+</blockquote>
+
+
+<p>
+Function Header:
+</p>
+
+<blockquote>
+<p>
+A <b>header is a simplistic function definition</b>, also called a stub. 
+</p>
+
+<ul class="org-ul">
+<li>Pick <b>one variable name</b> for each class of <b>input</b> in the signature;</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>The body of the function can be any piece of data from the output class.</li>
+</ul>
+</blockquote>
+
+
+<p>
+Take Inventory:
+</p>
+
+<blockquote>
+<p>
+Take inventory to understand what are the givens and what we need to compute.
+For the simple functions we are considering right now, <b>we know that they are given data via parameters</b>. 
+</p>
+
+<p>
+While parameters are placeholders for values that we don’t know yet, we do know that it is from this unknown data that the function must compute its result. 
+</p>
+
+<p>
+To remind ourselves of this fact, <b>we replace the function’s body with a template</b>. For now, the template contains just the parameters, so that the preceding example looks like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme">(<span style="color: #d787d7; font-weight: bold;">define</span> (<span style="color: #5fafff;">area-of-square</span> len)
+   (... len ...))
+</pre>
+</div>
+
+<p>
+The dots remind you that this isn’t a complete function, but a template, a suggestion for an organization.
+</p>
+</blockquote>
+
+<p>
+Write The Body Of The Function:
+</p>
+
+<blockquote>
+<p>
+In general, &#x2026; means to program, though often in the narrowest possible way, namely, 
+to write <b>executable expressions and function definitions</b>.
+</p>
+
+<p>
+To us, &#x2026; means to replace the body of the function with an expression that attempts to compute from the pieces in the template what the purpose statement promises. 
+</p>
+</blockquote>
+
+<p>
+Testing:
+</p>
+
+<blockquote>
+<p>
+Test the function on the examples you worked out before.
+</p>
+
+<p>
+If the result doesn’t match the expected output, consider the following three possibilities:
+</p>
+
+<p>
+1.- You miscalculated and determined the wrong expected output for some of the examples
+</p>
+
+
+<p>
+2.- Alternatively, the function definition computes the wrong result When this is the case, you have a logical error in your program, also known as a bug
+</p>
+
+
+<p>
+3.- Both the examples and the function definition are wrong
+</p>
+
+<p>
+When you do encounter a mismatch between expected results and actual values, we recommend that you:
+</p>
+
+
+<ul class="org-ul">
+<li>first reassure yourself that the expected results are correct.</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>If so, assume that the mistake is in the function definition.</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Otherwise, fix the example and then run the tests again.</li>
+</ul>
+
+<p>
+If you are still encountering problems, you may have encountered the third, somewhat rare, situation.
+</p>
+</blockquote>
+
+<div class="org-center">
+<p>
+<span class="underline">THE DESIGN PROCESS</span>
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="../img/design_functions.png" alt="design_functions.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+The lodash documentation can be used as example of this approach:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #afaf87;">/**</span>
+<span style="color: #afaf87;"> * Adds two numbers.</span>
+<span style="color: #afaf87;"> *</span>
+<span style="color: #afaf87;"> * @static</span>
+<span style="color: #afaf87;"> * @memberOf _</span>
+<span style="color: #afaf87;"> * @since 3.4.0</span>
+<span style="color: #afaf87;"> * @category Math</span>
+<span style="color: #afaf87;"> * @param {number} augend The first number in an addition.</span>
+<span style="color: #afaf87;"> * @param {number} addend The second number in an addition.</span>
+<span style="color: #afaf87;"> * @returns {number} Returns the total.</span>
+<span style="color: #afaf87;"> * @example</span>
+<span style="color: #afaf87;"> *</span>
+<span style="color: #afaf87;"> * _.add(6, 4);</span>
+<span style="color: #afaf87;"> * // =&gt; 10</span>
+<span style="color: #afaf87;"> */</span>
+<span style="color: #d787d7; font-weight: bold;">var</span> <span style="color: #5fafff;">add</span> = createMathOperation<span style="color: #d787d7; font-weight: bold;">(function(</span><span style="color: #5fafff;">augend</span>, <span style="color: #5fafff;">addend</span><span style="color: #d787d7; font-weight: bold;">)</span> <span style="color: #d787d7; font-weight: bold;">{</span>
+  <span style="color: #d787d7; font-weight: bold;">return</span> augend + addend;
+<span style="color: #d787d7; font-weight: bold;">}</span>, 0<span style="color: #d787d7; font-weight: bold;">)</span>;
+</pre>
+</div></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: erretres</p>
+<p class="date">Created: 2020-09-24 Thu 16:20</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

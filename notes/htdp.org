@@ -1,0 +1,369 @@
+#+TITLE: How To Design Programs (notes)
+
+* How to Design Programs (notes)
+   :PROPERTIES:
+   :UNNUMBERED:
+   :CUSTOM_ID: how-to-design-programs-notes
+   :END: 
+ 
+This are some notes  from the book [[https://htdp.org/2020-8-1/Book/index.html][How To Design Programs, second edition]].
+
+
+** [[https://htdp.org/2020-8-1/Book/part_one.html][I Fixed-Size Data]]
+   :PROPERTIES:
+   :CUSTOM_ID: 1-fixed-size-data 
+   :END: 
+ 
+
+#+BEGIN_QUOTE
+Every programming language comes with a *language of data* and a *language of operations on data*. The first language always provides some forms of atomic data; to represent the variety of information in the real world as data, a programmer must learn to compose basic data and to describe such compositions. Similarly, the second language provides some basic operations on atomic data; it is the programmer’s task to compose these operations into programs that perform the desired computations. 
+#+END_QUOTE
+
+
+- Lenguage:
+    - data: 
+      - Atomic data: to represent information as data  
+    - operations on data:
+      - Basic operations on atomic data: to compose these operations into programs
+
+
+*** 1.2 The Arithmetic of Strings
+    :PROPERTIES:
+    :CUSTOM_ID: the-arithmetic-of-strings
+    :END: 
+ 
+ #+BEGIN_QUOTE
+ Programming languages are about computing with information, and information comes in all shapes and forms. For example, a program may deal with colors, names, business letters, or conversations between people. Even though we could encode this kind of information as numbers, it would be a horrible idea. Just imagine remembering large tables of codes, such as 0 means “red” and 1 means “hello,” and the like.
+
+ Instead, most programming languages provide at least one kind of data that deals with such symbolic information. 
+ #+END_QUOTE
+
+*** 1.7 Predicates: Know Thy Data
+    :PROPERTIES:
+    :CUSTOM_ID: predicates-know-thy-data
+    :END: 
+ 
+ #+BEGIN_QUOTE
+ A predicate ... is a function that consumes a value and determines whether or not it belongs to some class of data. 
+ #+END_QUOTE
+
+*** 2.1 Functions
+    :PROPERTIES:
+    :CUSTOM_ID: functions
+    :END: 
+ 
+ #+BEGIN_QUOTE
+ Since variables are about inputs, not mentioning them in the expressions means that the function’s output is independent of its input and therefore always the same. We don’t need to write functions or programs if the output is always the same.
+
+ Variables aren’t data; they represent data...
+
+ The variables in a function header, that is, the variables that follow the function name, are placeholders for unknown pieces of data, the inputs of the function. Mentioning a variable in the function body is the way to use these pieces of data when the function is applied and the values of the variables become known.
+ #+END_QUOTE
+
+*** 2.3 Composing Functions
+    :PROPERTIES:
+    :CUSTOM_ID: conposing-functions
+    :END: 
+ 
+ #+BEGIN_QUOTE
+ A program rarely consists of a single function definition. Typically, programs consist of a *main definition* and several *other functions* and turn the result of one function application into the input for another. In analogy to algebra, we call this way of defining *functions composition*, and we call these additional functions *auxiliary functions or helper functions*. 
+ #+END_QUOTE
+
+ #+BEGIN_QUOTE
+ In general, when a problem refers to distinct tasks of computation, a program should consist of:
+
+  - one function per task 
+
+
+  - and a main function that puts it all together
+
+ We formulate this idea as a simple slogan:
+
+
+     *Define one function per task.*
+ #+END_QUOTE
+
+*** 3 How to Design Programs
+    :PROPERTIES:
+    :CUSTOM_ID: how-to-design-programs
+    :END: 
+ 
+ #+BEGIN_QUOTE
+ It is critical to learn how to get from a problem statement to a program. We need to determine what is relevant in the problem statement and what can be ignored. We need to tease out what the program consumes, what it produces, and how it relates inputs to outputs. We have to know, or find out, whether the chosen language and its libraries provide certain basic operations for the data that our program is to process. If not, we might have to develop auxiliary functions that implement these operations. Finally, once we have a program, we must check whether it actually performs the intended computation. And this might reveal all kinds of errors, which we need to be able to understand and fix.
+ #+END_QUOTE
+
+
+ #+BEGIN_QUOTE
+ A good program comes with: 
+
+ - A short write-up that explains what it does
+
+
+ - What inputs it expects 
+
+
+ - And what it produces
+
+
+ - Ideally it also comes with some assurance that it actually works
+
+
+ - In the best circumstances, the program’s connection to the problem statement is evident so that a small change to the problem statement is easy to translate into a small change to the program.
+
+ #+END_QUOTE
+
+*** 3.1 Designing Functions
+    :PROPERTIES:
+    :CUSTOM_ID: designing-functions
+    :END: 
+
+ Information and Data:
+
+ #+BEGIN_QUOTE
+ The purpose of a program is to describe a computational process 
+ that consumes some information and produces new information. 
+ #+END_QUOTE
+
+ #+BEGIN_QUOTE
+ All this information comes from a part of the real world - called the program's domain - 
+ and the results of a program's computation represent more information in this domain.
+
+ *Information plays a central role in our description*.
+ *Think of information as facts about the program’s domain*.
+ #+END_QUOTE
+
+
+ #+BEGIN_QUOTE
+ For a program to process information, it must turn it into some form of data in the programming language ... then it processes the data ... and once it is finished, 
+ it turns the resulting data into information again. 
+
+ An interactive program may even intermingle these steps, acquiring more information from the world as needed and delivering information in between.
+
+ For simple kinds of information, designing such program pieces is trivial; 
+
+ for anything other than simple information you need to know about parsing, for example, and that immediately requires a lot of expertise in program design.
+
+
+ Software engineers use the slogan *model-view-controller* (MVC) for the way BSL and DrRacket:
+
+ - separate data processing from parsing information into data
+
+
+ - and turning data into information. 
+ #+END_QUOTE
+
+
+ #+BEGIN_QUOTE
+ Given the central role of information and data, program design must start with the connection between them. 
+
+ Specifically, we, the programmers, must decide how to use our chosen programming language
+ *to represent the relevant pieces of information as data* and *how we should interpret data as information*. 
+ #+END_QUOTE
+
+
+ [[file:../img/data_definition.png]]
+
+ #+BEGIN_QUOTE
+ Suppose you are designing a program that consumes and produces information in the form of numbers. While choosing a representation is easy, an interpretation requires explaining what a number such as 42 denotes in the domain:
+
+ - 42 may refer to the number of pixels from the top margin in the domain of images;
+
+
+ - 42 may denote the number of pixels per clock tick that a simulation or game object moves;
+
+
+ - 42 may mean a temperature, on the Fahrenheit, Celsius, or Kelvin scale for the domain of physics;
+
+
+ - 42 may specify the size of some table if the domain of the program is a furniture catalog; or
+
+
+ - 42 could just count the number of characters in a string.
+
+ *The key is to know how to go from numbers as information to numbers as data and vice versa*.
+
+ Since this knowledge is so important for everyone who reads the program, we often write it down in the form of *comments*, which we call *data definitions*.
+
+ - A data definition serves two purposes: 
+
+    - 1. it *names a collection of data* —a class— using a meaningful word. 
+    - 2. Computer scientists use “class” to mean something like a “mathematical set.” it informs readers *how to create elements of this class* and *how to decide* whether some arbitrary piece of data belongs to the collection.
+
+ Here is a data definition for one of the above examples:
+
+ ;; A Temperature is a Number. \\
+ ;; interpretation represents Celsius degrees
+
+
+ The first line introduces the *name* of the data collection, Temperature, and tells us that the class consists of all Numbers. 
+ #+END_QUOTE
+
+
+#+BEGIN_CENTER
+_The Design Process[fn:1]_
+#+END_CENTER
+
+
+
+ #+BEGIN_QUOTE
+ - Express how you wish to represent information as data. A one-line comment suffices, example:
+
+ #+BEGIN_SRC scheme
+ ; We use numbers to represent centimeters. 
+ #+END_SRC
+
+ - Formulate data definitions: like the one for Temperature, for the classes of data you consider critical for the success of your program.
+
+
+ - Write down a (function) signature
+
+   
+ - Write a statement of purpose
+
+
+ - Write a function header
+  
+
+ - Add examples
+
+
+ - Take inventory 
+ 
+ 
+ - Replace the function body with a template
+
+
+ - Write the body of the function
+ #+END_QUOTE
+
+
+ Function Signature:
+
+ #+BEGIN_QUOTE
+ A  *function signature* is a comment that tells the readers of your design:
+  
+     1.- how many *inputs* your function consumes
+ 
+ 
+     2.- *from which classes* they are drawn
+
+  
+     3.- and what kind of *data it produces*
+ #+END_QUOTE
+
+
+ Statement Of Purpose:
+
+ #+BEGIN_QUOTE
+A *purpose statement* is a ... comment that *summarizes the purpose of the function in a single line*. 
+
+ If you are ever in doubt about a purpose statement, write down the shortest possible answer to the question:
+
+  *what does the function compute?*
+
+  Every reader of your program should understand what your functions compute without having to read the function itself
+
+  A *multi-function program* should also *come with a purpose statement*. 
+ #+END_QUOTE
+
+
+ Function Header:
+
+ #+BEGIN_QUOTE
+ A *header is a simplistic function definition*, also called a stub. 
+
+  - Pick *one variable name* for each class of *input* in the signature; 
+
+
+  - The body of the function can be any piece of data from the output class. 
+ #+END_QUOTE
+
+
+ Take Inventory:
+
+ #+BEGIN_QUOTE
+ Take inventory to understand what are the givens and what we need to compute.
+ For the simple functions we are considering right now, *we know that they are given data via parameters*. 
+
+ While parameters are placeholders for values that we don’t know yet, we do know that it is from this unknown data that the function must compute its result. 
+
+ To remind ourselves of this fact, *we replace the function’s body with a template*. For now, the template contains just the parameters, so that the preceding example looks like this:
+
+ #+BEGIN_SRC scheme
+ (define (area-of-square len)
+    (... len ...))
+ #+END_SRC
+
+ The dots remind you that this isn’t a complete function, but a template, a suggestion for an organization.
+ #+END_QUOTE
+
+ Write The Body Of The Function:
+
+ #+BEGIN_QUOTE
+ In general, ... means to program, though often in the narrowest possible way, namely, 
+ to write *executable expressions and function definitions*.
+
+ To us, ... means to replace the body of the function with an expression that attempts to compute from the pieces in the template what the purpose statement promises. 
+ #+END_QUOTE
+
+ Testing:
+
+ #+BEGIN_QUOTE
+ Test the function on the examples you worked out before.
+
+ If the result doesn’t match the expected output, consider the following three possibilities:
+
+ 1.- You miscalculated and determined the wrong expected output for some of the examples
+
+
+ 2.- Alternatively, the function definition computes the wrong result When this is the case, you have a logical error in your program, also known as a bug
+
+
+ 3.- Both the examples and the function definition are wrong
+
+ When you do encounter a mismatch between expected results and actual values, we recommend that you:
+
+
+ - first reassure yourself that the expected results are correct. 
+
+
+ - If so, assume that the mistake is in the function definition. 
+
+
+ - Otherwise, fix the example and then run the tests again. 
+
+ If you are still encountering problems, you may have encountered the third, somewhat rare, situation.
+ #+END_QUOTE
+
+ #+BEGIN_CENTER
+ _THE DESIGN PROCESS_
+ #+END_CENTER
+
+ [[file:../img/design_functions.png]]
+
+
+*** Footnotes
+
+  
+[fn:1] The lodash documentation can be used as example of this approach:
+
+#+BEGIN_SRC js
+/**
+ * Adds two numbers.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.4.0
+ * @category Math
+ * @param {number} augend The first number in an addition.
+ * @param {number} addend The second number in an addition.
+ * @returns {number} Returns the total.
+ * @example
+ *
+ * _.add(6, 4);
+ * // => 10
+ */
+var add = createMathOperation(function(augend, addend) {
+  return augend + addend;
+}, 0);
+#+END_SRC
