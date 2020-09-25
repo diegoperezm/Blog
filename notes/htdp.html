@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-25 Fri 09:05 -->
+<!-- 2020-09-25 Fri 09:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How To Design Programs (notes)</title>
@@ -244,13 +244,13 @@ for the JavaScript code in this tag.
 <li><a href="#conposing-functions">2.3 Composing Functions</a></li>
 <li><a href="#how-to-design-programs">3 How to Design Programs</a></li>
 <li><a href="#designing-functions">3.1 Designing Functions</a></li>
-<li><a href="#orgc5f9989">3.3 Domain Knowledge</a></li>
-<li><a href="#org70b206e">3.4 From Functions to Programs</a></li>
-<li><a href="#orge9f2617">3.5 On Testing</a></li>
-<li><a href="#orgffa5f1b">3.6 Designing World Programs</a></li>
-<li><a href="#orga2dcede">4 Intervals, Enumerations, and Itemizations</a></li>
-<li><a href="#org87aeba2">4.1 Programming with Conditionals</a></li>
-<li><a href="#org0c9f4e8">4.3 Enumerations</a></li>
+<li><a href="#doman-knlowledge">3.3 Domain Knowledge</a></li>
+<li><a href="#from-functions-to-programs">3.4 From Functions to Programs</a></li>
+<li><a href="#on-testing">3.5 On Testing</a></li>
+<li><a href="#designing-world-programs">3.6 Designing World Programs</a></li>
+<li><a href="#intervals-enumerations-and-itemizations">4 Intervals, Enumerations, and Itemizations</a></li>
+<li><a href="#programming-with-conditionals">4.1 Programming with Conditionals</a></li>
+<li><a href="#enumerations">4.3 Enumerations</a></li>
 </ul>
 </li>
 </ul>
@@ -259,8 +259,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org440471c" class="outline-2">
-<h2 id="how-to-design-programs-notes"><a id="org440471c"></a>How to Design Programs (notes)</h2>
+<div id="outline-container-org1a2b5d6" class="outline-2">
+<h2 id="how-to-design-programs-notes"><a id="org1a2b5d6"></a>How to Design Programs (notes)</h2>
 <div class="outline-text-2" id="text-how-to-design-programs-notes">
 <p>
 This are some notes  from the book <a href="https://htdp.org/2020-8-1/Book/index.html">How To Design Programs, second edition</a>.
@@ -268,8 +268,8 @@ This are some notes  from the book <a href="https://htdp.org/2020-8-1/Book/index
 </div>
 
 
-<div id="outline-container-org901ad71" class="outline-3">
-<h3 id="1-fixed-size-data"><a id="org901ad71"></a><a href="https://htdp.org/2020-8-1/Book/part_one.html">I Fixed-Size Data</a></h3>
+<div id="outline-container-orgb3b7a70" class="outline-3">
+<h3 id="1-fixed-size-data"><a id="orgb3b7a70"></a><a href="https://htdp.org/2020-8-1/Book/part_one.html">I Fixed-Size Data</a></h3>
 <div class="outline-text-3" id="text-1-fixed-size-data">
 <blockquote>
 <p>
@@ -294,8 +294,8 @@ Every programming language comes with a <b>language of data</b> and a <b>languag
 </div>
 
 
-<div id="outline-container-org1b0ec2c" class="outline-4">
-<h4 id="the-arithmetic-of-strings"><a id="org1b0ec2c"></a>1.2 The Arithmetic of Strings</h4>
+<div id="outline-container-orge32dd23" class="outline-4">
+<h4 id="the-arithmetic-of-strings"><a id="orge32dd23"></a>1.2 The Arithmetic of Strings</h4>
 <div class="outline-text-4" id="text-the-arithmetic-of-strings">
 <blockquote>
 <p>
@@ -309,8 +309,8 @@ Instead, most programming languages provide at least one kind of data that deals
 </div>
 </div>
 
-<div id="outline-container-org5ea29d1" class="outline-4">
-<h4 id="predicates-know-thy-data"><a id="org5ea29d1"></a>1.7 Predicates: Know Thy Data</h4>
+<div id="outline-container-org02c09ab" class="outline-4">
+<h4 id="predicates-know-thy-data"><a id="org02c09ab"></a>1.7 Predicates: Know Thy Data</h4>
 <div class="outline-text-4" id="text-predicates-know-thy-data">
 <blockquote>
 <p>
@@ -320,8 +320,8 @@ A predicate &#x2026; is a function that consumes a value and determines whether 
 </div>
 </div>
 
-<div id="outline-container-orgea2a890" class="outline-4">
-<h4 id="functions"><a id="orgea2a890"></a>2.1 Functions</h4>
+<div id="outline-container-org3ae3fd0" class="outline-4">
+<h4 id="functions"><a id="org3ae3fd0"></a>2.1 Functions</h4>
 <div class="outline-text-4" id="text-functions">
 <blockquote>
 <p>
@@ -339,8 +339,8 @@ The variables in a function header, that is, the variables that follow the funct
 </div>
 </div>
 
-<div id="outline-container-org6b248ac" class="outline-4">
-<h4 id="conposing-functions"><a id="org6b248ac"></a>2.3 Composing Functions</h4>
+<div id="outline-container-org63b9fc5" class="outline-4">
+<h4 id="conposing-functions"><a id="org63b9fc5"></a>2.3 Composing Functions</h4>
 <div class="outline-text-4" id="text-conposing-functions">
 <blockquote>
 <p>
@@ -374,8 +374,8 @@ We formulate this idea as a simple slogan:
 </div>
 </div>
 
-<div id="outline-container-org6ca888b" class="outline-4">
-<h4 id="how-to-design-programs"><a id="org6ca888b"></a>3 How to Design Programs</h4>
+<div id="outline-container-orgfd29eb7" class="outline-4">
+<h4 id="how-to-design-programs"><a id="orgfd29eb7"></a>3 How to Design Programs</h4>
 <div class="outline-text-4" id="text-how-to-design-programs">
 <blockquote>
 <p>
@@ -416,8 +416,8 @@ A good program comes with:
 </div>
 </div>
 
-<div id="outline-container-orga56b69a" class="outline-4">
-<h4 id="designing-functions"><a id="orga56b69a"></a>3.1 Designing Functions</h4>
+<div id="outline-container-org6a12dcf" class="outline-4">
+<h4 id="designing-functions"><a id="org6a12dcf"></a>3.1 Designing Functions</h4>
 <div class="outline-text-4" id="text-designing-functions">
 <p>
 Information and Data:
@@ -797,9 +797,9 @@ If you are still encountering problems, you may have encountered the third, some
 </div>
 </div>
 
-<div id="outline-container-orgc5f9989" class="outline-4">
-<h4 id="orgc5f9989">3.3 Domain Knowledge</h4>
-<div class="outline-text-4" id="text-orgc5f9989">
+<div id="outline-container-orga016ad0" class="outline-4">
+<h4 id="doman-knlowledge"><a id="orga016ad0"></a>3.3 Domain Knowledge</h4>
+<div class="outline-text-4" id="text-doman-knlowledge">
 <blockquote>
 <p>
 It is natural to wonder what knowledge it takes to code up the body of a function. 
@@ -833,9 +833,9 @@ You can recognize problems that demand domain knowledge from the data definition
 </div>
 </div>
 
-<div id="outline-container-org70b206e" class="outline-4">
-<h4 id="org70b206e">3.4 From Functions to Programs</h4>
-<div class="outline-text-4" id="text-org70b206e">
+<div id="outline-container-org91aa3c0" class="outline-4">
+<h4 id="from-functions-to-programs"><a id="org91aa3c0"></a>3.4 From Functions to Programs</h4>
+<div class="outline-text-4" id="text-from-functions-to-programs">
 <blockquote>
 <p>
 
@@ -895,9 +895,9 @@ As long as the list isn’t empty, pick a wish and design the function.
 </div>
 </div>
 
-<div id="outline-container-orge9f2617" class="outline-4">
-<h4 id="orge9f2617">3.5 On Testing</h4>
-<div class="outline-text-4" id="text-orge9f2617">
+<div id="outline-container-org237ff22" class="outline-4">
+<h4 id="on-testing"><a id="org237ff22"></a>3.5 On Testing</h4>
+<div class="outline-text-4" id="text-on-testing">
 <blockquote>
 <p>
 It is critical to mechanize tests instead of performing them manually. 
@@ -942,10 +942,9 @@ One day you will switch to some other programming language &#x2026; one of your 
 </div>
 </div>
 
-
-<div id="outline-container-orgffa5f1b" class="outline-4">
-<h4 id="orgffa5f1b">3.6 Designing World Programs</h4>
-<div class="outline-text-4" id="text-orgffa5f1b">
+<div id="outline-container-org6223f4c" class="outline-4">
+<h4 id="designing-world-programs"><a id="org6223f4c"></a>3.6 Designing World Programs</h4>
+<div class="outline-text-4" id="text-designing-world-programs">
 
 <div class="figure">
 <p><img src="../img/design_world.png" alt="design_world.png" />
@@ -954,9 +953,9 @@ One day you will switch to some other programming language &#x2026; one of your 
 </div>
 </div>
 
-<div id="outline-container-orga2dcede" class="outline-4">
-<h4 id="orga2dcede">4 Intervals, Enumerations, and Itemizations</h4>
-<div class="outline-text-4" id="text-orga2dcede">
+<div id="outline-container-org94023ac" class="outline-4">
+<h4 id="intervals-enumerations-and-itemizations"><a id="org94023ac"></a>4 Intervals, Enumerations, and Itemizations</h4>
+<div class="outline-text-4" id="text-intervals-enumerations-and-itemizations">
 <blockquote>
 <p>
 At the moment we have 4  choices to represent information as data:
@@ -1035,9 +1034,9 @@ functions that choose different ways of computing results depending on the value
 </div>
 </div>
 
-<div id="outline-container-org87aeba2" class="outline-4">
-<h4 id="org87aeba2">4.1 Programming with Conditionals</h4>
-<div class="outline-text-4" id="text-org87aeba2">
+<div id="outline-container-orga979f0e" class="outline-4">
+<h4 id="programming-with-conditionals"><a id="orga979f0e"></a>4.1 Programming with Conditionals</h4>
+<div class="outline-text-4" id="text-programming-with-conditionals">
 <blockquote>
 <p>
 In many problem contexts, a function must distinguish several different situations:
@@ -1062,9 +1061,9 @@ We  always use cond for situations when:
 </div>
 </div>
 
-<div id="outline-container-org0c9f4e8" class="outline-4">
-<h4 id="org0c9f4e8">4.3 Enumerations</h4>
-<div class="outline-text-4" id="text-org0c9f4e8">
+<div id="outline-container-orgd600163" class="outline-4">
+<h4 id="enumerations"><a id="orgd600163"></a>4.3 Enumerations</h4>
+<div class="outline-text-4" id="text-enumerations">
 <blockquote>
 <p>
 The main idea of an enumeration is:
@@ -1175,7 +1174,7 @@ The lodash documentation can be used as example of this approach:
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: erretres</p>
-<p class="date">Created: 2020-09-25 Fri 09:05</p>
+<p class="date">Created: 2020-09-25 Fri 09:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
