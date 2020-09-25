@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-24 Thu 16:20 -->
+<!-- 2020-09-25 Fri 09:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How To Design Programs (notes)</title>
@@ -244,6 +244,13 @@ for the JavaScript code in this tag.
 <li><a href="#conposing-functions">2.3 Composing Functions</a></li>
 <li><a href="#how-to-design-programs">3 How to Design Programs</a></li>
 <li><a href="#designing-functions">3.1 Designing Functions</a></li>
+<li><a href="#orgc5f9989">3.3 Domain Knowledge</a></li>
+<li><a href="#org70b206e">3.4 From Functions to Programs</a></li>
+<li><a href="#orge9f2617">3.5 On Testing</a></li>
+<li><a href="#orgffa5f1b">3.6 Designing World Programs</a></li>
+<li><a href="#orga2dcede">4 Intervals, Enumerations, and Itemizations</a></li>
+<li><a href="#org87aeba2">4.1 Programming with Conditionals</a></li>
+<li><a href="#org0c9f4e8">4.3 Enumerations</a></li>
 </ul>
 </li>
 </ul>
@@ -252,8 +259,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org915856f" class="outline-2">
-<h2 id="how-to-design-programs-notes"><a id="org915856f"></a>How to Design Programs (notes)</h2>
+<div id="outline-container-org440471c" class="outline-2">
+<h2 id="how-to-design-programs-notes"><a id="org440471c"></a>How to Design Programs (notes)</h2>
 <div class="outline-text-2" id="text-how-to-design-programs-notes">
 <p>
 This are some notes  from the book <a href="https://htdp.org/2020-8-1/Book/index.html">How To Design Programs, second edition</a>.
@@ -261,8 +268,8 @@ This are some notes  from the book <a href="https://htdp.org/2020-8-1/Book/index
 </div>
 
 
-<div id="outline-container-org8bc47b3" class="outline-3">
-<h3 id="1-fixed-size-data"><a id="org8bc47b3"></a><a href="https://htdp.org/2020-8-1/Book/part_one.html">I Fixed-Size Data</a></h3>
+<div id="outline-container-org901ad71" class="outline-3">
+<h3 id="1-fixed-size-data"><a id="org901ad71"></a><a href="https://htdp.org/2020-8-1/Book/part_one.html">I Fixed-Size Data</a></h3>
 <div class="outline-text-3" id="text-1-fixed-size-data">
 <blockquote>
 <p>
@@ -287,8 +294,8 @@ Every programming language comes with a <b>language of data</b> and a <b>languag
 </div>
 
 
-<div id="outline-container-orgeac039d" class="outline-4">
-<h4 id="the-arithmetic-of-strings"><a id="orgeac039d"></a>1.2 The Arithmetic of Strings</h4>
+<div id="outline-container-org1b0ec2c" class="outline-4">
+<h4 id="the-arithmetic-of-strings"><a id="org1b0ec2c"></a>1.2 The Arithmetic of Strings</h4>
 <div class="outline-text-4" id="text-the-arithmetic-of-strings">
 <blockquote>
 <p>
@@ -302,8 +309,8 @@ Instead, most programming languages provide at least one kind of data that deals
 </div>
 </div>
 
-<div id="outline-container-org6aac121" class="outline-4">
-<h4 id="predicates-know-thy-data"><a id="org6aac121"></a>1.7 Predicates: Know Thy Data</h4>
+<div id="outline-container-org5ea29d1" class="outline-4">
+<h4 id="predicates-know-thy-data"><a id="org5ea29d1"></a>1.7 Predicates: Know Thy Data</h4>
 <div class="outline-text-4" id="text-predicates-know-thy-data">
 <blockquote>
 <p>
@@ -313,8 +320,8 @@ A predicate &#x2026; is a function that consumes a value and determines whether 
 </div>
 </div>
 
-<div id="outline-container-orgdfdd6ec" class="outline-4">
-<h4 id="functions"><a id="orgdfdd6ec"></a>2.1 Functions</h4>
+<div id="outline-container-orgea2a890" class="outline-4">
+<h4 id="functions"><a id="orgea2a890"></a>2.1 Functions</h4>
 <div class="outline-text-4" id="text-functions">
 <blockquote>
 <p>
@@ -332,8 +339,8 @@ The variables in a function header, that is, the variables that follow the funct
 </div>
 </div>
 
-<div id="outline-container-orge54f9c0" class="outline-4">
-<h4 id="conposing-functions"><a id="orge54f9c0"></a>2.3 Composing Functions</h4>
+<div id="outline-container-org6b248ac" class="outline-4">
+<h4 id="conposing-functions"><a id="org6b248ac"></a>2.3 Composing Functions</h4>
 <div class="outline-text-4" id="text-conposing-functions">
 <blockquote>
 <p>
@@ -367,8 +374,8 @@ We formulate this idea as a simple slogan:
 </div>
 </div>
 
-<div id="outline-container-org3ed9ad5" class="outline-4">
-<h4 id="how-to-design-programs"><a id="org3ed9ad5"></a>3 How to Design Programs</h4>
+<div id="outline-container-org6ca888b" class="outline-4">
+<h4 id="how-to-design-programs"><a id="org6ca888b"></a>3 How to Design Programs</h4>
 <div class="outline-text-4" id="text-how-to-design-programs">
 <blockquote>
 <p>
@@ -409,8 +416,8 @@ A good program comes with:
 </div>
 </div>
 
-<div id="outline-container-org84c338f" class="outline-4">
-<h4 id="designing-functions"><a id="org84c338f"></a>3.1 Designing Functions</h4>
+<div id="outline-container-orga56b69a" class="outline-4">
+<h4 id="designing-functions"><a id="orga56b69a"></a>3.1 Designing Functions</h4>
 <div class="outline-text-4" id="text-designing-functions">
 <p>
 Information and Data:
@@ -789,6 +796,348 @@ If you are still encountering problems, you may have encountered the third, some
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgc5f9989" class="outline-4">
+<h4 id="orgc5f9989">3.3 Domain Knowledge</h4>
+<div class="outline-text-4" id="text-orgc5f9989">
+<blockquote>
+<p>
+It is natural to wonder what knowledge it takes to code up the body of a function. 
+this step demands an appropriate grasp of the domain of the program. 
+</p>
+
+<p>
+Indeed, there are two forms of such domain knowledge:
+</p>
+
+<p>
+1.- Knowledge from <b>external domains</b>, such as:
+</p>
+
+<ul class="org-ul">
+<li>mathematics,</li>
+<li>music,</li>
+<li>biology,</li>
+<li>civil engineering,</li>
+<li>art, and so on.</li>
+</ul>
+
+<p>
+2.- Knowledge about the library functions in the chosen programming language
+</p>
+
+<p>
+You can recognize problems that demand domain knowledge from the data definitions that you work out.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org70b206e" class="outline-4">
+<h4 id="org70b206e">3.4 From Functions to Programs</h4>
+<div class="outline-text-4" id="text-org70b206e">
+<blockquote>
+<p>
+
+</p>
+
+<p>
+Not all programs consist of a single function definition.Some require several functions.
+</p>
+
+<p>
+Multi-function programs come about because interactive programs automatically need 
+functions that handle key and mouse events, functions that render the state as music, and possibly more.
+</p>
+
+<p>
+Sometimes the problem statement itself suggests these tasks &#x2026; other times you will discover the need for auxiliary functions as you are in the middle of designing some function.
+</p>
+
+<p>
+For these reasons, <b>we recommend keeping around a list of needed functions or a wish list.</b>
+</p>
+
+<ul class="org-ul">
+<li>Each entry on a wish list should consist of three things: 
+
+<ul class="org-ul">
+<li>A meaningful name for the function</li>
+<li>A signature</li>
+<li>And a purpose statement</li>
+</ul></li>
+</ul>
+
+<p>
+For the design of an interactive program:
+</p>
+
+
+<ul class="org-ul">
+<li>you can put the event handlers</li>
+<li>the stop-when function</li>
+<li>and the scene-rendering function on the list.</li>
+</ul>
+
+<p>
+As long as the list isn’t empty, pick a wish and design the function. 
+</p>
+
+<ul class="org-ul">
+<li>If you discover during the design that you need another function:
+<ul class="org-ul">
+<li>put it on the list</li>
+</ul></li>
+
+<li>When the list is empty, you are done</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orge9f2617" class="outline-4">
+<h4 id="orge9f2617">3.5 On Testing</h4>
+<div class="outline-text-4" id="text-orge9f2617">
+<blockquote>
+<p>
+It is critical to mechanize tests instead of performing them manually. 
+</p>
+
+<p>
+For the design of this function, you may formulate the tests such as the following:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme">
+(check-expect (render 50) image/real)
+
+(check-expect (render 200) image/real)
+</pre>
+</div>
+
+<p>
+Alternatively, you could write them like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme">(check-expect (render 50) (place-image CAR 50 Y-CAR BACKGROUND))
+
+(check-expect (render 200) (place-image CAR 200 Y-CAR BACKGROUND))
+</pre>
+</div>
+
+
+<p>
+This alternative approach helps you figure out how to express the function body and is therefore preferable. 
+</p>
+
+<p>
+One way to develop such expressions is to experiment in the interactions area.
+</p>
+
+<p>
+One day you will switch to some other programming language &#x2026; one of your first tasks will be to figure out its unit-testing framework.
+</p>
+</blockquote>
+</div>
+</div>
+
+
+<div id="outline-container-orgffa5f1b" class="outline-4">
+<h4 id="orgffa5f1b">3.6 Designing World Programs</h4>
+<div class="outline-text-4" id="text-orgffa5f1b">
+
+<div class="figure">
+<p><img src="../img/design_world.png" alt="design_world.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga2dcede" class="outline-4">
+<h4 id="orga2dcede">4 Intervals, Enumerations, and Itemizations</h4>
+<div class="outline-text-4" id="text-orga2dcede">
+<blockquote>
+<p>
+At the moment we have 4  choices to represent information as data:
+</p>
+<ol class="org-ol">
+<li>numbers</li>
+<li>strings</li>
+<li>images</li>
+<li>Boolean values</li>
+</ol>
+</blockquote>
+
+<blockquote>
+<p>
+Actual designers need additional ways of representing information as data.
+</p>
+
+<ul class="org-ul">
+<li><p>
+New forms of data descriptions
+</p>
+
+<p>
+a.- enumerations
+</p>
+<ul class="org-ul">
+<li>collection with a finite number of element</li>
+<li>lists every single piece of data that belongs to it</li>
+</ul>
+
+<p>
+b.- intervals
+</p>
+<ul class="org-ul">
+<li>collections of elements that satisfy a specific property</li>
+<li>collection with infinitely many elements</li>
+<li>specifies a range of data</li>
+</ul>
+
+<p>
+c.- itemizations
+</p>
+<ul class="org-ul">
+<li>specifies ranges in one clause of its definition</li>
+<li>and specific pieces of data in another clause</li>
+</ul></li>
+</ul>
+</blockquote>
+
+
+
+<p>
+Intervals:
+</p>
+<blockquote>
+<p>
+Infinite may just mean “so large that enumerating the elements is entirely impractical.”
+</p>
+</blockquote>
+
+
+<blockquote>
+<p>
+Defining enumerations and intervals means distinguishing among different kinds of elements.
+</p>
+
+<ul class="org-ul">
+<li>To distinguish in code requires:
+
+<ul class="org-ul">
+<li><b>conditional functions</b>: <br />
+functions that choose different ways of computing results depending on the value of some argument.</li>
+</ul></li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org87aeba2" class="outline-4">
+<h4 id="org87aeba2">4.1 Programming with Conditionals</h4>
+<div class="outline-text-4" id="text-org87aeba2">
+<blockquote>
+<p>
+In many problem contexts, a function must distinguish several different situations:
+We  always use cond for situations when:
+</p>
+
+<ul class="org-ul">
+<li>We wish to remind the reader of our code that some distinct situations come directly from data definitions</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>With a cond expression, you can use one line per possibility
+<ul class="org-ul">
+<li>too complex conditions in a cond expression:
+<ul class="org-ul">
+<li>else keyword for the very last cond line ("in all other cases")</li>
+</ul></li>
+</ul></li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org0c9f4e8" class="outline-4">
+<h4 id="org0c9f4e8">4.3 Enumerations</h4>
+<div class="outline-text-4" id="text-org0c9f4e8">
+<blockquote>
+<p>
+The main idea of an enumeration is:
+</p>
+
+<ul class="org-ul">
+<li>it defines a collection of data as a finite number of pieces of data</li>
+</ul>
+
+<p>
+Each item explicitly:
+</p>
+<ul class="org-ul">
+<li>Spells out which piece of data belongs to the class of data that we are defining.
+A data representation in which every possibility is listed</li>
+</ul>
+<ul class="org-ul">
+<li>When a function’s input is a class of data whose description spells out its elements on a case-by-case basis:
+
+<ul class="org-ul">
+<li>The function should distinguish just those cases</li>
+<li>and compute the result on a per-case basis</li>
+</ul></li>
+</ul>
+</blockquote>
+
+
+<p>
+Examples:
+</p>
+<blockquote>
+<p>
+
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">A MouseEvt is one of these Strings:</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "button-down"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "button-up"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "drag"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "move"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "enter"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "leave"</span>
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">A TrafficLight is one of the following Strings:</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "red"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "green"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "yellow"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">interpretation the three strings represent the three</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">possible states that a traffic light may assume</span>
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">TrafficLight -&gt; TrafficLight</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">yields the next state given current state s</span>
+(check-expect (traffic-light-next <span style="color: #87af5f;">"red"</span>) <span style="color: #87af5f;">"green"</span>)
+
+(<span style="color: #d787d7; font-weight: bold;">define</span> (<span style="color: #5fafff;">traffic-light-next</span> s)
+  (<span style="color: #d787d7; font-weight: bold;">cond</span>
+   [(string=? <span style="color: #87af5f;">"red"</span> s) <span style="color: #87af5f;">"green"</span>]
+   [(string=? <span style="color: #87af5f;">"green"</span> s) <span style="color: #87af5f;">"yellow"</span>]
+   [(string=? <span style="color: #87af5f;">"yellow"</span> s) <span style="color: #87af5f;">"red"</span>]))
+</pre>
+</div>
+</blockquote>
+</div>
+</div>
 </div>
 </div>
 <div id="footnotes">
@@ -826,7 +1175,7 @@ The lodash documentation can be used as example of this approach:
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: erretres</p>
-<p class="date">Created: 2020-09-24 Thu 16:20</p>
+<p class="date">Created: 2020-09-25 Fri 09:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

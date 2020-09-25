@@ -341,6 +341,219 @@ A *purpose statement* is a ... comment that *summarizes the purpose of the funct
 
  [[file:../img/design_functions.png]]
 
+*** 3.3 Domain Knowledge
+
+#+BEGIN_QUOTE
+It is natural to wonder what knowledge it takes to code up the body of a function. 
+this step demands an appropriate grasp of the domain of the program. 
+
+Indeed, there are two forms of such domain knowledge:
+
+1.- Knowledge from *external domains*, such as:
+
+ - mathematics,
+ - music, 
+ - biology,
+ - civil engineering, 
+ - art, and so on. 
+   
+2.- Knowledge about the library functions in the chosen programming language
+
+You can recognize problems that demand domain knowledge from the data definitions that you work out.
+
+#+END_QUOTE
+
+*** 3.4 From Functions to Programs
+
+
+#+BEGIN_QUOTE
+
+Not all programs consist of a single function definition.Some require several functions.
+
+Multi-function programs come about because interactive programs automatically need 
+functions that handle key and mouse events, functions that render the state as music, and possibly more.
+
+Sometimes the problem statement itself suggests these tasks ... other times you will discover the need for auxiliary functions as you are in the middle of designing some function.
+
+For these reasons, *we recommend keeping around a list of needed functions or a wish list.*
+
+- Each entry on a wish list should consist of three things: 
+
+ - A meaningful name for the function
+ - A signature 
+ - And a purpose statement
+
+For the design of an interactive program:
+
+
+- you can put the event handlers
+- the stop-when function
+- and the scene-rendering function on the list. 
+
+As long as the list isn’t empty, pick a wish and design the function. 
+
+- If you discover during the design that you need another function:
+ - put it on the list
+
+- When the list is empty, you are done
+#+END_QUOTE
+
+*** 3.5 On Testing
+    
+#+BEGIN_QUOTE
+It is critical to mechanize tests instead of performing them manually. 
+ 
+For the design of this function, you may formulate the tests such as the following:
+
+#+BEGIN_SRC scheme
+
+(check-expect (render 50) image/real)
+
+(check-expect (render 200) image/real)
+#+END_SRC
+
+Alternatively, you could write them like this:
+
+#+BEGIN_SRC scheme
+(check-expect (render 50) (place-image CAR 50 Y-CAR BACKGROUND))
+              
+(check-expect (render 200) (place-image CAR 200 Y-CAR BACKGROUND))
+#+END_SRC
+
+
+This alternative approach helps you figure out how to express the function body and is therefore preferable. 
+
+One way to develop such expressions is to experiment in the interactions area.
+
+One day you will switch to some other programming language ... one of your first tasks will be to figure out its unit-testing framework.
+#+END_QUOTE
+
+
+*** 3.6 Designing World Programs
+
+
+[[file:../img/design_world.png]]
+
+*** 4 Intervals, Enumerations, and Itemizations
+
+#+BEGIN_QUOTE
+At the moment we have 4  choices to represent information as data:
+   1. numbers
+   2. strings
+   3. images
+   4. Boolean values
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Actual designers need additional ways of representing information as data.
+
+- New forms of data descriptions
+
+   a.- enumerations
+    - collection with a finite number of element
+    - lists every single piece of data that belongs to it
+
+   b.- intervals
+    - collections of elements that satisfy a specific property
+    - collection with infinitely many elements
+    - specifies a range of data
+
+   c.- itemizations
+    - specifies ranges in one clause of its definition
+    - and specific pieces of data in another clause
+
+#+END_QUOTE
+
+
+
+Intervals:
+#+BEGIN_QUOTE
+   Infinite may just mean “so large that enumerating the elements is entirely impractical.”
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+Defining enumerations and intervals means distinguishing among different kinds of elements.
+
+- To distinguish in code requires:
+
+   - *conditional functions*: \\
+       functions that choose different ways of computing results depending on the value of some argument.
+#+END_QUOTE
+
+*** 4.1 Programming with Conditionals
+
+#+BEGIN_QUOTE
+In many problem contexts, a function must distinguish several different situations:
+We  always use cond for situations when:
+
+- We wish to remind the reader of our code that some distinct situations come directly from data definitions
+
+
+- With a cond expression, you can use one line per possibility
+  - too complex conditions in a cond expression:
+    -  else keyword for the very last cond line ("in all other cases")
+#+END_QUOTE
+
+*** 4.3 Enumerations
+
+#+BEGIN_QUOTE
+The main idea of an enumeration is:
+
+ - it defines a collection of data as a finite number of pieces of data
+
+Each item explicitly:
+ - Spells out which piece of data belongs to the class of data that we are defining.
+   A data representation in which every possibility is listed
+
+- When a function’s input is a class of data whose description spells out its elements on a case-by-case basis:
+
+   - The function should distinguish just those cases
+   - and compute the result on a per-case basis
+#+END_QUOTE
+
+
+Examples:
+#+BEGIN_QUOTE
+
+#+BEGIN_SRC scheme
+; A MouseEvt is one of these Strings:
+; – "button-down"
+; – "button-up"
+; – "drag"
+; – "move"
+; – "enter"
+; – "leave"
+#+END_SRC
+
+
+#+BEGIN_SRC scheme
+; A TrafficLight is one of the following Strings:
+; – "red"
+; – "green"
+; – "yellow"
+; interpretation the three strings represent the three
+; possible states that a traffic light may assume
+#+END_SRC
+
+
+#+BEGIN_SRC scheme
+; TrafficLight -> TrafficLight
+; yields the next state given current state s
+(check-expect (traffic-light-next "red") "green")
+
+(define (traffic-light-next s)
+  (cond
+   [(string=? "red" s) "green"]
+   [(string=? "green" s) "yellow"]
+   [(string=? "yellow" s) "red"]))
+#+END_SRC
+#+END_QUOTE
+
+
+
+
+
 
 *** Footnotes
 
