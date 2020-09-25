@@ -342,6 +342,10 @@ A *purpose statement* is a ... comment that *summarizes the purpose of the funct
  [[file:../img/design_functions.png]]
 
 *** 3.3 Domain Knowledge
+    :PROPERTIES:
+    :CUSTOM_ID: doman-knlowledge 
+    :END: 
+
 
 #+BEGIN_QUOTE
 It is natural to wonder what knowledge it takes to code up the body of a function. 
@@ -364,6 +368,10 @@ You can recognize problems that demand domain knowledge from the data definition
 #+END_QUOTE
 
 *** 3.4 From Functions to Programs
+    :PROPERTIES:
+    :CUSTOM_ID: from-functions-to-programs 
+    :END: 
+
 
 
 #+BEGIN_QUOTE
@@ -399,6 +407,11 @@ As long as the list isn’t empty, pick a wish and design the function.
 #+END_QUOTE
 
 *** 3.5 On Testing
+    :PROPERTIES:
+    :CUSTOM_ID: on-testing
+    :END: 
+
+ 
     
 #+BEGIN_QUOTE
 It is critical to mechanize tests instead of performing them manually. 
@@ -428,13 +441,20 @@ One way to develop such expressions is to experiment in the interactions area.
 One day you will switch to some other programming language ... one of your first tasks will be to figure out its unit-testing framework.
 #+END_QUOTE
 
-
 *** 3.6 Designing World Programs
+    :PROPERTIES:
+    :CUSTOM_ID: designing-world-programs
+    :END: 
+
 
 
 [[file:../img/design_world.png]]
 
 *** 4 Intervals, Enumerations, and Itemizations
+    :PROPERTIES:
+    :CUSTOM_ID: intervals-enumerations-and-itemizations 
+    :END: 
+
 
 #+BEGIN_QUOTE
 At the moment we have 4  choices to represent information as data:
@@ -482,6 +502,10 @@ Defining enumerations and intervals means distinguishing among different kinds o
 #+END_QUOTE
 
 *** 4.1 Programming with Conditionals
+    :PROPERTIES:
+    :CUSTOM_ID: programming-with-conditionals 
+    :END: 
+
 
 #+BEGIN_QUOTE
 In many problem contexts, a function must distinguish several different situations:
@@ -496,6 +520,10 @@ We  always use cond for situations when:
 #+END_QUOTE
 
 *** 4.3 Enumerations
+    :PROPERTIES:
+    :CUSTOM_ID: enumerations 
+    :END: 
+
 
 #+BEGIN_QUOTE
 The main idea of an enumeration is:
