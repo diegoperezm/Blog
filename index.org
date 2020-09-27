@@ -1,4 +1,5 @@
 #+TITLE: BLOG
+#+SETUPFILE: org-html-themes/setup/theme-readtheorg.setup 
 
 * 500 lines or less, AOSA
 :PROPERTIES:
