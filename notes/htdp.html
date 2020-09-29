@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-27 Sun 10:07 -->
+<!-- 2020-09-29 Tue 11:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How To Design Programs (notes)</title>
@@ -257,6 +257,8 @@ for the JavaScript code in this tag.
 <li><a href="#intervals-enumerations-and-itemizations">4 Intervals, Enumerations, and Itemizations</a></li>
 <li><a href="#programming-with-conditionals">4.1 Programming with Conditionals</a></li>
 <li><a href="#enumerations">4.3 Enumerations</a></li>
+<li><a href="#intervals">4.4 Intervals</a></li>
+<li><a href="#itemization">4.5 Itemizations</a></li>
 </ul>
 </li>
 </ul>
@@ -265,8 +267,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org2a0f32a" class="outline-2">
-<h2 id="how-to-design-programs-notes"><a id="org2a0f32a"></a>How to Design Programs (notes)</h2>
+<div id="outline-container-org608cedd" class="outline-2">
+<h2 id="how-to-design-programs-notes"><a id="org608cedd"></a>How to Design Programs (notes)</h2>
 <div class="outline-text-2" id="text-how-to-design-programs-notes">
 <p>
 This are some notes  from the book <a href="https://htdp.org/2020-8-1/Book/index.html">How To Design Programs, second edition</a>.
@@ -274,8 +276,8 @@ This are some notes  from the book <a href="https://htdp.org/2020-8-1/Book/index
 </div>
 
 
-<div id="outline-container-org632cf59" class="outline-3">
-<h3 id="1-fixed-size-data"><a id="org632cf59"></a><a href="https://htdp.org/2020-8-1/Book/part_one.html">I Fixed-Size Data</a></h3>
+<div id="outline-container-org7d8c962" class="outline-3">
+<h3 id="1-fixed-size-data"><a id="org7d8c962"></a><a href="https://htdp.org/2020-8-1/Book/part_one.html">I Fixed-Size Data</a></h3>
 <div class="outline-text-3" id="text-1-fixed-size-data">
 <blockquote>
 <p>
@@ -300,8 +302,8 @@ Every programming language comes with a <b>language of data</b> and a <b>languag
 </div>
 
 
-<div id="outline-container-org955a3f9" class="outline-4">
-<h4 id="the-arithmetic-of-strings"><a id="org955a3f9"></a>1.2 The Arithmetic of Strings</h4>
+<div id="outline-container-orgb4eb6ee" class="outline-4">
+<h4 id="the-arithmetic-of-strings"><a id="orgb4eb6ee"></a>1.2 The Arithmetic of Strings</h4>
 <div class="outline-text-4" id="text-the-arithmetic-of-strings">
 <blockquote>
 <p>
@@ -315,8 +317,8 @@ Instead, most programming languages provide at least one kind of data that deals
 </div>
 </div>
 
-<div id="outline-container-org355d2b2" class="outline-4">
-<h4 id="predicates-know-thy-data"><a id="org355d2b2"></a>1.7 Predicates: Know Thy Data</h4>
+<div id="outline-container-orgb73553b" class="outline-4">
+<h4 id="predicates-know-thy-data"><a id="orgb73553b"></a>1.7 Predicates: Know Thy Data</h4>
 <div class="outline-text-4" id="text-predicates-know-thy-data">
 <blockquote>
 <p>
@@ -326,8 +328,8 @@ A predicate &#x2026; is a function that consumes a value and determines whether 
 </div>
 </div>
 
-<div id="outline-container-org7313bbd" class="outline-4">
-<h4 id="functions"><a id="org7313bbd"></a>2.1 Functions</h4>
+<div id="outline-container-org25b7c89" class="outline-4">
+<h4 id="functions"><a id="org25b7c89"></a>2.1 Functions</h4>
 <div class="outline-text-4" id="text-functions">
 <blockquote>
 <p>
@@ -345,8 +347,8 @@ The variables in a function header, that is, the variables that follow the funct
 </div>
 </div>
 
-<div id="outline-container-org6da98f4" class="outline-4">
-<h4 id="conposing-functions"><a id="org6da98f4"></a>2.3 Composing Functions</h4>
+<div id="outline-container-org22afcab" class="outline-4">
+<h4 id="conposing-functions"><a id="org22afcab"></a>2.3 Composing Functions</h4>
 <div class="outline-text-4" id="text-conposing-functions">
 <blockquote>
 <p>
@@ -380,8 +382,8 @@ We formulate this idea as a simple slogan:
 </div>
 </div>
 
-<div id="outline-container-orgf710c3a" class="outline-4">
-<h4 id="how-to-design-programs"><a id="orgf710c3a"></a>3 How to Design Programs</h4>
+<div id="outline-container-org134ead4" class="outline-4">
+<h4 id="how-to-design-programs"><a id="org134ead4"></a>3 How to Design Programs</h4>
 <div class="outline-text-4" id="text-how-to-design-programs">
 <blockquote>
 <p>
@@ -422,8 +424,8 @@ A good program comes with:
 </div>
 </div>
 
-<div id="outline-container-orgf400f4a" class="outline-4">
-<h4 id="designing-functions"><a id="orgf400f4a"></a>3.1 Designing Functions</h4>
+<div id="outline-container-org496217b" class="outline-4">
+<h4 id="designing-functions"><a id="org496217b"></a>3.1 Designing Functions</h4>
 <div class="outline-text-4" id="text-designing-functions">
 <p>
 Information and Data:
@@ -803,8 +805,8 @@ If you are still encountering problems, you may have encountered the third, some
 </div>
 </div>
 
-<div id="outline-container-org080acf1" class="outline-4">
-<h4 id="doman-knlowledge"><a id="org080acf1"></a>3.3 Domain Knowledge</h4>
+<div id="outline-container-orgf8f6628" class="outline-4">
+<h4 id="doman-knlowledge"><a id="orgf8f6628"></a>3.3 Domain Knowledge</h4>
 <div class="outline-text-4" id="text-doman-knlowledge">
 <blockquote>
 <p>
@@ -839,8 +841,8 @@ You can recognize problems that demand domain knowledge from the data definition
 </div>
 </div>
 
-<div id="outline-container-orgeb14c02" class="outline-4">
-<h4 id="from-functions-to-programs"><a id="orgeb14c02"></a>3.4 From Functions to Programs</h4>
+<div id="outline-container-org5ae3c40" class="outline-4">
+<h4 id="from-functions-to-programs"><a id="org5ae3c40"></a>3.4 From Functions to Programs</h4>
 <div class="outline-text-4" id="text-from-functions-to-programs">
 <blockquote>
 <p>
@@ -901,8 +903,8 @@ As long as the list isn’t empty, pick a wish and design the function.
 </div>
 </div>
 
-<div id="outline-container-org94889a3" class="outline-4">
-<h4 id="on-testing"><a id="org94889a3"></a>3.5 On Testing</h4>
+<div id="outline-container-orgddc88d6" class="outline-4">
+<h4 id="on-testing"><a id="orgddc88d6"></a>3.5 On Testing</h4>
 <div class="outline-text-4" id="text-on-testing">
 <blockquote>
 <p>
@@ -948,8 +950,8 @@ One day you will switch to some other programming language &#x2026; one of your 
 </div>
 </div>
 
-<div id="outline-container-orgc89b395" class="outline-4">
-<h4 id="designing-world-programs"><a id="orgc89b395"></a>3.6 Designing World Programs</h4>
+<div id="outline-container-orgde20205" class="outline-4">
+<h4 id="designing-world-programs"><a id="orgde20205"></a>3.6 Designing World Programs</h4>
 <div class="outline-text-4" id="text-designing-world-programs">
 
 <div class="figure">
@@ -959,8 +961,8 @@ One day you will switch to some other programming language &#x2026; one of your 
 </div>
 </div>
 
-<div id="outline-container-org9b0b676" class="outline-4">
-<h4 id="intervals-enumerations-and-itemizations"><a id="org9b0b676"></a>4 Intervals, Enumerations, and Itemizations</h4>
+<div id="outline-container-orgf4b1064" class="outline-4">
+<h4 id="intervals-enumerations-and-itemizations"><a id="orgf4b1064"></a>4 Intervals, Enumerations, and Itemizations</h4>
 <div class="outline-text-4" id="text-intervals-enumerations-and-itemizations">
 <blockquote>
 <p>
@@ -1040,8 +1042,8 @@ functions that choose different ways of computing results depending on the value
 </div>
 </div>
 
-<div id="outline-container-org1a01ad3" class="outline-4">
-<h4 id="programming-with-conditionals"><a id="org1a01ad3"></a>4.1 Programming with Conditionals</h4>
+<div id="outline-container-org1fcfcfb" class="outline-4">
+<h4 id="programming-with-conditionals"><a id="org1fcfcfb"></a>4.1 Programming with Conditionals</h4>
 <div class="outline-text-4" id="text-programming-with-conditionals">
 <blockquote>
 <p>
@@ -1067,8 +1069,8 @@ We  always use cond for situations when:
 </div>
 </div>
 
-<div id="outline-container-org67a123d" class="outline-4">
-<h4 id="enumerations"><a id="org67a123d"></a>4.3 Enumerations</h4>
+<div id="outline-container-org6a46022" class="outline-4">
+<h4 id="enumerations"><a id="org6a46022"></a>4.3 Enumerations</h4>
 <div class="outline-text-4" id="text-enumerations">
 <blockquote>
 <p>
@@ -1143,6 +1145,277 @@ Examples:
 </blockquote>
 </div>
 </div>
+
+
+
+
+
+<div id="outline-container-org22ac08b" class="outline-4">
+<h4 id="intervals"><a id="org22ac08b"></a>4.4 Intervals</h4>
+<div class="outline-text-4" id="text-intervals">
+<blockquote>
+<p>
+An interval is a description of a class of numbers via boundaries
+</p>
+
+<ul class="org-ul">
+<li>The simplest interval has two boundaries:
+a. left
+b. right</li>
+
+<li>a left-closed  interval includes its left  boundary</li>
+
+<li>a right-closed interval includes its right boundary</li>
+
+<li>if  an interval does not include a boundary:
+<ul class="org-ul">
+<li>it is open at that boundary</li>
+</ul></li>
+</ul>
+</blockquote>
+
+
+<blockquote>
+<p>
+Syntax
+</p>
+
+<ul class="org-ul">
+<li>closed boundaries: use brackets</li>
+<li>open   boundaries: use parentheses</li>
+</ul>
+
+<p>
+In general, interval needs at least three kinds of examples:
+</p>
+
+<ul class="org-ul">
+<li>one from each end</li>
+<li>and another one from inside</li>
+</ul>
+
+<p>
+Each clause identifies the corresponding sub-class with a precise condition:
+</p>
+
+<ul class="org-ul">
+<li>(string? x)  picks the first sub-class, which consists of just one element: the string "resting";</li>
+<li>(&lt;= -3 x -1) completely describes the second sub-class of data</li>
+<li>(&gt;= x 0)     is a test for all non-negative numbers</li>
+</ul>
+</blockquote>
+
+
+<blockquote>
+<p>
+Example:
+</p>
+
+<ul class="org-ul">
+<li>closed interval:
+[3,5]</li>
+
+<li>left-open inteval:
+(3,5]</li>
+
+<li>rigth-open interval:
+[3,5)</li>
+
+<li>open interval:
+(3,5)</li>
+</ul>
+</blockquote>
+
+
+<blockquote>
+<p>
+Visualizing the data definition in this manner helps with the design of functions in two ways:
+</p>
+
+<p>
+1.- First, it immediately suggests how to pick examples:
+    Clearly we want the function to work inside of all the intervals, and we want the function to work properly at the ends of each interval
+</p>
+
+
+<p>
+2.- Second, the image tells us that we need to formulate a condition that determines whether or not some “point” is within one of the intervals
+</p>
+
+<p>
+Putting the two together also raises a question:
+</p>
+<ul class="org-ul">
+<li>how exactly the function deals with the end points?</li>
+</ul>
+
+<p>
+In the context of our example, two points on the number line belong to two intervals:
+</p>
+
+<ul class="org-ul">
+<li>CLOSE belongs to both the upper interval and the middle one</li>
+
+<li>While HEIGHT seems to fall into both the middle one and the lowest one</li>
+</ul>
+
+<p>
+Such overlaps usually cause problems for programs, and they ought to be avoided.
+</p>
+
+<p>
+Solution:
+</p>
+
+<ul class="org-ul">
+<li>three cond lines that correspond to the three intervals.<br />
+Each condition identifies those values of y that are in between the limits of the intervals</li>
+</ul>
+
+<p>
+If we wanted to make this choice obvious and immediate for every reader of our code,
+we would use different conditions:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">WorldState -&gt; WorldState</span>
+
+(<span style="color: #d787d7; font-weight: bold;">define</span> (<span style="color: #5fafff;">g</span> y)
+ (<span style="color: #d787d7; font-weight: bold;">cond</span>
+  [(&lt;= 0 y CLOSE) ...]
+  [(<span style="color: #d787d7; font-weight: bold;">and</span> (&lt; CLOSE y) (&lt;= y HEIGHT)) ...]
+  [(&gt; y HEIGHT) ...]))
+
+</pre>
+</div>
+
+
+<ul class="org-ul">
+<li>To avoid multiple changes for a single element:
+<ul class="org-ul">
+<li>programmers try to avoid copies</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>You have two choices to fix repetition:
+
+<ol class="org-ol">
+<li>use constant definitions</li>
+
+<li>use cond expression as:
+An expression that may appear anywhere in a function, including in the middle of some other expression</li>
+</ol></li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org93112cc" class="outline-4">
+<h4 id="itemization"><a id="org93112cc"></a>4.5 Itemizations</h4>
+<div class="outline-text-4" id="text-itemization">
+<blockquote>
+<p>
+Itemization, generalize intervals and enumerations:
+</p>
+
+<p>
+They allow the combination of any already-defined data classes with each other and with individual pieces of data
+</p>
+
+
+<p>
+Example, a rewrite of an important data definition from Enumerations:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">A KeyEvent is one of:</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; 1String</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "left"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "right"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "up"</span>
+</pre>
+</div>
+
+<p>
+The description of the string-&gt;number primitive employs the idea of an itemization.
+</p>
+
+<p>
+Its signature is:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">String -&gt; NorF</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">converts the given string into a number;</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">produces #false if impossible</span>
+
+ (<span style="color: #d787d7; font-weight: bold;">define</span> (<span style="color: #5fafff;">string-&gt;number</span> s) 
+     (... s ...))
+</pre>
+</div>
+
+<p>
+Meaning that the result signature names a simple class of data:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">An NorF is one of:</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; #false</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; a Number</span>
+</pre>
+</div>
+
+
+<p>
+This itemization combines one piece of data (#false) with a large, and distinct, class of data (Number).
+</p>
+
+<p>
+function that consumes the result of string-&gt;number and adds 3, dealing with #false as if it were 0:
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">NorF -&gt; Number</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">adds 3 to the given number; 3 otherwise</span>
+ (check-expect (add3 #false) 3)
+ (check-expect (add3 0.12) 3.12)
+  (<span style="color: #d787d7; font-weight: bold;">define</span> (<span style="color: #5fafff;">add3</span> x)
+   (<span style="color: #d787d7; font-weight: bold;">cond</span>
+     [(false? x) 3]
+     [else (+ x 3)]))
+</pre>
+</div>
+</blockquote>
+
+
+<blockquote>
+<p>
+The program first displays the rocket sitting at the bottom of the canvas.
+Once launched, it moves upward at three pixels per clock tick.
+</p>
+
+<p>
+2 states:
+</p>
+<ul class="org-ul">
+<li>resting</li>
+<li>NonnegativeNumber</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-scheme"><span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">An LR (short for launching rocket) is one of:</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; "resting"</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">&#8211; NonnegativeNumber</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">interpretation "resting" represents a grounded rocket</span>
+<span style="color: #707070; font-style: italic;">; </span><span style="color: #707070; font-style: italic;">a number denotes the height of a rocket in flight</span>
+</pre>
+</div>
+</blockquote>
+</div>
+</div>
 </div>
 </div>
 <div id="footnotes">
@@ -1180,7 +1453,7 @@ The lodash documentation can be used as example of this approach:
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: erretres</p>
-<p class="date">Created: 2020-09-27 Sun 10:07</p>
+<p class="date">Created: 2020-09-29 Tue 11:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

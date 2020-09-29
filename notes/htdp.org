@@ -583,6 +583,199 @@ Examples:
 
 
 
+*** 4.4 Intervals
+    :PROPERTIES:
+    :CUSTOM_ID: intervals  
+    :END: 
+
+
+   
+#+BEGIN_QUOTE
+An interval is a description of a class of numbers via boundaries
+
+- The simplest interval has two boundaries:
+    a. left
+    b. right
+
+- a left-closed  interval includes its left  boundary
+
+- a right-closed interval includes its right boundary
+
+- if  an interval does not include a boundary:
+   - it is open at that boundary
+
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+Syntax
+
+- closed boundaries: use brackets
+- open   boundaries: use parentheses
+
+In general, interval needs at least three kinds of examples:
+
+ - one from each end
+ - and another one from inside
+
+Each clause identifies the corresponding sub-class with a precise condition:
+
+ - (string? x)  picks the first sub-class, which consists of just one element: the string "resting";
+ - (<= -3 x -1) completely describes the second sub-class of data
+ - (>= x 0)     is a test for all non-negative numbers
+
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+Example:
+
+- closed interval:
+    [3,5]
+
+- left-open inteval:
+    (3,5]
+
+- rigth-open interval:
+    [3,5)
+
+- open interval:
+    (3,5)
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+Visualizing the data definition in this manner helps with the design of functions in two ways:
+
+1.- First, it immediately suggests how to pick examples:
+    Clearly we want the function to work inside of all the intervals, and we want the function to work properly at the ends of each interval
+
+
+2.- Second, the image tells us that we need to formulate a condition that determines whether or not some “point” is within one of the intervals
+
+Putting the two together also raises a question:
+ - how exactly the function deals with the end points?
+
+In the context of our example, two points on the number line belong to two intervals:
+
+- CLOSE belongs to both the upper interval and the middle one
+
+- While HEIGHT seems to fall into both the middle one and the lowest one
+
+Such overlaps usually cause problems for programs, and they ought to be avoided.
+
+Solution:
+
+- three cond lines that correspond to the three intervals.\\
+  Each condition identifies those values of y that are in between the limits of the intervals
+
+If we wanted to make this choice obvious and immediate for every reader of our code,
+we would use different conditions:
+
+#+BEGIN_SRC scheme
+  ; WorldState -> WorldState
+
+  (define (g y)
+   (cond
+    [(<= 0 y CLOSE) ...]
+    [(and (< CLOSE y) (<= y HEIGHT)) ...]
+    [(> y HEIGHT) ...]))
+
+#+END_SRC
+
+
+- To avoid multiple changes for a single element:
+  - programmers try to avoid copies
+
+
+- You have two choices to fix repetition:
+
+    1. use constant definitions
+
+    2. use cond expression as:
+       An expression that may appear anywhere in a function, including in the middle of some other expression
+#+END_QUOTE
+
+*** 4.5 Itemizations 
+    :PROPERTIES:
+    :CUSTOM_ID: itemization  
+    :END: 
+
+
+#+BEGIN_QUOTE
+ Itemization, generalize intervals and enumerations:
+
+ They allow the combination of any already-defined data classes with each other and with individual pieces of data
+
+
+Example, a rewrite of an important data definition from Enumerations:
+
+#+BEGIN_SRC scheme
+  ; A KeyEvent is one of:
+  ; – 1String
+  ; – "left"
+  ; – "right"
+  ; – "up"
+#+END_SRC
+
+The description of the string->number primitive employs the idea of an itemization.
+
+Its signature is:
+
+#+BEGIN_SRC scheme
+; String -> NorF
+; converts the given string into a number;
+; produces #false if impossible
+
+ (define (string->number s) 
+     (... s ...))
+#+END_SRC
+
+Meaning that the result signature names a simple class of data:
+
+#+BEGIN_SRC scheme
+; An NorF is one of:
+; – #false
+; – a Number
+#+END_SRC
+
+
+This itemization combines one piece of data (#false) with a large, and distinct, class of data (Number).
+
+function that consumes the result of string->number and adds 3, dealing with #false as if it were 0:
+
+
+#+BEGIN_SRC scheme
+; NorF -> Number
+; adds 3 to the given number; 3 otherwise
+ (check-expect (add3 #false) 3)
+ (check-expect (add3 0.12) 3.12)
+  (define (add3 x)
+   (cond
+     [(false? x) 3]
+     [else (+ x 3)]))
+#+END_SRC
+
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+The program first displays the rocket sitting at the bottom of the canvas.
+Once launched, it moves upward at three pixels per clock tick.
+
+2 states:
+ - resting
+ - NonnegativeNumber
+
+#+BEGIN_SRC scheme
+; An LR (short for launching rocket) is one of:
+; – "resting"
+; – NonnegativeNumber
+; interpretation "resting" represents a grounded rocket
+; a number denotes the height of a rocket in flight
+#+END_SRC
+
+#+END_QUOTE
 
 *** Footnotes
 
