@@ -1,0 +1,75 @@
+#+TITLE: Goals
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup  
+
+* Learn
+
+- [0/8]
+  - [ ]   Python, Numpy, Pandas, etc (data analysis)
+  - [ ]   React Native
+  - [ ]   Qt
+  - [ ]   TLA+
+  - [ ]   SMT solvers 
+  - [ ]   Property Based Testing  
+  - [ ]   Model Based Testing
+  - [ ]   Finite State Machine/statecharts
+
+
+** Resources
+
+*** Python, Numpy, Pandas, etc 
+
+**** https://github.com/wesm/pydata-book
+\\
+#+begin_quote
+"Python for Data Analysis" by Wes McKinney, published by O'Reilly Media
+#+end_quote
+
+*** React Native
+...
+
+*** Qt
+
+**** https://doc.qt.io/
+
+*** TLA+
+
+**** http://lamport.azurewebsites.net/tla/hyperbook.html
+
+**** https://lamport.azurewebsites.net/tla/book.html?back-link=learning.html#book
+
+**** https://www.youtube.com/channel/UCajiu4Cj_GHOX0if3Up-eRA
+
+*** SMT solvers 
+...
+
+*** Property Based Testing  
+
+****  https://hypothesis.works/
+\\
+#+begin_quote
+Hypothesis is a modern implementation of property based testing, designed from the ground up for mainstream languages.
+#+end_quote
+
+*** Model Based Testing
+
+**** https://github.com/jon-jacky/PyModel
+\\
+#+begin_quote
+PyModel is an open-source model-based testing framework in Python.
+#+end_quote
+
+*** Finite State Machine/statecharts
+
+**** https://github.com/AlexandreDecan/sismic
+\\
+#+begin_quote
+Sismic Interactive Statechart Model Interpreter and Checker
+Sismic is a recursive acronym that stands for Sismic Interactive Statechart Model Interpreter and Checker.
+Statecharts are a well-known visual modeling language for representing the executable behavior of complex reactive event-based systems. Sismic library for Python (version 3.5 or higher) provides a set of tools to define, validate, simulate, execute and test statecharts.
+#+end_quote
+
+
+
+
+
+
