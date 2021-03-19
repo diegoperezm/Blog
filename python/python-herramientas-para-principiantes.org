@@ -1,0 +1,58 @@
+#+TITLE:  Python, Herramientas Básicas Para Principiantes
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup  
+
+\nbsp\nbsp La primera dificultad a la hora de aprender a programar es el hecho de tener que memorizar una serie de reglas acerca de espacios, identificadores, operadores (entre otras cosas).  Ésto que parece ser trivial suele derivar en que muchos cursos/libros/vídeos se limiten a enseñar uno de los aspectos más superficiales de la programación: la sintaxis.\\
+
+\nbsp\nbsp Pero claro, que algo se superficial no significa que no sea importante (después de todo necesitamos un programa  correcto/válido para que pueda ser ejecutado).
+
+\nbsp\nbsp Los "errores de sintaxis" son comunes y normalmente son difíciles de detectar para un humano, lo que significa en que se desperdician muchas horas solucionando un problema que puede ser evitado y que puede ser resuelto por una máquina en una fracción de segundo. 
+Existen varias herramientas que nos pueden ayudar:
+
+- [[https://en.wikipedia.org/wiki/Lint_(software)][Linters]]: "lint, o linter, es una herramienta de análisis estático de código que se utiliza para señalar errores de programación, fallos, errores de estilo y construcciones sospechosas"\\
+
+
+- Formateadores de código:  A diferencia de un linter un formateador de código permite mantener la consistencia del "estilo" (siempre el mismo número de espacios, symbolos etc).
+
+** Herramientas 
+:PROPERTIES:
+:CUSTOM_ID: herramientas 
+:END: 
+ 
+*** Linters
+:PROPERTIES:
+:CUSTOM_ID: linters 
+:END: 
+ 
+https://pylint.org/
+
+#+begin_quote
+Pylint is a Python static code analysis tool which looks for programming errors, helps enforcing a coding standard, sniffs for code smells and offers simple refactoring suggestions.
+#+end_quote
+
+
+https://flake8.pycqa.org/en/latest/manpage.html
+#+begin_quote
+flake8 is a command-line utility for enforcing style consistency across Python projects. By default it includes lint checks provided by the PyFlakes project, PEP-0008 inspired style checks provided by the PyCodeStyle project, and McCabe complexity checking provided by the McCabe project. It will also run third-party extensions if they are found and installed.
+#+end_quote
+
+*** Formateadores de Código
+:PROPERTIES:
+:CUSTOM_ID: formateadores-de-codigo 
+:END: 
+ 
+https://black.readthedocs.io/en/stable/
+
+#+begin_quote
+Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
+#+end_quote
+
+** Referencias  
+:PROPERTIES:
+:CUSTOM_ID: referencias 
+:END: 
+ 
+
+https://en.wikipedia.org/wiki/Lint_(software)
+https://en.wikipedia.org/wiki/Programming_style
+https://en.wikipedia.org/wiki/Best_coding_practices#Coding_standards
+
