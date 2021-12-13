@@ -1,0 +1,189 @@
+#+TITLE: RECURSION
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup  
+
+
+* Use Recursion to Create a Range of Numbers, FAQ
+:PROPERTIES:
+:CUSTOM_ID:  Use-Recursion-to-Create-a-Range-of-Numbers-FAQ
+:END: 
+
+** Code
+
+#+begin_src js :results output :exports both
+function rangeOfNumbers(startNum, endNum) {
+   if(startNum === endNum) {  
+     return [endNum]; 
+   } else {  
+     let arr =  rangeOfNumbers(startNum + 1, endNum); 
+     arr.push(startNum); 
+     return arr;     
+   }
+}
+
+let result = rangeOfNumbers(1,4);
+console.log(result);
+#+end_src
+
+#+RESULTS:
+: [ 4, 3, 2, 1 ]
+
+
+** Step By Step 
+
+Step 1
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/01.jpg]] 
+
+Step 2
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/02.jpg]] 
+
+Step 3
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/03.jpg]] 
+
+Step 4
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/04.jpg]] 
+
+Step 5
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/05.jpg]] 
+
+Step 6
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/06.jpg]] 
+
+Step 7
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/07.jpg]] 
+
+Step 8
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/08.jpg]] 
+
+Step 9
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/09.jpg]] 
+
+Step 10 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/10.jpg]] 
+
+Step 11
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/11.jpg]] 
+
+Step 12 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/12.jpg]] 
+
+Step 13 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/13.jpg]] 
+
+Step 14 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/14.jpg]] 
+
+Step 15 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/15.jpg]] 
+
+Step 16 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/16.jpg]] 
+
+Step 17 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/17.jpg]] 
+
+Step 18 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/18.jpg]] 
+
+Step 19 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/19.jpg]] 
+
+Step 20 
+#+ATTR_ORG: :width 600 
+[[file:img/recursion-steps/20.jpg]] 
+
+** What happens when the base case is evaluated as false?
+
+The function calls itself: 
+Steps: 4,6,8
+
+#+ATTR_ORG: :width 600 
+[[file:img/step-3-4-5.png]]
+
+#+ATTR_ORG: :width 600 
+[[file:img/step-6-7.png]]
+
+#+ATTR_ORG: :width 600 
+[[file:img/step-8-9.png]]
+
+
+** What happens when the base case is evaluated as true?
+
+Returns an array: 
+Step: 10
+
+#+ATTR_ORG: :width 600 
+[[file:img/step-10.png]]
+
+
+** The Array, where does it come from?
+
+From the base case:
+Step 10 
+
+#+ATTR_ORG: :width 600 
+[[file:img/step-10.png]]
+
+
+** Why can I  push startNum to arr?
+
+Because after the base case is evaluated as true, arr is an array:
+Step: 11 
+
+
+#+ATTR_ORG: :width 600 
+[[file:img/step-11.png]]
+
+
+** Why I'm Getting [4,3,2,1] ?
+
+Because JavaScript uses a "stack" (LIFO, last in first out):
+Steps 10, 13, 16, 19
+
+#+ATTR_ORG: :width 600 
+[[file:img/step-10-13-16-19.png]]
+
+** How can I get [1,2,3,4]?
+
+Replace =push= with =unshift= 
+
+#+begin_src js :results output :exports both
+function rangeOfNumbers(startNum, endNum) {
+   if(startNum === endNum) {  
+     return [endNum]; 
+   } else {  
+     let arr =  rangeOfNumbers(startNum + 1, endNum); 
+     arr.unshift(startNum);  // <-  here  
+     return arr;     
+   }
+}
+
+let result = rangeOfNumbers(1,4);
+console.log(result);
+#+end_src
+
+#+RESULTS:
+: [ 1, 2, 3, 4 ]
+
+
+
+
+
