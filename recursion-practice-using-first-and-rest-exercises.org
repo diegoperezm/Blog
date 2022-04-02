@@ -1,0 +1,308 @@
+#+TITLE: Recursion Practice using first and rest (Exercises)
+#+PROPERTY: header-args  :noweb yes 
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup  
+
+
+* How To 
+
+ - Create a file with extension .js 
+ - Copy a code snippet to the file 
+ - Solve the exercise 
+ - Then execute in the command line  
+
+#+begin_src sh
+node filename.js 
+#+end_src
+
+* Solutions 
+  You can find my solutions to the exercises here:
+
+[[https://diegoperezm.github.io/blog/recursion-practice-using-first-and-rest-solutions.html][solutions]]
+
+* first and rest
+
+  Using the destructuring assignment syntax we can get the "first element of an array" 
+and "the rest of the array". I think that using "first and rest" makes it easier to think 
+recursively. 
+
+#+begin_src js :exports both :results output
+let arr = [1,2,3,4]
+let [first, ...rest] = arr;
+
+console.log('first: ', first);
+console.log('rest:  ', rest);
+#+end_src
+
+#+RESULTS:
+: first:  1
+: rest:   [ 2, 3, 4 ]
+
+* check
+  The check function is only a wrapper for assert (Node.js). I wrote it to make  more readable
+the tests and outputs.
+
+#+NAME: check 
+#+begin_src js 
+'use strict';
+const assert = require("assert");
+
+function check(message) {
+  return  { 
+   fn(fnToCheck) { 
+      return  {
+          toBe: {
+            msg   :  message != undefined ? message :  '',
+            actual: fnToCheck,
+            fnExeAssert(fnAssert,actual, expected) {
+              try {
+                  fnAssert(actual, expected);
+                  console.log('PASS:   ' + this.msg + '\n' );
+               } catch(e) {
+                  console.log('FAIL:   ' + this.msg );
+                  console.log('        expected: ',   e.expected,
+                              '\n        actual:   ', e.actual,  '\n');
+               }
+            },
+           deepStrictEqual (expected)  {
+              this.fnExeAssert(assert.deepStrictEqual, this.actual, expected)
+            },
+           strictEqual (expected)  {
+              this.fnExeAssert(assert.strictEqual, this.actual, expected)
+           }
+       } 
+      } 
+    } 
+  }  
+}
+
+#+end_src
+
+* remove first ocurrence
+
+#+begin_quote
+Write a function that removes the first occurrence of an number m from an array of numbers.\\ 
+If m does not occur in the array, the array remains unchanged.
+#+end_quote
+
+#+NAME: removeFirstOcurrence
+#+begin_src js 
+<<check>> 
+
+check("removeFirstOcurrence(5, []) should return an empty array")
+  .fn(removeFirstOcurrence(5, []))
+  .toBe
+  .deepStrictEqual([]);
+
+check("removeFirstOcurrence(5, [5]) should return an empty array")
+  .fn(removeFirstOcurrence(5, [5]))
+  .toBe
+  .deepStrictEqual([]); 
+
+check("removeFirstOcurrence(5, [1]) should return the original array without changes")
+  .fn(removeFirstOcurrence(5, [1]))
+  .toBe
+  .deepStrictEqual([1]);
+
+check("removeFirstOcurrence(5, [5,5]) should return an array with only one 5")
+  .fn(removeFirstOcurrence(5, [5,5]))
+  .toBe
+  .deepStrictEqual([5]); 
+
+check("removeFirstOcurrence(5, [1,5,5,2,3]) should return an array without the first ocurrence of 5")
+  .fn(removeFirstOcurrence(5, [1,5,5,2,3]))
+  .toBe
+  .deepStrictEqual([1,5,2,3]);
+
+check( "removeFirstOcurrence(5, [5,1,2,3]) should return an array without 5")
+  .fn(removeFirstOcurrence(5, [5,1,2,3]))
+  .toBe
+  .deepStrictEqual([1,2,3]);
+
+check("removeFirstOcurrence(5, [1,2,5,3]) should return an array without 5")
+  .fn(removeFirstOcurrence(5, [1,2,5,3]))
+  .toBe
+  .deepStrictEqual([1,2,3]);
+
+check("removeFirstOcurrence(5, [1,2,3,5]) should return an array without 5")
+  .fn(removeFirstOcurrence(5, [1,2,3,5]))
+  .toBe
+  .deepStrictEqual([1,2,3]);
+
+/**
+ * Function description.
+ * @param {Type of m}     m   - Parameter description.
+ * @param {Type of arr}   arr - Parameter description.
+ * @returns {Return Type} Return description.
+ */
+function removeFirstOcurrence(m, arr) {
+
+}
+#+end_src
+
+* sum
+
+#+begin_quote
+Write a function that sums every number in the array.\\ 
+If the array is empty, return 0.
+#+end_quote
+  
+#+begin_src js
+<<check>> 
+
+check("sum([0] should return 0")
+  .fn(sum([0]))
+  .toBe
+  .strictEqual(0);
+
+check("sum([1] should return 1")
+  .fn(sum([1]))
+  .toBe
+  .strictEqual(1);
+
+check("sum([0,1] should return 1")
+  .fn(sum([0,1]))
+  .toBe
+  .strictEqual(1);
+
+check("sum([1,2] should return 3")
+  .fn(sum([1,2]))
+  .toBe
+  .strictEqual(3);
+
+check("sum([1,-1] should return 0")
+  .fn(sum([1,-1]))
+  .toBe
+  .strictEqual(0);
+  
+/**
+ * Function description.
+ * @param {Type of arr}    arr- Parameter description.
+ * @returns {Return Type}  Return description.
+ */
+function sum(arr) {
+
+}
+#+END_src
+
+* countChar
+
+#+begin_quote
+Write a function that counts the ocurrences of a character in a string.\\
+If the character  does not occur in the string return 0. 
+#+end_quote
+
+
+#+begin_src js
+<<check>>
+
+check("countChar('h', 'ayzayzzz') should return 0")
+  .fn(countChar('h',  'ayzayzzz')).toBe.strictEqual(0);
+
+check("countChar('a', 'ayzayzzz') should return 2")
+  .fn(countChar('a',  'ayzayzzz')).toBe.strictEqual(2);
+
+check("countChar('y', 'ayzayzzz') should return 2")
+  .fn(countChar('y',  'ayzayzzz')).toBe.strictEqual(2);
+
+check("countChar('z', 'ayzayzzz') should return 4")
+  .fn(countChar('z',  'ayzayzzz')).toBe.strictEqual(4);
+
+/**
+ *  
+ * If the character  does not occur in the string return 0. 
+ * @param   {string}       c   - the character to count
+ * @param   {string|array} str - string in the first call, array in the recursive calls 
+ * @returns {number}       the number of ocurrences of the character in the string  or zero
+ */
+/**
+ * Function description.
+ * @param {Type of c}     c   - Parameter description.
+ * @param {Type of str}   str - Parameter description.
+ * @returns {Return Type} Return description.
+ */
+function countChar(c, str) {
+
+}
+#+end_src
+
+* len
+
+#+begin_quote
+Write a function that returns the number of elements in an array.\\
+If the array is empty, return 0.
+#+end_quote
+
+
+#+begin_src js 
+<<check>>
+
+check("len([]) should return 0")
+  .fn(len([]))
+  .toBe
+  .strictEqual(0)
+
+check("len([0]) should return 1")
+  .fn(len([0]))
+  .toBe
+  .strictEqual(1)
+
+check("len([1,2]) should return 2")
+  .fn(len([1,2]))
+  .toBe
+  .strictEqual(2)
+
+
+
+/**
+ * Function description.
+ * @param   {Type of arr} arr - Parameter description.
+ * @returns {Return Type} Return description.
+ */
+function len(arr){ 
+
+}
+#+end_src
+
+* max
+
+#+begin_quote
+Write a function that returns the largest number of an  array of numbers.\\
+If the array is empty, returns 0;
+#+end_quote
+
+#+begin_src js 
+<<check>>
+
+check("max[15,8,3,9] should return 15")
+  .fn(max([15,8,3,9]))
+  .toBe
+  .strictEqual(15)
+
+check("max[8,15,9] should return 15")
+  .fn(max([8,15,9]))
+  .toBe
+  .strictEqual(15)
+
+check("max[8,9,15] should return 15")
+  .fn(max([8,9,15]))
+  .toBe
+  .strictEqual(15)
+
+check("max[14,16, 8,3,9,14] should return 16")
+  .fn(max([14,16, 8,3,9,14]))
+  .toBe
+  .strictEqual(16)
+
+
+
+/**
+ * Function description.
+ * @param {Type of arr} arr - Parameter description.
+ * @returns {Return Type} Return description.
+ */
+function max(arr) {
+ 
+}
+#+end_src
+
+
