@@ -1,0 +1,395 @@
+#+TITLE: Practicando recursión usando first y rest (Soluciones)
+#+PROPERTY: header-args :results  output  :noweb yes :exports both    
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup  
+
+* Cómo ejecutar los ejercicios
+
+ - Crear un archivo con extensión .js 
+ - Copiar el código del ejercicio en el archivo 
+ - Ejecutar en la línea de comandos:  
+
+#+begin_src sh
+node archivo.js 
+#+end_src
+
+* first y rest
+  Utilizando la sintaxis de asignación de desestructuración podemos obtener el "primer elemento de un arreglo" 
+y "el resto del arreglo". El uso de "first y rest" hace que sea más fácil pensar 
+recursivamente. 
+
+
+#+begin_src js
+let arr = [1,2,3,4]
+let [first, ...rest] = arr;
+
+console.log('first: ', first); 
+console.log('rest:  ', rest);  
+#+end_src
+
+#+RESULTS:
+: first:  1
+: rest:   [ 2, 3, 4 ]
+
+* check
+  La función check es sólo un wrapper para assert (Node.js)
+
+#+NAME: check 
+#+begin_src js :tangle ./check.js 
+'use strict';
+const assert = require("assert");
+function check(message) {
+  return  { 
+   fn(fnToCheck) { 
+      return  {
+          toBe: {
+            msg   :  message != undefined ? message :  '',
+            actual: fnToCheck,
+            fnExeAssert(fnAssert,actual, expected) {
+              try {
+                  fnAssert(actual, expected);
+                  console.log('PASS:   ' + this.msg + '\n' );
+               } catch(e) {
+                  console.log('FAIL:   ' + this.msg );
+                  console.log('        expected: ',   e.expected,
+                              '\n        actual:   ', e.actual,  '\n');
+               }
+            },
+           deepStrictEqual (expected)  {
+              this.fnExeAssert(assert.deepStrictEqual, this.actual, expected)
+            },
+           strictEqual (expected)  {
+              this.fnExeAssert(assert.strictEqual, this.actual, expected)
+           }
+       } 
+      } 
+    } 
+  }  
+}
+#+end_src
+
+* remove first ocurrence
+
+#+begin_quote
+Escriba una función que remueva la primera vez que aparece el número m en un arreglo de números.\\ 
+Si m no existe en el arreglo, la función deberá  regresar el arreglo  sin cambios.
+#+end_quote
+
+#+NAME: removeFirstOcurrence
+#+begin_src js 
+<<check>> 
+
+check("removeFirstOcurrence(5, []) regresa un arreglo vacío")
+  .fn(removeFirstOcurrence(5, []))
+  .toBe
+  .deepStrictEqual([]);
+
+check("removeFirstOcurrence(5, [5]) regresa un arreglo vacío")
+  .fn(removeFirstOcurrence(5, [5]))
+  .toBe
+  .deepStrictEqual([]); 
+
+check("removeFirstOcurrence(5, [1]) regresa el arreglo original sin cambios")
+  .fn(removeFirstOcurrence(5, [1]))
+  .toBe
+  .deepStrictEqual([1]);
+
+check("removeFirstOcurrence(5, [5,5]) regresa un arreglo con solo un 5")
+  .fn(removeFirstOcurrence(5, [5,5]))
+  .toBe
+  .deepStrictEqual([5]); 
+
+check("removeFirstOcurrence(5, [1,5,5,2,3]) regresa un arreglo sin el primer 5")
+  .fn(removeFirstOcurrence(5, [1,5,5,2,3]))
+  .toBe
+  .deepStrictEqual([1,5,2,3]);
+
+check( "removeFirstOcurrence(5, [5,1,2,3]) regresa un arreglo sin 5")
+  .fn(removeFirstOcurrence(5, [5,1,2,3]))
+  .toBe
+  .deepStrictEqual([1,2,3]);
+
+check("removeFirstOcurrence(5, [1,2,5,3]) regresa un arreglo sin 5")
+  .fn(removeFirstOcurrence(5, [1,2,5,3]))
+  .toBe
+  .deepStrictEqual([1,2,3]);
+
+check("removeFirstOcurrence(5, [1,2,3,5]) regresa un arreglo sin 5")
+  .fn(removeFirstOcurrence(5, [1,2,3,5]))
+  .toBe
+  .deepStrictEqual([1,2,3]);
+
+
+/**
+ * Elimina la primera vez que aparece el número m en un arreglo de números.
+ * Si m no existe en el arreglo, regresa el arreglo original 
+ * @param   {number} m   - el número que debe ser eliminado 
+ * @param   {array}  arr - el arreglo de números 
+ * @returns {array}      - el arreglo sin m o el arreglo original 
+ */
+function removeFirstOcurrence(m, arr) {
+   if(arr.length === 0 ) return [] 
+   let [first, ...rest] = arr;
+   
+   if(m === first) {
+    return rest;
+   } else {
+    let a =  removeFirstOcurrence(m, rest);
+    a.unshift(first);
+    return a;
+   }
+}
+#+end_src
+
+#+RESULTS: removeFirstOcurrence
+#+begin_example
+PASS:   removeFirstOcurrence(5, []) regresa un arreglo vacío
+
+PASS:   removeFirstOcurrence(5, [5]) regresa un arreglo vacío
+
+PASS:   removeFirstOcurrence(5, [1]) regresa el arreglo original sin cambios
+
+PASS:   removeFirstOcurrence(5, [5,5]) regresa un arreglo con solo un 5
+
+PASS:   removeFirstOcurrence(5, [1,5,5,2,3]) regresa un arreglo sin el primer 5
+
+PASS:   removeFirstOcurrence(5, [5,1,2,3]) regresa un arreglo sin 5
+
+PASS:   removeFirstOcurrence(5, [1,2,5,3]) regresa un arreglo sin 5
+
+PASS:   removeFirstOcurrence(5, [1,2,3,5]) regresa un arreglo sin 5
+
+#+end_example
+
+
+* sum
+
+#+begin_quote
+Escriba una función que sume todos los números en un arreglo.\\
+Si el arreglo está vacío, la función deberá regresar 0.
+#+end_quote
+  
+#+begin_src js
+<<check>> 
+
+check("sum([0] regresa 0")
+  .fn(sum([0]))
+  .toBe
+  .strictEqual(0);
+
+check("sum([1] regresa 1")
+  .fn(sum([1]))
+  .toBe
+  .strictEqual(1);
+
+check("sum([0,1] regresa 1")
+  .fn(sum([0,1]))
+  .toBe
+  .strictEqual(1);
+
+check("sum([1,2] regresa 3")
+  .fn(sum([1,2]))
+  .toBe
+  .strictEqual(3);
+
+check("sum([1,-1] regresa 0")
+  .fn(sum([1,-1]))
+  .toBe
+  .strictEqual(0);
+
+/**
+ * Regresa la suma de todos los números en un arreglo
+ * Si el arreglo está vacío, regresa 0
+ * @param {array}  arr  - el arreglo de números 
+ * @returns {number}    - la suma de todos los números del arreglo o cero 
+ */
+function sum(arr) {
+ if(arr.length === 0) return 0;
+ let [first, ...rest] = arr; 
+ return first + sum(rest);
+}
+#+END_src
+
+#+RESULTS:
+#+begin_example
+PASS:   sum([0] regresa 0
+
+PASS:   sum([1] regresa 1
+
+PASS:   sum([0,1] regresa 1
+
+PASS:   sum([1,2] regresa 3
+
+PASS:   sum([1,-1] regresa 0
+
+#+end_example
+
+* countChar 
+
+#+begin_quote
+Escriba una función que cuente el número de veces que un carácter aparece en una cadena de caracteres.\\
+Si el carácter no existe en la cadena la función deberá regresar  0. 
+
+#+end_quote
+
+
+#+begin_src js
+<<check>>
+
+check("countChar('h', 'ayzayzzz') regresa 0")
+  .fn(countChar('h',  'ayzayzzz'))
+  .toBe
+  .strictEqual(0);
+
+check("countChar('a', 'ayzayzzz') regresa 2")
+  .fn(countChar('a',  'ayzayzzz'))
+  .toBe
+  .strictEqual(2);
+
+check("countChar('y', 'ayzayzzz') regresa 2")
+  .fn(countChar('y',  'ayzayzzz'))
+  .toBe
+  .strictEqual(2);
+
+check("countChar('z', 'ayzayzzz') regresa 4")
+  .fn(countChar('z',  'ayzayzzz'))
+  .toBe
+  .strictEqual(4);
+
+/**
+ * Regresa el número de veces que un carácter aparece en una cadena de caracteres. 
+ * Si el carácter no existe en la cadena, regresa cero.
+ * @param   {string}       c   - el carácter   
+ * @param   {string|array} str - cadena en la primera llamada, arreglo en las llamadas recursivas
+ * @returns {number}             el número de veces en que el carácter aparece en la cadena o cero
+ */
+function countChar(c, str) {
+ if(str.length === 0 ) return 0 
+ let [first, ...rest]  = str;
+
+ return (c === first ) ? 1 + countChar(c, rest) : countChar(c, rest)  
+}
+
+#+end_src
+
+#+RESULTS:
+: PASS:   countChar('h', 'ayzayzzz') regresa 0
+: 
+: PASS:   countChar('a', 'ayzayzzz') regresa 2
+: 
+: PASS:   countChar('y', 'ayzayzzz') regresa 2
+: 
+: PASS:   countChar('z', 'ayzayzzz') regresa 4
+: 
+
+* len
+
+#+begin_quote
+Escriba una función que regrese el número de elementos en un arreglo.\\
+Si el arreglo está vacío, la función deberá regresar 0.
+#+end_quote
+
+
+#+begin_src js 
+<<check>>
+
+check("len([]) regresa 0")
+  .fn(len([]))
+  .toBe
+  .strictEqual(0)
+
+check("len([0]) regresa 1")
+  .fn(len([0]))
+  .toBe
+  .strictEqual(1)
+
+check("len([1,2]) regresa 2")
+  .fn(len([1,2]))
+  .toBe
+  .strictEqual(2)
+
+
+/**
+ * Regresa el número de elementos en un arreglo.
+ * Si el arreglo está vacío, regresa 0. 
+ * @param {arr} arr  - el arreglo 
+ * @returns {number} - el número de elementos en el arreglo o cero 
+ */
+
+function len(arr){ 
+ if(arr.length === 0) return 0;  
+ let [first, ...rest]  = arr;
+ return 1 + len(rest);
+}
+#+end_src
+
+#+RESULTS:
+: PASS:   len([]) regresa 0
+: 
+: PASS:   len([0]) regresa 1
+: 
+: PASS:   len([1,2]) regresa 2
+: 
+
+* max
+
+#+begin_quote
+Escriba una función que regrese el número más alto de un arreglo de números.\\ 
+Si el arreglo está vacío, la función deberá regresar 0.
+#+end_quote
+
+#+begin_src js 
+<<check>>
+
+check("max[15,8,3,9] regresa 15")
+  .fn(max([15,8,3,9]))
+  .toBe
+  .strictEqual(15)
+
+check("max[8,15,9] regresa 15")
+  .fn(max([8,15,9]))
+  .toBe
+  .strictEqual(15)
+
+check("max[8,9,15] regresa 15")
+  .fn(max([8,9,15]))
+  .toBe
+  .strictEqual(15)
+
+check("max[14,16, 8,3,9,14] regresa 16")
+  .fn(max([14,16, 8,3,9,14]))
+  .toBe
+  .strictEqual(16)
+
+/**
+ * Regresa el número más alto de un arreglo de números. 
+ * Si el arreglo está vacío, regresa 0 
+ * @param   {array}  arr - el arreglo de números 
+ * @returns {number}     - el número más alto del arreglo o cero
+ */
+function max(arr) {
+  if(arr.length === 1 ) { 
+    return arr[0];
+  } else {
+    let [first, ...rest] = arr;
+    if (first > rest[0])  {
+       rest.shift();
+       rest.push(first)
+       return max(rest)  
+     } else {
+       return max(rest)  
+     }
+  }
+}
+#+end_src
+
+#+RESULTS:
+: PASS:   max[15,8,3,9] regresa 15
+: 
+: PASS:   max[8,15,9] regresa 15
+: 
+: PASS:   max[8,9,15] regresa 15
+: 
+: PASS:   max[14,16, 8,3,9,14] regresa 16
+: 
+
+
