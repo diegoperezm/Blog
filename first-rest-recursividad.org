@@ -1,0 +1,323 @@
+#+TITLE: First y rest (Recursividad) 
+#+PROPERTY: header-args  :noweb yes  :results output :exports both
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup  
+
+
+* Introducción
+
+A veces lo que dificulta la resolución de un ejercicio en que se debe aplicar  recursión (sobre todo cuando se está aprendiendo lo básico) es que no sabemos cómo empezar. Creo que el uso de first (primer elemento del arreglo) y rest (resto del arreglo) facilita ese paso.
+
+
+* first y rest en JavaScript
+
+  Para implementar first y rest en JavaScript usaremos [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment][la sintaxis de desestructuracion]]:
+
+ - first: 
+
+#+begin_src js
+let  arr      = ["A", "B", "C", "D", "E"];
+let [ first ] =  arr;
+
+console.log('first: ', first);
+#+end_src
+
+#+RESULTS:
+: first:  A
+
+ - rest: 
+
+#+begin_src js
+let  arr           = ["A", "B", "C", "D", "E"];
+let [ _, ...rest ] =  arr;
+
+console.log('rest:', rest);
+#+end_src
+
+#+RESULTS:
+: rest: [ 'B', 'C', 'D', 'E' ]
+
+
+ - first y rest
+
+#+begin_src js
+let  arr       = ["A", "B", "C", "D", "E"];
+let [ first,  ...rest] =  arr;
+
+console.log('first: ', first);
+console.log('rest:  ', rest);
+
+#+end_src
+
+#+RESULTS:
+: first:  A
+: rest:   [ 'B', 'C', 'D', 'E' ]
+
+Podemos imprimir cada elemento del arreglo usando first y rest (también obtenemos undefined y un array vacío, esto es importante):
+
+#+begin_src js
+let arr = ["A", "B", "C", "D", "E"];
+let len = arr.length 
+
+for (let i=0 ; i <  len + 1  ; i++  ) {
+  let [ first,  ...rest] =  arr;
+  arr = rest;
+
+  console.log(i, 'first: ', first);
+  console.log(i, 'rest:  ', rest);
+}
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+0 'first: ' 'A'
+0 'rest:  ' [ 'B', 'C', 'D', 'E' ]
+1 'first: ' 'B'
+1 'rest:  ' [ 'C', 'D', 'E' ]
+2 'first: ' 'C'
+2 'rest:  ' [ 'D', 'E' ]
+3 'first: ' 'D'
+3 'rest:  ' [ 'E' ]
+4 'first: ' 'E'
+4 'rest:  ' []
+5 'first: ' undefined
+5 'rest:  ' []
+#+end_example
+
+
+Lo que sucede es algo así:
+
+[[file:img/first-rest.gif]]
+
+
+** Usando first y rest
+
+Como hemos visto, al utilizar first y rest hay que tener cuidado: porque podemos obtener  undefined o un arreglo vacío (como en el ejemplo anterior). 
+
+Teniendo esto en cuenta, veamos algunos ejemplos.
+
+** Ejemplos 
+
+*** len 
+
+#+begin_src js
+/**
+ * Regresa el número de elementos en un arreglo.
+ * Si el arreglo está vacío, regresa 0. 
+ * @param {arr} arr  - el arreglo 
+ * @returns {number} - el número de elementos en el arreglo o cero 
+ */
+function len(arr){ 
+// sin este if obtenemos:  Maximum call stack size exceeded 
+ if(arr.length === 0) return 0;  
+ let [first, ...rest]  = arr;
+
+ return 1 + len(rest);
+}
+
+console.log(len([]))
+console.log(len([0]))
+console.log(len([1,2]))
+#+end_src
+
+#+RESULTS:
+: 0
+: 1
+: 2
+
+
+Si lo miramos de otra manera, podemos ver un caso base y un caso recursivo: 
+
+#+begin_src js :eval no
+...
+
+// caso base
+ if(arr.length === 0) return 0;  
+
+// caso recursivo
+ let [first, ...rest]  = arr;
+ return 1 + len(rest);
+
+...
+
+#+end_src
+
+
+*** sum
+
+#+begin_src js
+/**
+ * Regresa la suma de todos los números en un arreglo
+ * Si el arreglo está vacío, regresa 0
+ * @param {array}  arr  - el arreglo de números 
+ * @returns {number}    - la suma de todos los números del arreglo o cero 
+ */
+function sum(arr) {
+// sin este if obtenemos:  Maximum call stack size exceeded 
+ if(arr.length === 0) return 0; 
+
+ let [first, ...rest] = arr; 
+ return first + sum(rest);
+}
+
+console.log(sum([]))
+console.log(sum([0]))
+console.log(sum([1]))
+console.log(sum([1,2,3]))
+console.log(sum([3,4,6]))
+#+end_src
+
+#+RESULTS:
+: 0
+: 0
+: 1
+: 6
+: 13
+
+Si lo miramos de otra manera, podemos ver un caso base y un caso recursivo: 
+
+#+begin_src js :eval no
+...
+
+// caso base
+ if(arr.length === 0) return 0; 
+
+// caso recursivo
+ let [first, ...rest] = arr; 
+ return first + sum(rest);
+
+..
+#+end_src
+
+
+*** countChar
+
+#+begin_src js
+/**
+ * Regresa el número de veces que un carácter aparece en una cadena de caracteres. 
+ * Si el carácter no existe en la cadena, regresa cero.
+ * @param   {string}       c   - el carácter   
+ * @param   {string|array} str - cadena en la primera llamada, arreglo en las llamadas recursivas
+ * @returns {number}             el número de veces en que el carácter aparece en la cadena o cero
+ */
+function countChar(c, str) {
+// sin este if obtenemos:  Maximum call stack size exceeded 
+ if(str.length === 0 ) return 0 
+ let [first, ...rest]  = str;
+
+ if(c === first ) {
+    return 1 + countChar(c, rest);
+  } else {
+    return countChar(c, rest);
+  }
+}
+
+console.log(countChar('h',  'ayzayzzz'))
+console.log(countChar('a',  'ayzayzzz'))
+console.log(countChar('y',  'ayzayzzz'))
+console.log(countChar('z',  'ayzayzzz'))
+#+end_src
+
+#+RESULTS:
+: 0
+: 2
+: 2
+: 4
+
+
+Si lo miramos de otra manera, podemos ver un caso base y dos caso recursivos: 
+
+#+begin_src js :eval no 
+
+...
+
+//caso base 
+ if(str.length === 0 ) return 0 
+
+// caso recursivo
+ let [first, ...rest]  = str;
+ if(c === first ) {
+    return 1 + countChar(c, rest);
+
+// caso recursivo
+  } else {
+    return countChar(c, rest);
+  }
+...
+
+#+end_src
+
+
+*** remove first ocurrence
+
+#+begin_src js
+/**
+ * Elimina la primera vez que aparece el número m en un arreglo de números.
+ * Si m no existe en el arreglo, regresa el arreglo original 
+ * @param   {number} m   - el número que debe ser eliminado 
+ * @param   {array}  arr - el arreglo de números 
+ * @returns {array}      - el arreglo sin m o el arreglo original 
+ */
+function removeFirstOcurrence(m, arr) {
+// sin este if obtenemos:  Maximum call stack size exceeded 
+   if(arr.length === 0 ) return [] 
+
+   let [first, ...rest] = arr;
+   
+   if(m === first) {
+    return rest;
+   } else {
+    let a =  removeFirstOcurrence(m, rest);
+    a.unshift(first);
+    return a;
+   }
+}
+
+console.log(removeFirstOcurrence(5, []))
+console.log(removeFirstOcurrence(5, [5]))
+console.log(removeFirstOcurrence(5, [1]))
+console.log(removeFirstOcurrence(5, [5,5]))
+console.log(removeFirstOcurrence(5, [1,5,5,2,3]))
+console.log(removeFirstOcurrence(5, [5,1,2,3]))
+console.log(removeFirstOcurrence(5, [1,2,5,3]))
+console.log(removeFirstOcurrence(5, [1,2,3,5]))
+
+#+end_src
+
+#+RESULTS:
+: []
+: []
+: [ 1 ]
+: [ 5 ]
+: [ 1, 5, 2, 3 ]
+: [ 1, 2, 3 ]
+: [ 1, 2, 3 ]
+: [ 1, 2, 3 ]
+
+
+Si lo miramos de otra manera, podemos ver dos casos base y un caso recursivo: 
+
+#+begin_src js :eval no 
+
+...
+// caso base
+   if(arr.length === 0 ) return [] 
+
+// caso base
+   let [first, ...rest] = arr;
+   if(m === first) {
+    return rest;
+
+// caso recursivo 
+   } else {
+    let a =  removeFirstOcurrence(m, rest);
+    a.unshift(first);
+    return a;
+   }
+...
+
+#+end_src
+
+
+
+
