@@ -15,8 +15,8 @@ A veces lo que dificulta la resolución de un ejercicio en que se debe aplicar  
  - first: 
 
 #+begin_src js
-let  arr      = ["A", "B", "C", "D", "E"];
-let [ first ] =  arr;
+let      arr      = ["A", "B", "C", "D", "E"];
+const [ first ]   =  arr;
 
 console.log('first: ', first);
 #+end_src
@@ -27,8 +27,8 @@ console.log('first: ', first);
  - rest: 
 
 #+begin_src js
-let  arr           = ["A", "B", "C", "D", "E"];
-let [ _, ...rest ] =  arr;
+let    arr           = ["A", "B", "C", "D", "E"];
+const [ _, ...rest ] =  arr;
 
 console.log('rest:', rest);
 #+end_src
@@ -40,8 +40,8 @@ console.log('rest:', rest);
  - first y rest
 
 #+begin_src js
-let  arr       = ["A", "B", "C", "D", "E"];
-let [ first,  ...rest] =  arr;
+let     arr              = ["A", "B", "C", "D", "E"];
+const [ first,  ...rest] =  arr;
 
 console.log('first: ', first);
 console.log('rest:  ', rest);
@@ -55,11 +55,11 @@ console.log('rest:  ', rest);
 Podemos imprimir cada elemento del arreglo usando first y rest (también obtenemos undefined y un array vacío, esto es importante):
 
 #+begin_src js
-let arr = ["A", "B", "C", "D", "E"];
-let len = arr.length 
+let   arr = ["A", "B", "C", "D", "E"];
+const len = arr.length 
 
 for (let i=0 ; i <  len + 1  ; i++  ) {
-  let [ first,  ...rest] =  arr;
+  const [ first,  ...rest] =  arr;
   arr = rest;
 
   console.log(i, 'first: ', first);
@@ -110,7 +110,7 @@ Teniendo esto en cuenta, veamos algunos ejemplos.
 function len(arr){ 
 // sin este if obtenemos:  Maximum call stack size exceeded 
  if(arr.length === 0) return 0;  
- let [first, ...rest]  = arr;
+ const [first, ...rest]  = arr;
 
  return 1 + len(rest);
 }
@@ -135,7 +135,7 @@ Si lo miramos de otra manera, podemos ver un caso base y un caso recursivo:
  if(arr.length === 0) return 0;  
 
 // caso recursivo
- let [first, ...rest]  = arr;
+ const [first, ...rest]  = arr;
  return 1 + len(rest);
 
 ...
@@ -156,7 +156,7 @@ function sum(arr) {
 // sin este if obtenemos:  Maximum call stack size exceeded 
  if(arr.length === 0) return 0; 
 
- let [first, ...rest] = arr; 
+ const [first, ...rest] = arr; 
  return first + sum(rest);
 }
 
@@ -183,7 +183,7 @@ Si lo miramos de otra manera, podemos ver un caso base y un caso recursivo:
  if(arr.length === 0) return 0; 
 
 // caso recursivo
- let [first, ...rest] = arr; 
+ const [first, ...rest] = arr; 
  return first + sum(rest);
 
 ..
@@ -203,7 +203,7 @@ Si lo miramos de otra manera, podemos ver un caso base y un caso recursivo:
 function countChar(c, str) {
 // sin este if obtenemos:  Maximum call stack size exceeded 
  if(str.length === 0 ) return 0 
- let [first, ...rest]  = str;
+ const [first, ...rest]  = str;
 
  if(c === first ) {
     return 1 + countChar(c, rest);
@@ -235,7 +235,7 @@ Si lo miramos de otra manera, podemos ver un caso base y dos caso recursivos:
  if(str.length === 0 ) return 0 
 
 // caso recursivo
- let [first, ...rest]  = str;
+ const [first, ...rest]  = str;
  if(c === first ) {
     return 1 + countChar(c, rest);
 
@@ -262,7 +262,7 @@ function removeFirstOcurrence(m, arr) {
 // sin este if obtenemos:  Maximum call stack size exceeded 
    if(arr.length === 0 ) return [] 
 
-   let [first, ...rest] = arr;
+   const [first, ...rest] = arr;
    
    if(m === first) {
     return rest;
@@ -304,7 +304,7 @@ Si lo miramos de otra manera, podemos ver dos casos base y un caso recursivo:
    if(arr.length === 0 ) return [] 
 
 // caso base
-   let [first, ...rest] = arr;
+   const [first, ...rest] = arr;
    if(m === first) {
     return rest;
 
