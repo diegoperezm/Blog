@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-05 Tue 20:51 -->
+<!-- 2022-04-08 Fri 12:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>First and rest (Recursion)</title>
@@ -253,15 +253,15 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb3d1700">1. Intro</a></li>
-<li><a href="#org6d31f82">2. first and rest in JS</a>
+<li><a href="#orgd39841a">1. Intro</a></li>
+<li><a href="#org884e408">2. first and rest in JS</a>
 <ul>
-<li><a href="#org9967c75">2.1. Using first and rest</a>
+<li><a href="#orgdcd2685">2.1. Using first and rest</a>
 <ul>
-<li><a href="#orge61bb7e">2.1.1. len</a></li>
-<li><a href="#org9e6872c">2.1.2. sum</a></li>
-<li><a href="#orgf1fa19d">2.1.3. countChar</a></li>
-<li><a href="#org18a60f9">2.1.4. remove first ocurrence</a></li>
+<li><a href="#orga7aa093">2.1.1. len</a></li>
+<li><a href="#orgc5da17b">2.1.2. sum</a></li>
+<li><a href="#org530804e">2.1.3. countChar</a></li>
+<li><a href="#orgd75e2dd">2.1.4. remove first ocurrence</a></li>
 </ul>
 </li>
 </ul>
@@ -271,8 +271,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgb3d1700" class="outline-2">
-<h2 id="orgb3d1700"><span class="section-number-2">1</span> Intro</h2>
+<div id="outline-container-orgd39841a" class="outline-2">
+<h2 id="orgd39841a"><span class="section-number-2">1</span> Intro</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Sometimes what makes difficult to solve a recursion exercise (especially  when learning the basics) is that we don't know how to start. I think that the use of first (element of the arrray) and rest (of the array) make that step easier.  
@@ -280,8 +280,8 @@ Sometimes what makes difficult to solve a recursion exercise (especially  when l
 </div>
 </div>
 
-<div id="outline-container-org6d31f82" class="outline-2">
-<h2 id="org6d31f82"><span class="section-number-2">2</span> first and rest in JS</h2>
+<div id="outline-container-org884e408" class="outline-2">
+<h2 id="org884e408"><span class="section-number-2">2</span> first and rest in JS</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We are going to use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">the destructuring assignment syntax</a>:
@@ -293,7 +293,7 @@ We are going to use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaSc
 
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #c678dd; font-weight: bold;">let</span>  <span style="color: #61afef;">arr</span>      = [<span style="color: #98be65;">"A"</span>, <span style="color: #98be65;">"B"</span>, <span style="color: #98be65;">"C"</span>, <span style="color: #98be65;">"D"</span>, <span style="color: #98be65;">"E"</span>];
-<span style="color: #c678dd; font-weight: bold;">let</span> [ <span style="color: #61afef;">first</span> ] =  arr;
+<span style="color: #c678dd; font-weight: bold;">const</span> [ <span style="color: #61afef;">first</span> ] =  arr;
 
 console.log<span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #98be65;">'first: '</span>, first<span style="color: #c678dd; font-weight: bold;">)</span>;
 </pre>
@@ -309,8 +309,8 @@ first:  A
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #c678dd; font-weight: bold;">let</span>  <span style="color: #61afef;">arr</span>           = [<span style="color: #98be65;">"A"</span>, <span style="color: #98be65;">"B"</span>, <span style="color: #98be65;">"C"</span>, <span style="color: #98be65;">"D"</span>, <span style="color: #98be65;">"E"</span>];
-<span style="color: #c678dd; font-weight: bold;">let</span> [ _, ...rest ] =  arr;
+<pre class="src src-js"><span style="color: #c678dd; font-weight: bold;">let</span>     <span style="color: #61afef;">arr</span>           = [<span style="color: #98be65;">"A"</span>, <span style="color: #98be65;">"B"</span>, <span style="color: #98be65;">"C"</span>, <span style="color: #98be65;">"D"</span>, <span style="color: #98be65;">"E"</span>];
+<span style="color: #c678dd; font-weight: bold;">const</span>  [ _, ...rest ] =  arr;
 
 console.log<span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #98be65;">'rest:'</span>, rest<span style="color: #c678dd; font-weight: bold;">)</span>;
 </pre>
@@ -327,9 +327,8 @@ rest: [ 'B', 'C', 'D', 'E' ]
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #c678dd; font-weight: bold;">let</span>  <span style="color: #61afef;">arr</span>       = [<span style="color: #98be65;">"A"</span>, <span style="color: #98be65;">"B"</span>, <span style="color: #98be65;">"C"</span>, <span style="color: #98be65;">"D"</span>, <span style="color: #98be65;">"E"</span>];
-
-<span style="color: #c678dd; font-weight: bold;">let</span> [ first,  ...rest] =  arr;
+<pre class="src src-js"><span style="color: #c678dd; font-weight: bold;">let</span>           <span style="color: #61afef;">arr</span>       = [<span style="color: #98be65;">"A"</span>, <span style="color: #98be65;">"B"</span>, <span style="color: #98be65;">"C"</span>, <span style="color: #98be65;">"D"</span>, <span style="color: #98be65;">"E"</span>];
+<span style="color: #c678dd; font-weight: bold;">const</span> [ first,  ...rest] =  arr;
 
 console.log<span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #98be65;">'first: '</span>, first<span style="color: #c678dd; font-weight: bold;">)</span>;
 console.log<span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #98be65;">'rest:  '</span>, rest<span style="color: #c678dd; font-weight: bold;">)</span>;
@@ -349,11 +348,11 @@ We can print every element of the array using first and rest (we have also  got 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #c678dd; font-weight: bold;">let</span> <span style="color: #61afef;">arr</span> = [<span style="color: #98be65;">"A"</span>, <span style="color: #98be65;">"B"</span>, <span style="color: #98be65;">"C"</span>, <span style="color: #98be65;">"D"</span>, <span style="color: #98be65;">"E"</span>];
-<span style="color: #c678dd; font-weight: bold;">let</span> <span style="color: #61afef;">len</span> = arr.length 
+<pre class="src src-js"><span style="color: #c678dd; font-weight: bold;">let</span>   <span style="color: #61afef;">arr</span> = [<span style="color: #98be65;">"A"</span>, <span style="color: #98be65;">"B"</span>, <span style="color: #98be65;">"C"</span>, <span style="color: #98be65;">"D"</span>, <span style="color: #98be65;">"E"</span>];
+<span style="color: #c678dd; font-weight: bold;">const</span> <span style="color: #61afef;">len</span> = arr.length;
 
 <span style="color: #c678dd; font-weight: bold;">for</span> <span style="color: #c678dd; font-weight: bold;">(let</span> <span style="color: #61afef;">i</span>=0 ; i &lt;  len + 1  ; i++  <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
-  <span style="color: #c678dd; font-weight: bold;">let</span> [ first,  ...rest] =  arr;
+  <span style="color: #c678dd; font-weight: bold;">const</span> [ first,  ...rest] =  arr;
   arr = rest;
 
   console.log<span style="color: #c678dd; font-weight: bold;">(</span>i, <span style="color: #98be65;">'first: '</span>, first<span style="color: #c678dd; font-weight: bold;">)</span>;
@@ -391,8 +390,8 @@ What happens is  something like this:
 </div>
 
 
-<div id="outline-container-org9967c75" class="outline-3">
-<h3 id="org9967c75"><span class="section-number-3">2.1</span> Using first and rest</h3>
+<div id="outline-container-orgdcd2685" class="outline-3">
+<h3 id="orgdcd2685"><span class="section-number-3">2.1</span> Using first and rest</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 As we have seen, when using "first and rest" we need to have to be careful: because we can get undefined or an empty array (like in the example above). 
@@ -403,8 +402,8 @@ With that in mind, let's look to some examples:
 </p>
 </div>
 
-<div id="outline-container-orge61bb7e" class="outline-4">
-<h4 id="orge61bb7e"><span class="section-number-4">2.1.1</span> len</h4>
+<div id="outline-container-orga7aa093" class="outline-4">
+<h4 id="orga7aa093"><span class="section-number-4">2.1.1</span> len</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #9eac8c;">/**</span>
@@ -416,7 +415,7 @@ With that in mind, let's look to some examples:
 <span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">len</span><span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #61afef;">arr</span><span style="color: #c678dd; font-weight: bold;">){</span> 
 <span style="color: #abb2bf; background-color: #282c34;">// </span><span style="color: #999999; font-style: italic;">without this (if) we get:  Maximum call stack size exceeded </span>
  <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0;  
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest]  = arr;
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest]  = arr;
 
  <span style="color: #c678dd; font-weight: bold;">return</span> 1 + len<span style="color: #c678dd; font-weight: bold;">(</span>rest<span style="color: #c678dd; font-weight: bold;">)</span>;
 <span style="color: #c678dd; font-weight: bold;">}</span>
@@ -446,7 +445,7 @@ if we look at it differently, we can see a base case and a recursive case:
  <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0;  
 
 <span style="color: #abb2bf; background-color: #282c34;">// </span><span style="color: #999999; font-style: italic;">recursive case</span>
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest]  = arr;
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest]  = arr;
  <span style="color: #c678dd; font-weight: bold;">return</span> 1 + len<span style="color: #c678dd; font-weight: bold;">(</span>rest<span style="color: #c678dd; font-weight: bold;">)</span>;
 
 ...
@@ -457,11 +456,8 @@ if we look at it differently, we can see a base case and a recursive case:
 </div>
 
 
-
-
-
-<div id="outline-container-org9e6872c" class="outline-4">
-<h4 id="org9e6872c"><span class="section-number-4">2.1.2</span> sum</h4>
+<div id="outline-container-orgc5da17b" class="outline-4">
+<h4 id="orgc5da17b"><span class="section-number-4">2.1.2</span> sum</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <div class="org-src-container">
 <pre class="src src-js"> <span style="color: #9eac8c;">/**</span>
@@ -474,7 +470,7 @@ if we look at it differently, we can see a base case and a recursive case:
 <span style="color: #abb2bf; background-color: #282c34;">// </span><span style="color: #999999; font-style: italic;">without this (if) we get:  Maximum call stack size exceeded </span>
  <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0; 
 
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest] = arr; 
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest] = arr; 
  <span style="color: #c678dd; font-weight: bold;">return</span> first + sum<span style="color: #c678dd; font-weight: bold;">(</span>rest<span style="color: #c678dd; font-weight: bold;">)</span>;
 <span style="color: #c678dd; font-weight: bold;">}</span>
 
@@ -506,7 +502,7 @@ if we look at it differently, we can see a base case and a recursive case:
  <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0; 
 
 <span style="color: #abb2bf; background-color: #282c34;">// </span><span style="color: #999999; font-style: italic;">recursive case</span>
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest] = arr; 
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest] = arr; 
  <span style="color: #c678dd; font-weight: bold;">return</span> first + sum<span style="color: #c678dd; font-weight: bold;">(</span>rest<span style="color: #c678dd; font-weight: bold;">)</span>;
 
 ..
@@ -515,8 +511,8 @@ if we look at it differently, we can see a base case and a recursive case:
 </div>
 </div>
 
-<div id="outline-container-orgf1fa19d" class="outline-4">
-<h4 id="orgf1fa19d"><span class="section-number-4">2.1.3</span> countChar</h4>
+<div id="outline-container-org530804e" class="outline-4">
+<h4 id="org530804e"><span class="section-number-4">2.1.3</span> countChar</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #9eac8c;">/**</span>
@@ -529,7 +525,7 @@ if we look at it differently, we can see a base case and a recursive case:
 <span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">countChar</span><span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #61afef;">c</span>, <span style="color: #61afef;">str</span><span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
 <span style="color: #abb2bf; background-color: #282c34;">// </span><span style="color: #999999; font-style: italic;">without this (if) we get:  Maximum call stack size exceeded </span>
  <span style="color: #c678dd; font-weight: bold;">if(</span>str.length === 0 <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0 
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest]  = str;
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest]  = str;
 
  <span style="color: #c678dd; font-weight: bold;">if(</span>c === first <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
     <span style="color: #c678dd; font-weight: bold;">return</span> 1 + countChar<span style="color: #c678dd; font-weight: bold;">(</span>c, rest<span style="color: #c678dd; font-weight: bold;">)</span>;
@@ -565,7 +561,7 @@ if we look at it differently, we can see a base case and two recursive cases:
  <span style="color: #c678dd; font-weight: bold;">if(</span>str.length === 0 <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0 
 
 <span style="color: #abb2bf; background-color: #282c34;">// </span><span style="color: #999999; font-style: italic;">recursive case</span>
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest]  = str;
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest]  = str;
  <span style="color: #c678dd; font-weight: bold;">if(</span>c === first <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
     <span style="color: #c678dd; font-weight: bold;">return</span> 1 + countChar<span style="color: #c678dd; font-weight: bold;">(</span>c, rest<span style="color: #c678dd; font-weight: bold;">)</span>;
 
@@ -581,8 +577,8 @@ if we look at it differently, we can see a base case and two recursive cases:
 </div>
 
 
-<div id="outline-container-org18a60f9" class="outline-4">
-<h4 id="org18a60f9"><span class="section-number-4">2.1.4</span> remove first ocurrence</h4>
+<div id="outline-container-orgd75e2dd" class="outline-4">
+<h4 id="orgd75e2dd"><span class="section-number-4">2.1.4</span> remove first ocurrence</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <div class="org-src-container">
 <pre class="src src-js">
@@ -597,7 +593,7 @@ if we look at it differently, we can see a base case and two recursive cases:
 <span style="color: #abb2bf; background-color: #282c34;">// </span><span style="color: #999999; font-style: italic;">without this (if) we get:  Maximum call stack size exceeded </span>
    <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0 <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> [] 
 
-   <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest] = arr;
+   <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest] = arr;
 
    <span style="color: #c678dd; font-weight: bold;">if(</span>m === first<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
     <span style="color: #c678dd; font-weight: bold;">return</span> rest;
@@ -643,7 +639,7 @@ if we look at it differently, we can see two  base cases and a recursive case:
    <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0 <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> [] 
 
 <span style="color: #abb2bf; background-color: #282c34;">// </span><span style="color: #999999; font-style: italic;">base case</span>
-   <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest] = arr;
+   <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest] = arr;
    <span style="color: #c678dd; font-weight: bold;">if(</span>m === first<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
     <span style="color: #c678dd; font-weight: bold;">return</span> rest;
 
@@ -664,7 +660,7 @@ if we look at it differently, we can see two  base cases and a recursive case:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: erretres</p>
-<p class="date">Created: 2022-04-05 Tue 20:51</p>
+<p class="date">Created: 2022-04-08 Fri 12:19</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
