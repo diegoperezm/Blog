@@ -20,7 +20,7 @@ recursivamente.
 
 #+begin_src js
 let arr = [1,2,3,4]
-let [first, ...rest] = arr;
+const [first, ...rest] = arr;
 
 console.log('first: ', first); 
 console.log('rest:  ', rest);  
@@ -128,7 +128,7 @@ check("removeFirstOcurrence(5, [1,2,3,5]) regresa un arreglo sin 5")
  */
 function removeFirstOcurrence(m, arr) {
    if(arr.length === 0 ) return [] 
-   let [first, ...rest] = arr;
+   const [first, ...rest] = arr;
    
    if(m === first) {
     return rest;
@@ -159,7 +159,6 @@ PASS:   removeFirstOcurrence(5, [1,2,5,3]) regresa un arreglo sin 5
 PASS:   removeFirstOcurrence(5, [1,2,3,5]) regresa un arreglo sin 5
 
 #+end_example
-
 
 * sum
 
@@ -204,7 +203,7 @@ check("sum([1,-1] regresa 0")
  */
 function sum(arr) {
  if(arr.length === 0) return 0;
- let [first, ...rest] = arr; 
+ const [first, ...rest] = arr; 
  return first + sum(rest);
 }
 #+END_src
@@ -228,7 +227,6 @@ PASS:   sum([1,-1] regresa 0
 #+begin_quote
 Escriba una función que cuente el número de veces que un carácter aparece en una cadena de caracteres.\\
 Si el carácter no existe en la cadena la función deberá regresar  0. 
-
 #+end_quote
 
 
@@ -264,7 +262,7 @@ check("countChar('z', 'ayzayzzz') regresa 4")
  */
 function countChar(c, str) {
  if(str.length === 0 ) return 0 
- let [first, ...rest]  = str;
+ const [first, ...rest]  = str;
 
  return (c === first ) ? 1 + countChar(c, rest) : countChar(c, rest)  
 }
@@ -317,7 +315,7 @@ check("len([1,2]) regresa 2")
 
 function len(arr){ 
  if(arr.length === 0) return 0;  
- let [first, ...rest]  = arr;
+ const [first, ...rest]  = arr;
  return 1 + len(rest);
 }
 #+end_src
@@ -370,7 +368,7 @@ function max(arr) {
   if(arr.length === 1 ) { 
     return arr[0];
   } else {
-    let [first, ...rest] = arr;
+    const [first, ...rest] = arr;
     if (first > rest[0])  {
        rest.shift();
        rest.push(first)

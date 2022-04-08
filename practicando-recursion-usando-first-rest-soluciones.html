@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-03 Sun 10:59 -->
+<!-- 2022-04-08 Fri 12:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Practicando recursión usando first y rest (Soluciones)</title>
@@ -253,20 +253,20 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdb06cf9">1. Cómo ejecutar los ejercicios</a></li>
-<li><a href="#org758e84b">2. first y rest</a></li>
-<li><a href="#orgfd199d3">3. check</a></li>
-<li><a href="#org341105b">4. remove first ocurrence</a></li>
-<li><a href="#org462a2ed">5. sum</a></li>
-<li><a href="#orgdf89875">6. countChar</a></li>
-<li><a href="#orgddae611">7. len</a></li>
-<li><a href="#org132e706">8. max</a></li>
+<li><a href="#org8efa9ae">1. Cómo ejecutar los ejercicios</a></li>
+<li><a href="#org2888fdc">2. first y rest</a></li>
+<li><a href="#orgdb93264">3. check</a></li>
+<li><a href="#org609e177">4. remove first ocurrence</a></li>
+<li><a href="#org84fce6e">5. sum</a></li>
+<li><a href="#orgaa37ee2">6. countChar</a></li>
+<li><a href="#org9b85e88">7. len</a></li>
+<li><a href="#org56f9da0">8. max</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdb06cf9" class="outline-2">
-<h2 id="orgdb06cf9"><span class="section-number-2">1</span> Cómo ejecutar los ejercicios</h2>
+<div id="outline-container-org8efa9ae" class="outline-2">
+<h2 id="org8efa9ae"><span class="section-number-2">1</span> Cómo ejecutar los ejercicios</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Crear un archivo con extensión .js</li>
@@ -281,8 +281,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org758e84b" class="outline-2">
-<h2 id="org758e84b"><span class="section-number-2">2</span> first y rest</h2>
+<div id="outline-container-org2888fdc" class="outline-2">
+<h2 id="org2888fdc"><span class="section-number-2">2</span> first y rest</h2>
 <div class="outline-text-2" id="text-2">
 <p>
   Utilizando la sintaxis de asignación de desestructuración podemos obtener el "primer elemento de un arreglo" 
@@ -293,7 +293,7 @@ recursivamente.
 
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #c678dd; font-weight: bold;">let</span> <span style="color: #61afef;">arr</span> = [1,2,3,4]
-<span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest] = arr;
+<span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest] = arr;
 
 console.log<span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #98be65;">'first: '</span>, first<span style="color: #c678dd; font-weight: bold;">)</span>; 
 console.log<span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #98be65;">'rest:  '</span>, rest<span style="color: #c678dd; font-weight: bold;">)</span>;  
@@ -307,15 +307,15 @@ rest:   [ 2, 3, 4 ]
 </div>
 </div>
 
-<div id="outline-container-orgfd199d3" class="outline-2">
-<h2 id="orgfd199d3"><span class="section-number-2">3</span> check</h2>
+<div id="outline-container-orgdb93264" class="outline-2">
+<h2 id="orgdb93264"><span class="section-number-2">3</span> check</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 La función check es sólo un wrapper para assert (Node.js)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js" id="orgcee6122"><span style="color: #98be65;">'use strict'</span>;
+<pre class="src src-js" id="orgd3a5204"><span style="color: #98be65;">'use strict'</span>;
 <span style="color: #c678dd; font-weight: bold;">const</span> <span style="color: #61afef;">assert</span> = require<span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #98be65;">"assert"</span><span style="color: #c678dd; font-weight: bold;">)</span>;
 <span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">check</span><span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #61afef;">message</span><span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
   <span style="color: #c678dd; font-weight: bold;">return</span>  <span style="color: #c678dd; font-weight: bold;">{</span> 
@@ -350,8 +350,8 @@ La función check es sólo un wrapper para assert (Node.js)
 </div>
 </div>
 
-<div id="outline-container-org341105b" class="outline-2">
-<h2 id="org341105b"><span class="section-number-2">4</span> remove first ocurrence</h2>
+<div id="outline-container-org609e177" class="outline-2">
+<h2 id="org609e177"><span class="section-number-2">4</span> remove first ocurrence</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -361,7 +361,7 @@ Si m no existe en el arreglo, la función deberá  regresar el arreglo  sin camb
 </blockquote>
 
 <div class="org-src-container">
-<pre class="src src-js" id="orgdc37a51"><span style="color: #98be65;">'use strict'</span>;
+<pre class="src src-js" id="orge5998fb"><span style="color: #98be65;">'use strict'</span>;
 <span style="color: #c678dd; font-weight: bold;">const</span> <span style="color: #61afef;">assert</span> = require<span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #98be65;">"assert"</span><span style="color: #c678dd; font-weight: bold;">)</span>;
 <span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">check</span><span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #61afef;">message</span><span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
   <span style="color: #c678dd; font-weight: bold;">return</span>  <span style="color: #c678dd; font-weight: bold;">{</span> 
@@ -442,7 +442,7 @@ check<span style="color: #c678dd; font-weight: bold;">(</span><span style="color
 <span style="color: #9eac8c;"> */</span>
 <span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">removeFirstOcurrence</span><span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #61afef;">m</span>, <span style="color: #61afef;">arr</span><span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
    <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0 <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> [] 
-   <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest] = arr;
+   <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest] = arr;
 
    <span style="color: #c678dd; font-weight: bold;">if(</span>m === first<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
     <span style="color: #c678dd; font-weight: bold;">return</span> rest;
@@ -476,9 +476,8 @@ PASS:   removeFirstOcurrence(5, [1,2,3,5]) regresa un arreglo sin 5
 </div>
 </div>
 
-
-<div id="outline-container-org462a2ed" class="outline-2">
-<h2 id="org462a2ed"><span class="section-number-2">5</span> sum</h2>
+<div id="outline-container-org84fce6e" class="outline-2">
+<h2 id="org84fce6e"><span class="section-number-2">5</span> sum</h2>
 <div class="outline-text-2" id="text-5">
 <blockquote>
 <p>
@@ -552,7 +551,7 @@ check<span style="color: #c678dd; font-weight: bold;">(</span><span style="color
 <span style="color: #9eac8c;"> */</span>
 <span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">sum</span><span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #61afef;">arr</span><span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
  <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0;
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest] = arr; 
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest] = arr; 
  <span style="color: #c678dd; font-weight: bold;">return</span> first + sum<span style="color: #c678dd; font-weight: bold;">(</span>rest<span style="color: #c678dd; font-weight: bold;">)</span>;
 <span style="color: #c678dd; font-weight: bold;">}</span>
 </pre>
@@ -573,8 +572,8 @@ PASS:   sum([1,-1] regresa 0
 </div>
 </div>
 
-<div id="outline-container-orgdf89875" class="outline-2">
-<h2 id="orgdf89875"><span class="section-number-2">6</span> countChar</h2>
+<div id="outline-container-orgaa37ee2" class="outline-2">
+<h2 id="orgaa37ee2"><span class="section-number-2">6</span> countChar</h2>
 <div class="outline-text-2" id="text-6">
 <blockquote>
 <p>
@@ -645,7 +644,7 @@ check<span style="color: #c678dd; font-weight: bold;">(</span><span style="color
 <span style="color: #9eac8c;"> */</span>
 <span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">countChar</span><span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #61afef;">c</span>, <span style="color: #61afef;">str</span><span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span>
  <span style="color: #c678dd; font-weight: bold;">if(</span>str.length === 0 <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0 
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest]  = str;
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest]  = str;
 
  <span style="color: #c678dd; font-weight: bold;">return</span> <span style="color: #c678dd; font-weight: bold;">(</span>c === first <span style="color: #c678dd; font-weight: bold;">)</span> ? 1 + countChar<span style="color: #c678dd; font-weight: bold;">(</span>c, rest<span style="color: #c678dd; font-weight: bold;">)</span> : countChar<span style="color: #c678dd; font-weight: bold;">(</span>c, rest<span style="color: #c678dd; font-weight: bold;">)</span>  
 <span style="color: #c678dd; font-weight: bold;">}</span>
@@ -666,8 +665,8 @@ PASS:   countChar('z', 'ayzayzzz') regresa 4
 </div>
 </div>
 
-<div id="outline-container-orgddae611" class="outline-2">
-<h2 id="orgddae611"><span class="section-number-2">7</span> len</h2>
+<div id="outline-container-org9b85e88" class="outline-2">
+<h2 id="org9b85e88"><span class="section-number-2">7</span> len</h2>
 <div class="outline-text-2" id="text-7">
 <blockquote>
 <p>
@@ -734,7 +733,7 @@ check<span style="color: #c678dd; font-weight: bold;">(</span><span style="color
 
 <span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">len</span><span style="color: #c678dd; font-weight: bold;">(</span><span style="color: #61afef;">arr</span><span style="color: #c678dd; font-weight: bold;">){</span> 
  <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 0<span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">return</span> 0;  
- <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest]  = arr;
+ <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest]  = arr;
  <span style="color: #c678dd; font-weight: bold;">return</span> 1 + len<span style="color: #c678dd; font-weight: bold;">(</span>rest<span style="color: #c678dd; font-weight: bold;">)</span>;
 <span style="color: #c678dd; font-weight: bold;">}</span>
 </pre>
@@ -751,8 +750,8 @@ PASS:   len([1,2]) regresa 2
 </div>
 </div>
 
-<div id="outline-container-org132e706" class="outline-2">
-<h2 id="org132e706"><span class="section-number-2">8</span> max</h2>
+<div id="outline-container-org56f9da0" class="outline-2">
+<h2 id="org56f9da0"><span class="section-number-2">8</span> max</h2>
 <div class="outline-text-2" id="text-8">
 <blockquote>
 <p>
@@ -823,7 +822,7 @@ check<span style="color: #c678dd; font-weight: bold;">(</span><span style="color
   <span style="color: #c678dd; font-weight: bold;">if(</span>arr.length === 1 <span style="color: #c678dd; font-weight: bold;">)</span> <span style="color: #c678dd; font-weight: bold;">{</span> 
     <span style="color: #c678dd; font-weight: bold;">return</span> arr[0];
   <span style="color: #c678dd; font-weight: bold;">}</span> <span style="color: #c678dd; font-weight: bold;">else</span> <span style="color: #c678dd; font-weight: bold;">{</span>
-    <span style="color: #c678dd; font-weight: bold;">let</span> [first, ...rest] = arr;
+    <span style="color: #c678dd; font-weight: bold;">const</span> [first, ...rest] = arr;
     <span style="color: #c678dd; font-weight: bold;">if</span> <span style="color: #c678dd; font-weight: bold;">(</span>first &gt; rest[0]<span style="color: #c678dd; font-weight: bold;">)</span>  <span style="color: #c678dd; font-weight: bold;">{</span>
        rest.shift<span style="color: #c678dd; font-weight: bold;">()</span>;
        rest.push<span style="color: #c678dd; font-weight: bold;">(</span>first<span style="color: #c678dd; font-weight: bold;">)</span>
@@ -851,7 +850,7 @@ PASS:   max[14,16, 8,3,9,14] regresa 16
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: erretres</p>
-<p class="date">Created: 2022-04-03 Sun 10:59</p>
+<p class="date">Created: 2022-04-08 Fri 12:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
