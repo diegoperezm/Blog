@@ -19,7 +19,7 @@ recursively.
 
 #+begin_src js
 let arr = [1,2,3,4]
-let [first, ...rest] = arr;
+const [first, ...rest] = arr;
 
 console.log('first: ', first);
 console.log('rest:  ', rest);
@@ -129,7 +129,7 @@ check("removeFirstOcurrence(5, [1,2,3,5]) should return an array without 5")
  */
 function removeFirstOcurrence(m, arr) {
    if(arr.length === 0 ) return [] 
-   let [first, ...rest] = arr;
+   const [first, ...rest] = arr;
    
    if(m === first) {
     return rest;
@@ -204,7 +204,7 @@ check("sum([1,-1] should return 0")
  */
 function sum(arr) {
  if(arr.length === 0) return 0;
- let [first, ...rest] = arr; 
+ const [first, ...rest] = arr; 
  return first + sum(rest);
 }
 #+END_src
@@ -255,7 +255,7 @@ check("countChar('z', 'ayzayzzz') should return 4")
  */
 function countChar(c, str) {
  if(str.length === 0 ) return 0 
- let [first, ...rest]  = str;
+ const [first, ...rest]  = str;
 
  return (c === first ) ? 1 + countChar(c, rest) : countChar(c, rest)  
 }
@@ -271,6 +271,8 @@ function countChar(c, str) {
 : 
 : PASS:   countChar('z', 'ayzayzzz') should return 4
 : 
+
+ 
 
 * len
 
@@ -308,7 +310,7 @@ check("len([1,2]) should return 2")
 
 function len(arr){ 
  if(arr.length === 0) return 0;  
- let [first, ...rest]  = arr;
+ const [first, ...rest]  = arr;
  return 1 + len(rest);
 }
 #+end_src
@@ -361,7 +363,7 @@ function max(arr) {
   if(arr.length === 1 ) { 
     return arr[0];
   } else {
-    let [first, ...rest] = arr;
+    const [first, ...rest] = arr;
     if (first > rest[0])  {
        rest.shift();
        rest.push(first)
@@ -380,7 +382,8 @@ function max(arr) {
 : 
 : PASS:   max[8,9,15] should return 15
 : 
-: PASS:   max[14,16, 8,3,9,14] should return 15
+: PASS:   max[14,16, 8,3,9,14] should return 16
 : 
+
 
 
