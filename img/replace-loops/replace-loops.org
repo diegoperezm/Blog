@@ -1,17 +1,252 @@
+* Introduction 
 
-#+begin_src sh :results raw
-ls
+#+attr_html: :width 1000px
+                                                       [[./0-0.png]]
+
+
+* Introduction
+
+#+attr_html: :width 1000px
+                                                       [[./0.png]]
+
+
+
+* Introduction
+
+
+
+
+
+
+#+attr_html: :width 1500px
+                             [[./0-1.png]]   
+
+
+
+
+
+* Example 
+
+
+
+
+
+
+#+attr_html: :width 1500px
+                              [[./0-2.png]]
+
+
+* Loop: Accumulator - Recursion: Stack
+
+ An accumulator is a variable in which intermediate results are stored. 
+
+ A stack is a data structure in which the last element that was added to the stack is the first element that is removed from the stack (LIFO, last in first out.)
+
+
+#+attr_html: :width 1300px
+                                         [[./1.png]]
+
+
+* Loop: i, Index - Recursion: n, Index 
+
+
+
+
+
+
+#+attr_html: :width 1300px
+                                         [[./2.png]]
+
+
+* Loop: n, Condition - Recursion: n, Base Case
+
+
+
+
+
+
+#+attr_html: :width 1300px
+                                         [[./3.png]]
+
+
+* Loop - Recursion 
+
+
+
+
+
+
+#+attr_html: :width 1300px
+                                         [[./4.png]]
+
+
+
+
+
+
+* Exercise 
+
+
+
+
+#+attr_html: :width 1300px
+                                        [[./exercise.png]]
+
+
+* Exercise, Solution
+
+#+attr_html: :width 1200px
+                                             [[./solution.png]]
+
+
+
+
+
+#+attr_html: :width 1200px
+                                             [[./4-1.png]]
+
+
+
+* Exercise, Solution
+
+
+
+
+
+
+#+attr_html: :width 1500px
+                             [[./8.png]]
+
+
+
+
+
+* Running The Tests 
+
+https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/replace-loops-using-recursion
+
+#+begin_src js
+
+function sum(arr, n) {
+  // Only change code below this line
+  if(n <= 0) {
+    return 0;
+  } else {
+    return sum(arr, n - 1) + arr[n - 1];
+  }
+  // Only change code above this line
+}
+
 #+end_src
 
-[[./1.png]]
-2.png
-3.png
-4.png
-5.png
-6.png
-7.png
-8.png
-9.png
-replace-loops.org
-solution.png
 
+
+* How Can We Go From Multiply To Sum ? 
+
+
+
+
+
+
+#+attr_html: :width 1500px
+                             [[./8.png]]
+
+
+
+* From Multiply To Sum, Function Name 
+
+
+
+
+
+
+#+attr_html: :width 1500px
+                             [[./5.png]]
+
+
+* From Multiply To Sum, Identity Element
+
+
+
+
+
+
+#+attr_html: :width 1500px
+i                            [[./6.png]]
+
+
+* From Multiply To Sum, Operator
+
+
+
+
+
+
+#+attr_html: :width 1500px
+                             [[./7.png]]
+
+
+* From Multiplication to Sum
+
+
+
+
+
+
+#+attr_html: :width 1500px
+                             [[./9.png]]
+
+
+
+
+
+
+
+
+
+
+
+
+* Python Tutor 
+
+
+https://pythontutor.com/javascript.html#mode=edit
+
+
+
+#+begin_src js
+
+function sum(arr, n) {
+  if(n <= 0) {
+    console.log('base case: n is ', n , '\n')
+    return 0;
+  } else {
+    console.log('recursive case: n is ', n , 
+                `| arr[n-1] is arr[${n-1}]`,
+                `| value is ${arr[n-1]}`)
+                
+    return sum(arr, n - 1) + arr[n - 1];
+  }
+}
+
+
+console.log('Result:  ', sum([1,2,3],3))
+
+
+#+end_src
+
+
+
+
+
+
+* Thanks For Watching 
+
+
+
+
+
+
+
+#+attr_html: :width 1000px
+                                                            [[./thanks.png]]

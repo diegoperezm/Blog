@@ -1,0 +1,196 @@
+* Introduction 0 
+
+Hello and welcome,
+
+In this video I will explain the exercise  
+"Replace Loops using Recursion", from freecodecamp
+
+
+#+begin_quote
+Recursion is the concept that a function can be expressed in terms of itself. To help understand this, start by thinking about the following task: multiply the first n elements of an array to create the product of those elements. Using a for loop, you could do this:
+#+end_quote
+
+We can see, a function called multiply, with 2 parameters(pr·_a_· muh·trz):
+- arr and n 
+- 
+ 
+and a for loop
+
+However, notice that these 2 expressions are almost the same. 
+That means you can rewrite (ri rait) multiply in terms of itself and never need to use a loop.
+
+in the second version of multiply, the loop has been replaced by recursion. The function calls itself.
+
+* Introduction 1 
+
+\== next => 
+
+* Introduction 2 
+
+Is not explained why the 2 expressions are almost the same.
+
+
+* Example
+We can see the code of the 2 versions of multiply.  
+
+on the left the loop, 
+on the right the recursive one. 
+
+
+How similar (or different)  are the 2 versions?
+
+* Loop: accumulator
+
+The loop version uses an accumulator,  (uh·_kyoo_·myuh·lay·tr)
+The recursive one uses a stack.
+
+In general, 
+An accumulator is a variable in which /intr_mi_diat/  results are stored(stord).
+
+A stack is a data structure in which the last element that was added to the stack is the first element that is removed from the stack (LIFO).
+
+This difference(ˈdɪf.ɚ.əns) is important, because, the stack is invisible(ɪnˈvɪz.ə.bəl).
+
+
+In the loop, we can see the accumulator (in this case, the variable: product).
+
+But, in the recursive version, we can only see the **return** keyword. this is confusing and the source (sors) of many problems.
+
+* Loop i index
+
+in the loop version:  the variable  =i= is used as  index,
+in the recursive one: the parameter =n= is used as  index (n minus 1) 
+
+* Loop n, condition
+
+in the loop version:  the parameter =n= is used in loop condition,
+
+in the recursive one: the parameter =n=  is used in the base case.
+
+* Loop - recursion
+
+So. In the recursive code:  
+ 
+ - The stack is invisible
+
+ - The parameter =n= is used:
+   -  as an index,
+   -  is used in the base case, 
+   -  is used in the recursive call. 
+
+* Exercise
+
+
+Now, we can try to solve the exercise. 
+
+The exercise ask us to: 
+
+Write a recursive function,
+that returns the sum of the first n elements of an array arr.
+
+
+* Exercise, SOLUTION 0
+
+The solution is the multiply function (the second one)
+
+
+* Exercise, SOLUTION 1
+
+with some modifications.
+
+* Running the tests
+
+We run the test, 
+and we pass the challenge
+
+* How can we go from multiply to sum?
+
+We need to change the function name, 
+We need to change the Identity element, 
+And we need to change the operator 
+
+* from multy to, name
+We need to change the function name, 
+from multiply to sum
+
+
+
+* from multy to, Identity element 
+We need to change the Identity element, 
+
+from the Identity element for multiplication 1
+to   the Identity element for addition 0 
+
+
+* from multy to, operator 
+
+We need to change the operator 
+from the multiplication operator to 
+the addition operator  
+
+( ˌɪn.t̬ɚˈmiː.di.ət/in·tr·_mee_· dee·uht)
+
+
+* from multy to sum
+
+Here we can see all the modifications.
+
+
+* Python tutor
+
+We can use Python tutor to see a step by step execution of our code. 
+
+=step 5=
+When our recursive case is executed for the first time,
+
+we can see that n is equal to 3, but because we are not using n,
+we are using n minus 1, our index is 2
+and we are accessing this element (of our array).  
+
+
+=step 8=
+The next time our recursive case is executed, 
+we can see that n is equal to 2,
+
+Why?
+because we are using n minus 1 on the recursive function call.
+n is 2, our index is 1 because we are using n minus 1 as index.
+and we are accessing this element (of our array).  
+
+=step 11=
+The next time our recursive case is executed, 
+we can see that n is equal to 1,
+
+Why?
+because we are using n minus 1 on the recursive function call.
+n is 1, our index is 0 because we are using n minus 1 as index.
+and we are accessing this element (of our array).  
+
+=step 14=
+In the next step, our base case is executed.
+Why?
+because we are using n minus 1 on the recursive function call.
+
+The base case return the identity element for addition the number 0
+
+a number plus 0, is equal to the same number.
+here we can see the stack
+
+=step 15= 
+/pointing to the print box of python tutor/
+
+in this case 0 plus 1 is 1 
+
+/pointing to the the stack/ 
+
+=step 16= 
+1 plus 2 is 3  
+
+=step 17= 
+3 plus 3 is 6
+
+
+=step 17= 
+We get our result: 6  
+
+* End
