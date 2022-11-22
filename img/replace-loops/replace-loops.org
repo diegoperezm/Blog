@@ -237,6 +237,35 @@ console.log('Result:  ', sum([1,2,3],3))
 
 
 
+* Python Tutor
+
+
+#+attr_html: :width 1300px
+                                                [[./pytutor.png]]
+
+
+* Python Tutor
+
+
+#+attr_html: :width 1000px
+                                                                   [[./pytutor1.png]]
+
+
+
+* Python Tutor
+
+
+#+attr_html: :width 1000px
+                                                                   [[./pytutor2.png]]
+
+
+
+* Python Tutor
+
+
+#+attr_html: :width 1000px
+                                                                   [[./pytutor3.png]]
+
 
 
 
