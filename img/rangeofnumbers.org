@@ -1,0 +1,198 @@
+* use recursion to create a range of numbers script
+---
+Hello, 
+  this video is about the exercise /ˈek.sɚ.saɪz/
+
+use recursion /rɪˈkɝː.ʒən/ to create a range of numbers
+---
+
+
+--- 
+the exercise description is as follows
+
+We have defined a function named rangeOfNumbers with two parameters. The function should return an array of integers/ˈɪn.tə.dʒɚ/  
+
+which begins bigens /bɪˈɡɪns/ with a number represented by the startNum parameter and ends with a number represented by the endNum parameter.
+---
+
+The starting number will always be less than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. It should also work for cases /keises/ where both startNum and endNum are the same.
+
+--
+
+--
+most people who try to solve the exercise  come up with this code:
+--
+
+and don't understand why it fails.
+
+we can see that the tests are failing because 
+our numbers are in reverse order.
+
+our function returns 
+5,4,3,2,1
+
+and it should return
+1,2,3,4,5
+
+--
+
+we can use python tutor  to _exe_cute our code step-by-step.
+
+---
+
+step 1:
+we call rangeofnumbers with  1 and 4
+
+step 3:
+our base case is false 1 is not equal to 4
+
+step 4:
+our recursive case is executed, 
+the recursive call is made with 2, and 4
+startnum is 2
+endnum   is 4
+
+step 5:
+our base case is false 2 is not equal to 4
+
+step 6:
+our recursive case is executed, 
+the recursive call is made with 3, and 4
+startnum is 3
+endnum   is 4
+
+step 7:
+our base case is false 3 is not equal to 4
+
+step 8:
+our recursive case is executed, 
+the recursive call is made with 4, and 4
+startnum is 4
+endnum   is 4
+
+step 9:
+our base case is true 4 is  equal to 4
+
+step 10:
+our base case returns an array  
+with one element: the number 4 
+
+step 10:
+we can see the stack 
+A stack is a data structure in which the 
+last element that was added to the stack 
+is the first element that is removed from the stack 
+in this case an array with one element the number 4
+
+step 11:
+we can see that the variable arr 
+is an array with one element: the number 4 
+
+step 12:
+now, we can  push startNum into the variable arr
+startnum is equal to 3
+
+step 13:
+the recursive case 
+returns the variable arr
+arr is an array with 2 elements:
+the number 4 and the number 3
+
+step 14:
+  we can see that the variable arr 
+is an array with 2 elements: the number 4 and the number 3 
+
+step 15:
+ we push startNum into the variable arr
+startnum is equal to 2
+
+step 16:
+the recursive case
+returns the variable arr
+arr is an array with 3 elements:
+the number 4 , the number 3, the number 2
+
+step 17:
+we can see that the variable arr 
+is an array with 3 elements:
+the number 4 , the number 3 and the number 2
+
+step 18:
+we push startNum into the variable arr
+startnum is equal to 1
+
+step 19:
+the recursive case
+returns the variable arr
+arr is an array with 4 elements:
+the number 4 , the number 3, the number 2
+and the number 1
+--- 
+
+so, why this code fails? 
+
+This code fails,
+because JavaScript uses a stack 
+
+
+	function rangeOfNumbers(startNum, endNum) {
+	  if(startNum === endNum) { 
+	    return [endNum];
+	  } else { 
+	    let arr =  rangeOfNumbers(startNum + 1, endNum);
+	    arr.push(startNum);
+	    return arr;    
+	  }
+	}
+	
+	console.log(
+	        `rangeOfNumbers(1,4) returns  [${rangeOfNumbers(1,4)}]`
+
+
+https://pythontutor.com/visualize.html#code=function%20rangeOfNumbers%28startNum,%20endNum%29%20%7B%0A%20%20if%28startNum%20%3D%3D%3D%20endNum%29%20%7B%20%0A%20%20%20%20return%20%5BendNum%5D%3B%0A%20%20%7D%20else%20%7B%20%0A%20%20%20%20let%20arr%20%3D%20%20rangeOfNumbers%28startNum%20%2B%201,%20endNum%29%3B%0A%20%20%20%20arr.push%28startNum%29%3B%0A%20%20%20%20return%20arr%3B%20%20%20%20%0A%20%20%7D%0A%7D%0A%0Aconsole.log%28%0A%20%20%20%20%20%20%20%20%60rangeOfNumbers%281,4%29%20returns%20%20%5B%24%7BrangeOfNumbers%281,4%29%7D%5D%60%0A%29%0A%0A&cumulative=false&curInstr=20&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D&textReferences=false
+
+
+
+#+begin_src js :results output
+function rangeOfNumbers(startNum, endNum) {
+  if(startNum === endNum) { 
+    console.log('base case: ', [endNum] )
+    return [endNum];
+  } else { 
+    console.log('recursive case: ')
+    console.log(
+`  | startNum: ${startNum} | endNum: ${endNum} |\n`
+    )
+    let arr =  rangeOfNumbers(startNum + 1, endNum);
+    arr.push(startNum);
+    return arr;    
+  }
+}
+
+console.log(
+    '\n',
+    '--------------------------------------',
+    `rangeOfNumbers(1,4) returns  [${rangeOfNumbers(1,4)}]`,
+    '--------------------------------------'
+)
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+recursive case: 
+  | startNum: 1 | endNum: 4 |
+
+recursive case: 
+  | startNum: 2 | endNum: 4 |
+
+recursive case: 
+  | startNum: 3 | endNum: 4 |
+
+base case:  [ 4 ]
+
+ -------------------------------------- rangeOfNumbers(1,4) returns  [4,3,2,1] --------------------------------------
+#+end_example
+
+
+
