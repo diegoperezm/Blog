@@ -1,0 +1,260 @@
+
+
+* start 
+
+Hello this video is about 
+the exercise
+
+record collection from freeCodeCamp
+
+
+* function signature
+
+
+before starting with the explanation of the solution, 
+a note on function signature
+
+- A *function signature* defines input and output of functions or methods.
+
+A function signature is good way to communicate 
+important details about our programs. 
+
+We can use a comment:
+
+/**
+ * 
+ * @param   {object} records  - a musical album collection 
+ * @param   {number} id       -
+ * @param   {string} prop     - can be "artist"|"tracks"|"albumTitle"
+ * @param   {string} value    - 
+ * @returns {object} records  
+ */
+
+
+You can see that id and value are incomplete:
+this is because the challenge instructions do not define what an id or value is. For example a value can be an empty string.
+We can think (reading the first rule of the exercise)
+that id, is an id of an album ... but we can't be sure. 
+This shows how useful it is to write a function signature.
+
+
+* rules
+
+
+
+* if prop isn't tracks and values isn't an empty string
+
+first rule:  
+
+if prop isn't tracks and values isn't an empty string,
+update or set that album's prop to value
+
+
+
+the solution is   using The strict inequality  operator 
+to check if prop is not the string tracks
+to check if value is not an empty string 
+
+this if  statement condition is  true, if and only if
+both operands are true
+because the solution is using the
+logical AND operator
+
+if the condition is true,
+then the object is modified
+
+
+* If prop is tracks but the album doesn't have a tracks property, create an empty array and add value to it.
+
+the solution is   using The strict inequality  operator 
+to check if prop is  the string tracks
+
+the method hasOwnProperty to check  
+if the object doesn't have a  tracks property 
+
+the solution is  also using The strict inequality  operator 
+to check if value is not an emptry string 
+because values will be used to update the tracks property 
+
+this else if  statament condition is  true, 
+if and only if the 3 operands are true
+because the solution is using the logical AND operator
+
+if the if condition is true, 
+then the object is modified
+
+
+* If prop is tracks and value isn't an empty string, add value to the end of the album's existing tracks array.
+  
+
+
+the solution is   using The strict inequality  operator 
+to check if prop is  the string tracks
+to check if value is not an empty string 
+
+this if statement condition is  true, if and only if
+both operands are true
+because the solution is using the logical AND operator
+
+if the if condition is true, 
+then the object is modified
+
+
+
+* If value is an empty string, delete the given prop property from the album.
+
+the solution is using The strict inequality  operator 
+to check if value is not an empty string
+
+
+if the if condition is true, then the object is modified
+
+
+* step-by-step execution
+
+
+on the right we have a representation of recordcollection.
+the idea is represent how recordCollection 
+can be stored in memory.
+
+[step 3]
+in this step
+we are making a function call
+we can see the following function parameters 
+records
+id
+prop
+value
+
+and the following function arguments
+object recordCollection 
+the number five thousand four hundred thirty-nine
+the string 'artist' 
+the string "ABBA" 
+
+---
+
+[step 4]
+here we can see that 
+prop is not the string "tracks"
+currently is the string "artist" 
+and value is not an empty string 
+currently is the string "ABBA" 
+
+the if statement codition is true
+
+--- 
+
+[step 5]
+here we can see  
+how the object recordCollection is modified
+there is a new property:
+the property "artist" with the value "ABBA"
+
+
+---
+[step 8]
+in this step
+we are making a function call
+
+
+[step 10]
+the else if condition is true
+prop  is equal to "tracks" 
+value is not an empty string
+and hasownproperty("tracks") is equal to false
+
+---
+
+[step 11]
+here we can see  
+how the object recordCollection is modified
+there is a new property:
+the property "tracks" with the value "take a chance on me"
+
+---
+
+[step 14]
+in this step
+we are making a function call
+
+[step 18]
+the else if condition is true
+value is  an empty string
+
+[step 19]
+here we can see  
+how the object recordCollection is modified
+the property "artist" is deleted
+
+---
+[step 22]
+in this step
+we are making a function call
+
+[step 25]
+the else if condition is true
+prop is the string tracks
+value is not an empty string
+
+[step 19]
+here we can see  
+how the object recordCollection is modified
+the property 
+tracks 
+now is an array with one element
+the string "Addicted to love"
+
+---
+
+---
+[step 29]
+in this step
+we are making a function call
+
+[step 32]
+the else if condition is true
+prop is the string tracks
+value is not an empty string
+
+[step 33]
+here we can see  
+how the object recordCollection is modified
+the property 
+tracks 
+now is an array with 3 elements:
+the last one is the string "Free"
+
+---
+
+[step 36]
+in this step
+we are making a function call
+
+[step 40]
+the else if condition is true
+value is  an empty string
+
+[step 19]
+here we can see  
+how the object recordCollection is modified
+the property "tracks"  is deleted
+
+---
+[step 44]
+in this step
+we are making a function call
+
+[step 45]
+the else if condition is true
+prop is not  the string tracks
+value is not an empty string
+
+[step 36]
+here we can see  
+how the object recordCollection is modified
+there is  a new property 
+albumtitle
+with the value Riptide
+
+
